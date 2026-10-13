@@ -231,7 +231,7 @@
 
 
 \title{Bridgeland Stability Conditions}
-
+\author{Written by Claude and reviewed by Konstantin Zyubin}
 
 \begin{document}
 	
@@ -253,7 +253,7 @@
 	
 	The notation $F \subset E$ and $E \twoheadrightarrow G$ always refers to a subobject and a quotient object in the abelian category $\calA$. A subobject $F \subset E$ is \emph{proper} if $F \neq E$ and \emph{nontrivial} if $F \neq 0$.
 	
-		\subsection{Stability functions}
+	\subsection{Stability functions}
 	
 	A group homomorphism $Z \colon \Kgroup(\calA) \to \CC$ is called a \emph{stability function} on $\calA$ if
 	\begin{itemize}
@@ -268,7 +268,9 @@
 	The number $m(E)$ is called the \emph{mass} of $E$.
 	
 	\begin{remark}
-		In terms of the generalized rank $R := \im Z$ and the generalized degree $D := -\re Z$, the phase corresponds to the generalized slope $M := D / R = -\cot(\pi \varphi) \in \RR \cup \{ +\infty \}$, with $M = +\infty$ for $\varphi = 1$. Since $\varphi \mapsto -\cot(\pi \varphi)$ is strictly increasing on $(0, 1)$, comparing slopes and comparing phases is the same thing: $M(F) \leqslant M(E)$ if and only if $\varphi(F) \leqslant \varphi(E)$, and likewise for strict inequalities. We shall only work with phases.
+		In terms of the generalized rank $R := \im Z$ and the generalized degree $D := -\re Z$, the phase corresponds to the generalized slope $M := D / R = -\cot(\pi \varphi) \in \RR \cup \{ +\infty \}$, with $M = +\infty$ for $\varphi = 1$. Since $\varphi \mapsto -\cot(\pi \varphi)$ is strictly increasing on $(0, 1)$, comparing slopes and comparing phases is the same thing: $M(F) \leqslant M(E)$ if and only if $\varphi(F) \leqslant \varphi(E)$, and likewise for strict inequalities.
+		We shall mostly work with phases;
+		the rank $R$, the degree $D$ and the slope $M$ reappear in the proof of existence of HN filtrations, where the geometry of the plane is more conveniently expressed through them.
 	\end{remark}
 	
 	Let $Z$ be a stability function on $\calA$. A nonzero object $E \in \calA$ is called \emph{$(\calA, Z)$-semistable} if
@@ -305,7 +307,9 @@
 			& A_1 & A_2 & & A_{n-1} & A_n
 		\end{tikzcd}
 	\end{center}
-	
+	Each column $E_{i-1} \hookrightarrow E_i \twoheadrightarrow A_i$ of the diagram is a short exact sequence;
+	the horizontal arrows are the inclusions of the filtration.
+
 	An $(\calA, Z)$-semistable object $E$ has the HN filtration $0 \subset E$ of length $n = 1$; conversely, if an HN filtration of $E$ has length $1$, then $E$ is $(\calA, Z)$-semistable. Uniqueness of HN filtrations will be proved below; until then the words ``maximal phase'' refer to a chosen filtration.
 	
 	A \emph{stability condition} on the abelian category $\calA$ is a pair $(\calA, Z)$, where $Z \colon \Kgroup(\calA) \to \CC$ is a group homomorphism, such that
@@ -316,11 +320,12 @@
 	The homomorphism $Z$ is called the \emph{central charge} of the stability condition.
 	
 	\begin{remark}
-		Condition \condref{cond:AZ-SC2} does not follow from \condref{cond:AZ-SC1}: we shall give an example of a stability function for which some object has no subobject of maximal phase and hence no HN filtration. Sufficient conditions for the existence of HN filtrations (noetherianity of $\calA$ together with discreteness of the image of $\im Z$, or finite length of $\calA$) will be discussed separately.
+		Condition \condref{cond:AZ-SC2} does not follow from \condref{cond:AZ-SC1}: in Example~\ref{ex:no_HN} we shall give a stability function for which some object has no nonzero semistable subobject at all, hence no HN filtration.
+		Sufficient conditions for the existence of HN filtrations (noetherianity of $\calA$ together with discreteness of the image of $\im Z$, or finite length of $\calA$) will be discussed separately.
 	\end{remark}
 	
 	
-		\subsection{Basic properties}
+	\subsection{Basic properties}
 	
 	Throughout this subsection $Z$ is a stability function on $\calA$.
 	
@@ -355,6 +360,9 @@
 			\draw[dashed] (F) -- (E) -- (G);
 		\end{tikzpicture}
 	\end{center}
+	The picture shows the case of a short exact sequence $0 \to F \to E \to G \to 0$:
+	since $Z(F)$ and $Z(G)$ both lie in $\HH$, their sum $Z(E)$ lies in the sector between them,
+	so the phase of $E$ is caught between the phases of $F$ and $G$.
 
 	\begin{proof}
 		By additivity, $Z(E) = \sum_j Z(B_j) = \sum_j r_j e^{i \pi \psi_j}$, where $r_j = m(B_j) > 0$ and $\psi_j = \varphi(B_j) \in (0, 1]$. Put $\psi := \max_j \psi_j$. Then
@@ -422,6 +430,37 @@
 	
 	\begin{proof}
 		Let $f \colon E \to F$ be nonzero, and let $0 = E_0 \subset \ldots \subset E_n = E$, $0 = F_0 \subset \ldots \subset F_m = F$ be the filtrations. Let $i$ be minimal with $f|_{E_i} \neq 0$. Then $f|_{E_{i-1}} = 0$, so $f|_{E_i}$ factors through a nonzero map $g \colon A_i = E_i / E_{i-1} \to F$. Let $j$ be minimal with $\image g \subset F_j$. Then the composite $A_i \to F_j \to B_j = F_j / F_{j-1}$ is nonzero, since otherwise $\image g \subset F_{j-1}$. By Lemma~\ref{lem:schur}(1) applied to the semistable objects $A_i$ and $B_j$, $\varphi(A_i) \leqslant \varphi(B_j)$. Finally $\varphi^-(E) \leqslant \varphi(A_i)$ and $\varphi(B_j) \leqslant \varphi^+(F)$.
+	\end{proof}
+	
+	
+	\subsection{Uniqueness of Harder--Narasimhan filtrations}
+	
+	\begin{proposition}
+		\label{prop:HN_unique}
+		Let $Z$ be a stability function on $\calA$ and let $E$ be a nonzero object. If
+		\[
+		0 = E_0 \subset E_1 \subset \ldots \subset E_n = E
+		\qquad\text{and}\qquad
+		0 = E'_0 \subset E'_1 \subset \ldots \subset E'_m = E
+		\]
+		are two HN filtrations of $E$ with respect to $(\calA, Z)$, then $n = m$ and $E_i = E'_i$ as subobjects of $E$ for all $i$. In particular the HN factors and the phases $\varphi^{\pm}(E)$ depend only on $E$.
+	\end{proposition}
+	
+	\begin{proof}
+		Write $A_i := E_i / E_{i-1}$, $\varphi_i := \varphi(A_i)$ and $A'_j := E'_j / E'_{j-1}$, $\varphi'_j := \varphi(A'_j)$. We argue by induction on $n$.
+		
+		\step{$E_1 = E'_1$} Let $j$ be minimal with $E_1 \subset E'_j$; it exists since $E'_m = E$. The composite $E_1 \to E'_j \to A'_j$ is nonzero, because otherwise $E_1 \subset E'_{j-1}$. Both $E_1 = A_1$ and $A'_j$ are semistable, so Lemma~\ref{lem:schur}(1) gives $\varphi_1 \leqslant \varphi'_j \leqslant \varphi'_1$. By symmetry $\varphi'_1 \leqslant \varphi_1$. Hence $\varphi_1 = \varphi'_1$, and then $\varphi'_j \geqslant \varphi'_1$ forces $j = 1$ because the phases $\varphi'_j$ strictly decrease; thus $E_1 \subset E'_1$. By symmetry $E'_1 \subset E_1$, so $E_1 = E'_1$.
+		
+		\step{induction} If $n = 1$, then $E = E_1 = E'_1$, so $m = 1$ as well. If $n > 1$, consider $\bar E := E / E_1 = E / E'_1 \neq 0$. The images $\bar E_i := E_i / E_1$, $i \geqslant 1$, form a chain $0 = \bar E_1 \subset \ldots \subset \bar E_n = \bar E$ with factors $\bar E_i / \bar E_{i-1} \cong E_i / E_{i-1} = A_i$ for $i \geqslant 2$, hence an HN filtration of $\bar E$ of length $n - 1$; similarly for $\bar E'_j := E'_j / E'_1$. By induction $n - 1 = m - 1$ and $\bar E_i = \bar E'_i$ for all $i \geqslant 1$. Since subobjects of $\bar E$ correspond bijectively to subobjects of $E$ containing $E_1 = E'_1$, we get $E_i = E'_i$ for all $i$.
+	\end{proof}
+	
+	\begin{corollary}
+		\label{cor:HN_sub}
+		Let $(\calA, Z)$ be a stability condition and $E$ a nonzero object. Then $\varphi^+(E) = \max \{ \varphi(F) : 0 \neq F \subset E \}$, and the first step $E_1$ of the HN filtration is the unique largest subobject of $E$ of phase $\varphi^+(E)$. Dually $\varphi^-(E) = \min \{ \varphi(G) : E \twoheadrightarrow G \neq 0 \}$.
+	\end{corollary}
+	
+	\begin{proof}
+		Let $0 \neq F \subset E$, with HN filtration $0 \subset F_1 \subset \ldots \subset F$. The composite $F_1 \hookrightarrow F \hookrightarrow E$ is a nonzero map from the semistable object $F_1$ to $E$, so Lemma~\ref{lem:hom_HN} gives $\varphi^+(F) = \varphi(F_1) \leqslant \varphi^+(E)$, and $\varphi(F) \leqslant \varphi^+(F)$ by Lemma~\ref{lem:seesaw}. The value $\varphi^+(E)$ is attained by $F = E_1$. Now suppose $\varphi(F) = \varphi^+(E)$. Then $\varphi(F) = \varphi^+(F)$, so by the equality case of Lemma~\ref{lem:seesaw} all HN factors of $F$ have phase $\varphi^+(E)$, i.e.\ $F$ is semistable of phase $\varphi^+(E)$. All HN factors of $E / E_1$ have phase $< \varphi^+(E)$, so the composite $F \to E \to E / E_1$ vanishes by Lemma~\ref{lem:hom_HN}, i.e.\ $F \subset E_1$. The dual statement follows by the same argument applied to quotients, using Lemma~\ref{lem:quotients}.
 	\end{proof}
 	
 	
@@ -605,7 +644,10 @@
 		Thus $A_i$ is semistable, and $0 = F_0 \subset \ldots \subset F_n = E$ is an HN filtration of $E$.
 	\end{proof}
 	
-	The filtration constructed in the proof is the Harder--Narasimhan polygon of $E$: in the plane of $Z$, the points $Z(F_i)$ are the vertices of the boundary of the convex hull of $\{ Z(F) : F \subset E \}$ lying to the left of the segment from $0$ to $Z(E)$, and the edges $Z(A_i)$ are the HN factors.
+	The proof shows that the HN filtration can be read off from the \emph{Harder--Narasimhan polygon} of $E$:
+	the part of the boundary of the convex hull of $\{ Z(F) : F \subset E \}$ lying to the left of the segment from $0$ to $Z(E)$.
+	Its vertices are the points $Z(F_i)$ and its edges are the vectors $Z(A_i)$.
+	In the picture below the grey dots are the values $Z(F)$ of other subobjects $F \subset E$, the dashed segment joins $0$ to $Z(E)$, and the thick polygonal line is the HN polygon.
 	
 	\begin{center}
 		\begin{tikzpicture}[scale=1.1, >=stealth]
@@ -644,38 +686,6 @@
 		Bridgeland's original formulation replaces the two hypotheses by two chain conditions on phases, which cover both situations at once;
 		noetherianity excludes infinite descending chains of quotients with decreasing phases, and discreteness of $R$ excludes infinite descending chains of subobjects with increasing phases.
 	\end{remark}
-	
-	
-	\subsection{Uniqueness of Harder--Narasimhan filtrations}
-	
-	\begin{proposition}
-		\label{prop:HN_unique}
-		Let $Z$ be a stability function on $\calA$ and let $E$ be a nonzero object. If
-		\[
-		0 = E_0 \subset E_1 \subset \ldots \subset E_n = E
-		\qquad\text{and}\qquad
-		0 = E'_0 \subset E'_1 \subset \ldots \subset E'_m = E
-		\]
-		are two HN filtrations of $E$ with respect to $(\calA, Z)$, then $n = m$ and $E_i = E'_i$ as subobjects of $E$ for all $i$. In particular the HN factors and the phases $\varphi^{\pm}(E)$ depend only on $E$.
-	\end{proposition}
-	
-	\begin{proof}
-		Write $A_i := E_i / E_{i-1}$, $\varphi_i := \varphi(A_i)$ and $A'_j := E'_j / E'_{j-1}$, $\varphi'_j := \varphi(A'_j)$. We argue by induction on $n$.
-		
-		\step{$E_1 = E'_1$} Let $j$ be minimal with $E_1 \subset E'_j$; it exists since $E'_m = E$. The composite $E_1 \to E'_j \to A'_j$ is nonzero, because otherwise $E_1 \subset E'_{j-1}$. Both $E_1 = A_1$ and $A'_j$ are semistable, so Lemma~\ref{lem:schur}(1) gives $\varphi_1 \leqslant \varphi'_j \leqslant \varphi'_1$. By symmetry $\varphi'_1 \leqslant \varphi_1$. Hence $\varphi_1 = \varphi'_1$, and then $\varphi'_j \geqslant \varphi'_1$ forces $j = 1$ because the phases $\varphi'_j$ strictly decrease; thus $E_1 \subset E'_1$. By symmetry $E'_1 \subset E_1$, so $E_1 = E'_1$.
-		
-		\step{induction} If $n = 1$, then $E = E_1 = E'_1$, so $m = 1$ as well. If $n > 1$, consider $\bar E := E / E_1 = E / E'_1 \neq 0$. The images $\bar E_i := E_i / E_1$, $i \geqslant 1$, form a chain $0 = \bar E_1 \subset \ldots \subset \bar E_n = \bar E$ with factors $\bar E_i / \bar E_{i-1} \cong E_i / E_{i-1} = A_i$ for $i \geqslant 2$, hence an HN filtration of $\bar E$ of length $n - 1$; similarly for $\bar E'_j := E'_j / E'_1$. By induction $n - 1 = m - 1$ and $\bar E_i = \bar E'_i$ for all $i \geqslant 1$. Since subobjects of $\bar E$ correspond bijectively to subobjects of $E$ containing $E_1 = E'_1$, we get $E_i = E'_i$ for all $i$.
-	\end{proof}
-	
-	\begin{corollary}
-		\label{cor:HN_sub}
-		Let $(\calA, Z)$ be a stability condition and $E$ a nonzero object. Then $\varphi^+(E) = \max \{ \varphi(F) : 0 \neq F \subset E \}$, and the first step $E_1$ of the HN filtration is the unique largest subobject of $E$ of phase $\varphi^+(E)$. Dually $\varphi^-(E) = \min \{ \varphi(G) : E \twoheadrightarrow G \neq 0 \}$.
-	\end{corollary}
-	
-	\begin{proof}
-		Let $0 \neq F \subset E$, with HN filtration $0 \subset F_1 \subset \ldots \subset F$. The composite $F_1 \hookrightarrow F \hookrightarrow E$ is a nonzero map from the semistable object $F_1$ to $E$, so Lemma~\ref{lem:hom_HN} gives $\varphi^+(F) = \varphi(F_1) \leqslant \varphi^+(E)$, and $\varphi(F) \leqslant \varphi^+(F)$ by Lemma~\ref{lem:seesaw}. The value $\varphi^+(E)$ is attained by $F = E_1$. Now suppose $\varphi(F) = \varphi^+(E)$. Then $\varphi(F) = \varphi^+(F)$, so by the equality case of Lemma~\ref{lem:seesaw} all HN factors of $F$ have phase $\varphi^+(E)$, i.e.\ $F$ is semistable of phase $\varphi^+(E)$. All HN factors of $E / E_1$ have phase $< \varphi^+(E)$, so the composite $F \to E \to E / E_1$ vanishes by Lemma~\ref{lem:hom_HN}, i.e.\ $F \subset E_1$. The dual statement follows by the same argument applied to quotients, using Lemma~\ref{lem:quotients}.
-	\end{proof}
-	
 	
 	
 	\subsection{Examples}
