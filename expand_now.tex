@@ -1,0 +1,733 @@
+% \documentclass[12pt]{article}
+\documentclass[12pt]{amsart}
+
+\pagestyle{plain}
+\usepackage[margin=3cm]{geometry} 
+
+\usepackage{amsmath,amssymb,amsfonts,enumerate,latexsym, amsthm,textcomp,wasysym,longtable}
+\usepackage{mathrsfs, mathtools}
+\usepackage{array,ragged2e,longtable,multirow}
+
+% \usepackage{indentfirst}
+\usepackage[matrix, arrow, curve]{xy} % Для коммутативных диаграмм
+\usepackage{xy, xypic, multicol}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\makeatletter
+\def\@settitle{\begin{center}%
+		\baselineskip14\p@\relax
+		\bfseries
+		\large \@title
+	\end{center}%
+}
+\makeatother
+
+\usepackage{cancel}
+\usepackage{graphicx}
+% \graphicspath{{pictures/}}
+% \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\usepackage{russian}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % commands for making comments
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\YP}[1]{\footnote{\textcolor{red}{YP: #1}}}
+\newcommand{\yp}[1]{\leavevmode{\color{red}{#1}}}
+% {\textcolor{orange}{#1}} 
+\usepackage[normalem]{ulem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{hyperref}
+\usepackage{tikz-cd} % Ещё для коммутативных диаграмм
+\usetikzlibrary{babel}
+
+% named conditions inside definitions:
+% \condlabel{Z}{cond:Z} prints (Z) and sets an anchor,
+% \condref{cond:Z} prints (Z) as a hyperlink
+\makeatletter
+\newcommand{\condlabel}[2]{\phantomsection\def\@currentlabel{#1}\label{#2}\textup{(#1)}}
+\makeatother
+\newcommand{\condref}[1]{\textup{(\ref{#1})}}
+
+% \textheight=270mm
+% \textwidth=190mm
+% \voffset=-40mm
+% \hoffset=-35mm
+% \pagestyle{empty}
+% 
+% \\SLoppy
+
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newenvironment{remark}{{\textbf{Remark.}}}
+
+\numberwithin{theorem}{section}
+
+\theoremstyle{definition}
+
+\newenvironment{example}{\indent \textbf{Example.}}{$ \hfill \bigstar $}
+
+% preamble
+\usepackage{etoolbox}
+\newcounter{pstep}
+\AtBeginEnvironment{proof}{\setcounter{pstep}{0}}
+\newcommand{\step}[1]{\par\medskip\noindent\refstepcounter{pstep}\textbf{Step \thepstep}\ (\textit{#1}).\ \ignorespaces}
+
+%\newcommand{\defin}[2]{\hypertarget{#2}{{\color{red} #1}} \label{def:#2}}
+\newcommand{\defin}[2]{\hypertarget{#2}{{\color{red} #1}}}
+
+% Цвета
+\definecolor{linkcolor}{HTML}{0000FF} % цвет ссылок
+\definecolor{urlcolor}{HTML}{0000FF} % цвет гиперссылок
+\definecolor{citecolor}{HTML}{0000FF} % цвет ссылки на статью
+\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, citecolor=citecolor, colorlinks=true}
+
+\definecolor{completed}{HTML}{32CD32}
+\definecolor{inprocessing}{HTML}{D19A0F}
+\newcommand{\TODO}[1]{\textcolor{red}{НУЖНО: #1}}
+
+\newcommand{\Alt}{\mathfrak{A}}
+\newcommand{\Sym}{\mathfrak{S}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Q}{\mathrm{Q}}
+\newcommand{\cyclic}{\mathrm{C}}
+\newcommand{\Tetr}{\mathrm{T}}
+\newcommand{\Oct}{\mathrm{O}}
+\newcommand{\Ico}{\mathrm{I}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\HH}{\mathbb{H}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\sheafF}{\mathscr{F}}
+\newcommand{\sheafG}{\mathcal{G}}
+
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\characteristic}{\operatorname{char}}
+\newcommand{\kk}{\Bbbk}
+
+\newcommand{\pt}{\mathrm{pt}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\projective}{\mathbb{P}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\image}{\mathrm{Im} \,}
+\newcommand{\aut}{\mathrm{Aut}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\rad}{\operatorname{Rad}}
+\newcommand{\ann}[1]{\operatorname{Ann}}
+\newcommand{\op}{{\mathrm{op}}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ab}{\mathrm{Ab}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\proj}{\operatorname{Proj}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\gal}{\operatorname{Gal}}
+\newcommand{\id}{\mathrm{Id}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\oo}{\mathscr{O}}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\arithmgen}{\operatorname{p}_a}
+\newcommand{\geomgen}{\operatorname{p}_g}
+\newcommand{\Div}{\operatorname{Div}}
+\newcommand{\pic}{\operatorname{Pic}}
+\newcommand{\canclass}{K}
+\newcommand{\irreg}{\mathrm{q}}
+\newcommand{\euler}{\chi}
+\newcommand{\tangent}{\mathscr{T}}
+\newcommand{\curvegen}{\operatorname{g}}
+\newcommand{\basepoints}{\operatorname{Bs}}
+\newcommand{\ruled}{\mathbb{F}}
+\newcommand{\exc}{\operatorname{Exc}}
+\newcommand{\num}{\operatorname{Num}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Kgroup}{K_0}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+
+\newcommand{\aaa}{\mathfrak{a}}
+\newcommand{\bb}{\mathfrak{b}}
+\newcommand{\cc}{\mathfrak{c}}
+\newcommand{\pp}{\mathfrak{p}}
+\newcommand{\qq}{\mathfrak{q}}
+\newcommand{\mm}{\mathfrak{m}}
+
+% Определение множества
+\newcommand{\defineset}[2]{\left\{
+	\left.
+	#1
+	\right\vert
+	#2
+	\right\}}
+
+\newcommand{\spmatrix}[4]{
+	\left( \begin{smallmatrix}
+		#1 & #2 \\
+		#3 & #4
+	\end{smallmatrix} \right)
+}
+
+
+% Кусочное определение функции
+\newcommand{\definefuntwo}[4]{
+	\begin{cases}
+		#1, & #2; \\
+		#3, & #4.
+	\end{cases}
+}
+
+\newcommand{\definefunthree}[6]{
+	\begin{cases}
+		#1, & #2; \\
+		#3, & #4; \\
+		#5, & #6.
+	\end{cases}
+}
+
+\newcommand{\definefunfour}[8]{
+	\begin{cases}
+		#1, & #2; \\
+		#3, & #4; \\
+		#5, & #6; \\
+		#7, & #8.
+	\end{cases}
+}
+
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+
+\renewcommand\labelenumi{\rm (\arabic{enumi})}
+\renewcommand\theenumi{\rm (\arabic{enumi})}
+
+\newcolumntype{C}[1]{%
+	>{\vspace{0pt}\Centering\arraybackslash}m{#1}%
+}
+
+
+\newcommand{\groupinfo}[5]{
+	#1 & #2 & #3 & #4 & #5 \\
+}
+
+
+\title{Bridgeland Stability Conditions}
+
+
+\begin{document}
+	
+	\maketitle
+	\tableofcontents
+	
+	\section{Stability conditions on an abelian category}
+	
+	\subsection{Conventions}
+	
+	Throughout, $\calA$ is an essentially small abelian category and $\Kgroup(\calA)$ is its Grothendieck group, i.e.\ the abelian group generated by the classes $[E]$ of objects $E \in \calA$ subject to the relations $[E] = [E'] + [E'']$ for every short exact sequence $0 \to E' \to E \to E'' \to 0$. For an object $E$ and a group homomorphism $Z \colon \Kgroup(\calA) \to \CC$ we write $Z(E) := Z([E])$.
+	
+	Let
+	\[
+	\HH := \defineset{ r e^{i \pi \varphi} }{ r > 0,\ \varphi \in (0, 1] }
+	= \defineset{ z \in \CC }{ \im z > 0 } \cup \RR_{<0}
+	\]
+	be the upper half-plane together with the negative real ray. For $z \in \HH$ the number $\varphi \in (0, 1]$ with $z \in \RR_{>0} e^{i \pi \varphi}$ is uniquely determined; we call it the \emph{phase} of $z$. Note that $\HH$ is closed under addition and under multiplication by positive real numbers.
+	
+	The notation $F \subset E$ and $E \twoheadrightarrow G$ always refers to a subobject and a quotient object in the abelian category $\calA$. A subobject $F \subset E$ is \emph{proper} if $F \neq E$ and \emph{nontrivial} if $F \neq 0$.
+	
+		\subsection{Stability functions}
+	
+	A group homomorphism $Z \colon \Kgroup(\calA) \to \CC$ is called a \emph{stability function} on $\calA$ if
+	\begin{itemize}
+		\item[] \condlabel{Z}{cond:Z} $Z(E) \in \HH$ for every nonzero object $E \in \calA$.
+	\end{itemize}
+	Equivalently: $\im Z(E) \geqslant 0$, and $\im Z(E) = 0$ implies $\re Z(E) < 0$.
+	
+	Let $Z$ be a stability function. For a nonzero object $E \in \calA$ the \emph{phase} of $E$ is the number $\varphi(E) = \varphi_Z(E) \in (0, 1]$ equal to the phase of the complex number $Z(E) \in \HH$, so that
+	\[
+	Z(E) = m(E) \, e^{i \pi \varphi(E)}, \qquad m(E) := |Z(E)| > 0 .
+	\]
+	The number $m(E)$ is called the \emph{mass} of $E$.
+	
+	\begin{remark}
+		In terms of the generalized rank $R := \im Z$ and the generalized degree $D := -\re Z$, the phase corresponds to the generalized slope $M := D / R = -\cot(\pi \varphi) \in \RR \cup \{ +\infty \}$, with $M = +\infty$ for $\varphi = 1$. Since $\varphi \mapsto -\cot(\pi \varphi)$ is strictly increasing on $(0, 1)$, comparing slopes and comparing phases is the same thing: $M(F) \leqslant M(E)$ if and only if $\varphi(F) \leqslant \varphi(E)$, and likewise for strict inequalities. We shall only work with phases.
+	\end{remark}
+	
+	Let $Z$ be a stability function on $\calA$. A nonzero object $E \in \calA$ is called \emph{$(\calA, Z)$-semistable} if
+	\begin{itemize}
+		\item[] \condlabel{AZ-SS}{cond:AZ-SS} $\varphi(F) \leqslant \varphi(E)$ for every nontrivial subobject $F \subset E$,
+	\end{itemize}
+	and \emph{$(\calA, Z)$-stable} if
+	\begin{itemize}
+		\item[] \condlabel{AZ-S}{cond:AZ-S} $\varphi(F) < \varphi(E)$ for every nontrivial proper subobject $F \subset E$.
+	\end{itemize}
+	When $\calA$ and $Z$ are clear from the context we simply speak of semistable and stable objects.
+	
+	\subsection{Harder--Narasimhan filtrations and stability conditions}
+	
+	Let $Z$ be a stability function on $\calA$ and let $E \in \calA$ be a nonzero object. A \emph{Harder--Narasimhan filtration} (\emph{HN filtration} for short) of $E$ with respect to $(\calA, Z)$ is a chain of subobjects
+	\[
+	0 = E_0 \subset E_1 \subset \ldots \subset E_{n-1} \subset E_n = E
+	\]
+	such that 
+	\begin{itemize}
+		\item the factors $A_i := E_i / E_{i-1}$, $i = 1, \ldots, n$, are nonzero $(\calA, Z)$-semistable objects;
+		\item phases $\varphi(A_1) > \varphi(A_2) > \ldots > \varphi(A_n)$ are strictly decreasing.
+	\end{itemize}
+	The objects $A_i$ are called the \emph{HN factors} of $E$, and $\varphi^+(E) := \varphi(A_1)$, $\varphi^-(E) := \varphi(A_n)$ are called the \emph{maximal} and the \emph{minimal phase} of $E$.
+	
+	\begin{center}
+		\begin{tikzcd}[column sep=large, row sep=large]
+			0 = E_0 \arrow[r, hook] 
+			& E_1 \arrow[r, hook] \arrow[d, two heads] 
+			& E_2 \arrow[r, hook] \arrow[d, two heads] 
+			& \cdots \arrow[r, hook] 
+			& E_{n-1} \arrow[r, hook] \arrow[d, two heads] 
+			& E_n = E \arrow[d, two heads] \\
+			& A_1 & A_2 & & A_{n-1} & A_n
+		\end{tikzcd}
+	\end{center}
+	
+	An $(\calA, Z)$-semistable object $E$ has the HN filtration $0 \subset E$ of length $n = 1$; conversely, if an HN filtration of $E$ has length $1$, then $E$ is $(\calA, Z)$-semistable. Uniqueness of HN filtrations will be proved below; until then the words ``maximal phase'' refer to a chosen filtration.
+	
+	A \emph{stability condition} on the abelian category $\calA$ is a pair $(\calA, Z)$, where $Z \colon \Kgroup(\calA) \to \CC$ is a group homomorphism, such that
+	\begin{itemize}
+		\item[] \condlabel{AZ-SC1}{cond:AZ-SC1} $Z$ is a stability function on $\calA$, i.e.\ condition \condref{cond:Z} holds;
+		\item[] \condlabel{AZ-SC2}{cond:AZ-SC2} (\emph{Harder--Narasimhan property}) every nonzero object $E \in \calA$ admits an HN filtration with respect to $(\calA, Z)$.
+	\end{itemize}
+	The homomorphism $Z$ is called the \emph{central charge} of the stability condition.
+	
+	\begin{remark}
+		Condition \condref{cond:AZ-SC2} does not follow from \condref{cond:AZ-SC1}: we shall give an example of a stability function for which some object has no subobject of maximal phase and hence no HN filtration. Sufficient conditions for the existence of HN filtrations (noetherianity of $\calA$ together with discreteness of the image of $\im Z$, or finite length of $\calA$) will be discussed separately.
+	\end{remark}
+	
+	
+		\subsection{Basic properties}
+	
+	Throughout this subsection $Z$ is a stability function on $\calA$.
+	
+	\begin{lemma}[see-saw]
+		\label{lem:seesaw}
+		Let $0 = E_0 \subset E_1 \subset \ldots \subset E_m = E$ be a chain of subobjects with nonzero factors $B_j := E_j / E_{j-1}$, $j = 1, \ldots, m$. Then
+		\[
+		\min_j \varphi(B_j) \leqslant \varphi(E) \leqslant \max_j \varphi(B_j),
+		\]
+		and equality holds on the left or on the right if and only if all the phases $\varphi(B_j)$ are equal.
+		
+		In particular, for a short exact sequence $0 \to F \to E \to G \to 0$ with $F, G \neq 0$ the following are equivalent: 
+		\[ 
+		\varphi(F) < \varphi(E); \quad \varphi(E) < \varphi(G); \quad \varphi(F) < \varphi(G).
+		\]
+		The same holds with $<$ replaced by $=$ or by $>$.
+	\end{lemma}
+		
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2, >=stealth]
+			% real axis
+			\draw[gray] (-3.6,0) -- (2.6,0);
+			\fill (0,0) circle (1.4pt) node[below] {$0$};
+			% vectors
+			\coordinate (F) at (1.8,1.4);
+			\coordinate (G) at (-2.4,1.6);
+			\coordinate (E) at (-0.6,3.0);
+			\draw[thick, ->] (0,0) -- (F) node[right] {$Z(F)$};
+			\draw[thick, ->] (0,0) -- (G) node[left] {$Z(G)$};
+			\draw[very thick, ->] (0,0) -- (E) node[above] {$Z(E) = Z(F) + Z(G)$};
+			% parallelogram
+			\draw[dashed] (F) -- (E) -- (G);
+		\end{tikzpicture}
+	\end{center}
+
+	\begin{proof}
+		By additivity, $Z(E) = \sum_j Z(B_j) = \sum_j r_j e^{i \pi \psi_j}$, where $r_j = m(B_j) > 0$ and $\psi_j = \varphi(B_j) \in (0, 1]$. Put $\psi := \max_j \psi_j$. Then
+		\[
+		e^{-i \pi \psi} Z(E) = \sum_j r_j e^{i \pi (\psi_j - \psi)}, \qquad \psi_j - \psi \in (-1, 0],
+		\]
+		so every summand has non-positive imaginary part, with equality if and only if $\psi_j = \psi$, in which case the summand is the positive real number $r_j$. 
+		Hence $\im \big( e^{-i \pi \psi} Z(E) \big) \leqslant 0$, with equality if and only if all $\psi_j$ equal $\psi$. On the other hand $e^{-i \pi \psi} Z(E) = m(E) e^{i \pi \theta}$ with $\theta := \varphi(E) - \psi \in (-1, 1)$, and $\sin(\pi \theta) \leqslant 0$ on this interval exactly when $\theta \in (-1, 0]$, with $\sin(\pi \theta) = 0$ exactly when $\theta = 0$. This proves the upper bound and its equality case; the lower bound is obtained in the same way with $\min_j \psi_j$ in place of $\psi$.
+		
+		For a short exact sequence apply the above to the chain $0 \subset F \subset E$ with factors $F, G$: if, say, $\varphi(F) \leqslant \varphi(G)$, then $\varphi(F) \leqslant \varphi(E) \leqslant \varphi(G)$ and $\varphi(E)$ equals one of the endpoints only if $\varphi(F) = \varphi(G)$; the case $\varphi(F) \geqslant \varphi(G)$ is symmetric.
+	\end{proof}
+	
+	\begin{lemma}[quotient characterization]
+		\label{lem:quotients}
+		A nonzero object $E$ is $(\calA, Z)$-semistable 
+		if and only if $\varphi(E) \leqslant \varphi(G)$ for every nonzero quotient $E \twoheadrightarrow G$, 
+		and $(\calA, Z)$-stable if and only if $\varphi(E) < \varphi(G)$ for every nonzero proper quotient.
+	\end{lemma}
+	
+	\begin{proof}
+		Nontrivial proper subobjects $F \subset E$ correspond to nonzero proper quotients $G = E / F$, 
+		and by Lemma~\ref{lem:seesaw} 
+		the inequality $\varphi(F) \leqslant \varphi(E)$ is equivalent to $\varphi(E) \leqslant \varphi(G)$, 
+		and similarly for strict inequalities. 
+		The subobject $F = E$ and the quotient $G = E$ impose no condition.
+	\end{proof}
+	
+	\begin{lemma}[Schur]
+		\label{lem:schur}
+		Let $E, F$ be $(\calA, Z)$-semistable objects.
+		\begin{enumerate}
+			\item If $\varphi(E) > \varphi(F)$, then $\Hom(E, F) = 0$.
+			\item If $\varphi(E) = \varphi(F)$ and $f \colon E \to F$ is nonzero, then $f$ is a monomorphism provided $E$ is stable, an epimorphism provided $F$ is stable, and an isomorphism provided both are stable.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{proof}
+		Let $f \colon E \to F$ be nonzero, with image $I \neq 0$ and kernel $K$. 
+		Since $I$ is a quotient of $E$, Lemma~\ref{lem:quotients} gives $\varphi(E) \leqslant \varphi(I)$; 
+		since $I \subset F$, semistability of $F$ gives $\varphi(I) \leqslant \varphi(F)$. 
+		Thus $\varphi(E) \leqslant \varphi(F)$, which proves (1). 
+		In the situation of (2) all these inequalities are equalities. 
+		If $E$ is stable and $K \neq 0$, 
+		then $K$ is a nontrivial proper subobject of $E$ (proper because $I \neq 0$) and, 
+		by Lemma~\ref{lem:seesaw} applied to 
+		\[0 \to K \to E \to I \to 0, \] 
+		$\varphi(E) = \varphi(I)$ forces $\varphi(K) = \varphi(E)$, contradicting stability; so $K = 0$. If $F$ is stable, then $I \subset F$ with $\varphi(I) = \varphi(F)$ forces $I = F$. The last claim combines the two.
+	\end{proof}
+	
+	\begin{lemma}
+		\label{lem:direct_sums}
+		If $E$ and $F$ are $(\calA, Z)$-semistable of the same phase $\varphi$, then so is $E \oplus F$.
+	\end{lemma}
+	
+	\begin{proof}
+		First, 
+		\[ Z(E \oplus F) = Z(E) + Z(F) \] 
+		is a sum of two vectors on the ray $\RR_{>0} e^{i \pi \varphi}$, so $\varphi(E \oplus F) = \varphi$. Let $G \subset E \oplus F$ be nontrivial, and put $G' := \ker(G \to F) = G \cap E \subset E$ and $G'' := \image(G \to F) \subset F$, so that $0 \to G' \to G \to G'' \to 0$ is exact. If both $G'$ and $G''$ are nonzero, they have phases $\leqslant \varphi$ by semistability of $E$ and $F$, and Lemma~\ref{lem:seesaw} gives $\varphi(G) \leqslant \varphi$; if one of them vanishes, $G$ is isomorphic to the other and the same conclusion holds.
+	\end{proof}
+	
+	\begin{lemma}
+		\label{lem:hom_HN}
+		Let $E, F$ be nonzero objects admitting HN filtrations, with HN factors $A_1, \ldots, A_n$ and $B_1, \ldots, B_m$ respectively. If $\Hom(E, F) \neq 0$, then $\varphi^-(E) \leqslant \varphi^+(F)$; more precisely, $\varphi(A_i) \leqslant \varphi(B_j)$ for some $i, j$.
+	\end{lemma}
+	
+	\begin{proof}
+		Let $f \colon E \to F$ be nonzero, and let $0 = E_0 \subset \ldots \subset E_n = E$, $0 = F_0 \subset \ldots \subset F_m = F$ be the filtrations. Let $i$ be minimal with $f|_{E_i} \neq 0$. Then $f|_{E_{i-1}} = 0$, so $f|_{E_i}$ factors through a nonzero map $g \colon A_i = E_i / E_{i-1} \to F$. Let $j$ be minimal with $\image g \subset F_j$. Then the composite $A_i \to F_j \to B_j = F_j / F_{j-1}$ is nonzero, since otherwise $\image g \subset F_{j-1}$. By Lemma~\ref{lem:schur}(1) applied to the semistable objects $A_i$ and $B_j$, $\varphi(A_i) \leqslant \varphi(B_j)$. Finally $\varphi^-(E) \leqslant \varphi(A_i)$ and $\varphi(B_j) \leqslant \varphi^+(F)$.
+	\end{proof}
+	
+	
+	\subsection{Existence of Harder--Narasimhan filtrations}
+	
+	Recall that an abelian category $\calA$ is \emph{noetherian} if every ascending chain $F_1 \subset F_2 \subset \ldots$ of subobjects of any object stabilizes.
+	Equivalently, every nonempty family of subobjects of an object has a maximal element with respect to inclusion.
+	Throughout this subsection $Z$ is a stability function on $\calA$, and we write $R := \im Z$ and $D := -\re Z$, so that $R(F) \geqslant 0$ for all $F$, and $R(F) = 0$ implies $D(F) > 0$ for $F \neq 0$.
+	We say that \emph{$R$ has discrete image} if $R(\Kgroup(\calA))$ is a discrete subgroup of $\RR$;
+	in that case either $R \equiv 0$, or $R(\Kgroup(\calA)) = c \ZZ$ for a unique $c > 0$, and then $R(E) \in c \ZZ_{\geqslant 0}$ for every object $E$.
+	
+	Two elementary identities will be used repeatedly.
+	If $F, F' \subset E$ are subobjects, the sequence
+	\[
+	0 \to F \cap F' \to F \oplus F' \to F + F' \to 0
+	\]
+	is exact, hence
+	\begin{equation}
+		\label{eq:modular}
+		Z(F + F') + Z(F \cap F') = Z(F) + Z(F') ,
+	\end{equation}
+	and the same holds for $R$ and $D$ separately.
+	If $F \subset E$ and $R(F) = R(E)$, then $R(E / F) = 0$, so $D(E / F) \geqslant 0$ and
+	\begin{equation}
+		\label{eq:same_rank}
+		D(F) \leqslant D(E) \qquad \text{whenever } F \subset E \text{ and } R(F) = R(E).
+	\end{equation}
+	
+	\begin{lemma}
+		\label{lem:D_bounded}
+		Assume that $\calA$ is noetherian and that $R$ has discrete image.
+		Then for every object $E$ there is a constant $D_E \in \RR$ such that $D(F) \leqslant D_E$ for every subobject $F \subset E$.
+	\end{lemma}
+	
+	\begin{proof}
+		If $R \equiv 0$, then every $F \subset E$ satisfies $R(F) = R(E)$ and \eqref{eq:same_rank} gives $D(F) \leqslant D(E)$.
+		Otherwise write $R(\Kgroup(\calA)) = c \ZZ$ with $c > 0$ and argue by induction on $k(E) := R(E) / c \in \ZZ_{\geqslant 0}$.
+		
+		If $k(E) = 0$, then $R(F) = 0 = R(E)$ for every $F \subset E$, and \eqref{eq:same_rank} gives $D(F) \leqslant D(E)$.
+		
+		Let $k(E) > 0$ and assume the lemma for all objects $E'$ with $k(E') < k(E)$.
+		Suppose, for a contradiction, that there are subobjects $F_n \subset E$, $n \in \ZZ_{>0}$, with $D(F_n) \to \infty$.
+		By \eqref{eq:same_rank} only finitely many of them can satisfy $R(F_n) = R(E)$, so after discarding these we may assume $R(F_n) < R(E)$ for all $n$.
+		We construct indices $n_1 < n_2 < \ldots$ such that the subobjects $G_k := F_{n_1} + \ldots + F_{n_k}$ satisfy
+		\[
+		R(G_k) < R(E)
+		\qquad\text{and}\qquad
+		D(G_k) > D(G_{k-1}) \quad (k \geqslant 2).
+		\]
+		Put $n_1 := 1$.
+		Given $n_1 < \ldots < n_{k-1}$, the object $G_{k-1}$ satisfies $k(G_{k-1}) < k(E)$, so by the induction hypothesis there is a constant $D'$ with $D(F') \leqslant D'$ for all $F' \subset G_{k-1}$.
+		For $n > n_{k-1}$, identity \eqref{eq:modular} and $G_{k-1} \cap F_n \subset G_{k-1}$ give
+		\[
+		D(G_{k-1} + F_n) = D(G_{k-1}) + D(F_n) - D(G_{k-1} \cap F_n) \geqslant D(G_{k-1}) + D(F_n) - D' ,
+		\]
+		which tends to $\infty$ as $n \to \infty$.
+		Choose $n_k > n_{k-1}$ with $D(G_{k-1} + F_{n_k}) > \max \{ D(E), D(G_{k-1}) \}$.
+		Then $R(G_{k-1} + F_{n_k}) < R(E)$ by \eqref{eq:same_rank}, and $D(G_k) > D(G_{k-1})$ as required.
+		Since $D(G_k) > D(G_{k-1})$, the inclusion $G_{k-1} \subset G_k$ is strict, so $G_1 \subsetneq G_2 \subsetneq \ldots$ is an infinite strictly ascending chain of subobjects of $E$, contradicting noetherianity.
+	\end{proof}
+	
+	\begin{proposition}
+		\label{prop:HN_existence}
+		Let $Z$ be a stability function on $\calA$.
+		Assume that $\calA$ is noetherian and that $R = \im Z$ has discrete image.
+		Then every nonzero object of $\calA$ admits a Harder--Narasimhan filtration, i.e.\ $(\calA, Z)$ is a stability condition.
+	\end{proposition}
+	
+	\begin{proof}
+		If $R \equiv 0$, then every nonzero object has phase $1$, every nonzero object is semistable, and $0 \subset E$ is an HN filtration.
+		So assume $R(\Kgroup(\calA)) = c \ZZ$ with $c > 0$, and let $E \neq 0$.
+		
+		\step{the part of rank zero}
+		The family of subobjects $F \subset E$ with $R(F) = 0$ is nonempty (it contains $0$), so it has a maximal element $T$.
+		If $F \subset E$ is any subobject with $R(F) = 0$, then $R(T + F) = R(T) + R(F) - R(T \cap F) = -R(T \cap F) \leqslant 0$ by \eqref{eq:modular}, hence $R(T + F) = 0$ and $T + F = T$ by maximality, i.e.\ $F \subset T$.
+		Thus $T$ is the largest subobject of $E$ of rank zero.
+		If $T \neq 0$, it is semistable of phase $1$, because all its nonzero subobjects have $R = 0$, hence phase $1$.
+		Moreover the quotient $\bar E := E / T$ has no nonzero subobject of rank zero:
+		the preimage $F \subset E$ of such a subobject $\bar F$ satisfies $R(F) = R(T) + R(\bar F) = 0$, hence $F \subset T$ and $\bar F = 0$.
+		Consequently every nonzero subobject of $\bar E$ has $R \geqslant c$, hence phase $< 1$.
+		If $\bar E = 0$, then $E = T$ is semistable and we are done.
+		Otherwise, if $0 = \bar E_0 \subset \bar E_1 \subset \ldots \subset \bar E_m = \bar E$ is an HN filtration of $\bar E$, then its factors have phases $< 1$, and the preimages
+		\[
+		0 \subset T \subset \pi^{-1}(\bar E_1) \subset \ldots \subset \pi^{-1}(\bar E_m) = E
+		\]
+		form an HN filtration of $E$ (with the first step omitted if $T = 0$), since the factors are $T$ (of phase $1$) followed by the factors of the filtration of $\bar E$.
+		Hence we may and do assume from now on that
+		\begin{equation}
+			\label{eq:no_torsion}
+			\text{every nonzero subobject } F \subset E \text{ satisfies } R(F) \geqslant c .
+		\end{equation}
+		
+		\step{the Harder--Narasimhan polygon}
+		For $r \in c \ZZ$ with $0 \leqslant r \leqslant R(E)$ let $\mathcal{S}_r$ be the set of subobjects $F \subset E$ with $R(F) = r$, and call $r$ \emph{occupied} if $\mathcal{S}_r \neq \emptyset$.
+		The set $\Lambda_E$ of occupied values is finite and contains $0$ and $R(E)$.
+		For $r \in \Lambda_E$ put
+		\[
+		d(r) := \sup \{ D(F) : F \in \mathcal{S}_r \} ,
+		\]
+		which is finite by Lemma~\ref{lem:D_bounded}.
+		By \eqref{eq:no_torsion} we have $\mathcal{S}_0 = \{ 0 \}$ and $d(0) = 0$, and by \eqref{eq:same_rank} we have $d(R(E)) = D(E)$, attained by $E$ itself.
+		Let $p \colon [0, R(E)] \to \RR$ be the upper concave envelope of the finite set of points $(r, d(r))$, $r \in \Lambda_E$, i.e.\ the smallest concave function with $p(r) \geqslant d(r)$ for all $r \in \Lambda_E$.
+		It is piecewise linear, and its graph is the upper boundary of the convex hull of these points.
+		Let $0 = r_0 < r_1 < \ldots < r_n = R(E)$ be the endpoints together with the points where the slope of $p$ changes; we call them the \emph{vertices}.
+		They belong to $\Lambda_E$, satisfy $p(r_i) = d(r_i) =: d_i$, and the slopes
+		\[
+		s_i := \frac{d_i - d_{i-1}}{r_i - r_{i-1}} , \qquad i = 1, \ldots, n ,
+		\]
+		are strictly decreasing, $s_1 > s_2 > \ldots > s_n$, because $p$ is concave and changes slope at every $r_i$ with $0 < i < n$.
+		On $[r_{i-1}, r_i]$ the function $p$ is affine with slope $s_i$.
+		Finally, for every subobject $F \subset E$ we have $R(F) \in \Lambda_E$ and
+		\begin{equation}
+			\label{eq:below_p}
+			D(F) \leqslant d(R(F)) \leqslant p(R(F)) .
+		\end{equation}
+		
+		\step{the suprema at the vertices are attained}
+		We claim that for every vertex $r_i$ there is $F_i \in \mathcal{S}_{r_i}$ with $D(F_i) = d_i$.
+		For $i = 0$ take $F_0 = 0$ and for $i = n$ take $F_n = E$.
+		Let $0 < i < n$ and choose a number $s$ with $s_i > s > s_{i+1}$.
+		Consider the linear functional $\ell(x, y) := y - s x$ on $\RR^2$ and put $M := \ell(r_i, d_i) = d_i - s r_i$.
+		Since $s$ lies between the slopes of $p$ to the left and to the right of $r_i$, concavity gives $p(x) \leqslant d_i + s (x - r_i)$ for all $x \in [0, R(E)]$, with equality only for $x = r_i$.
+		Together with \eqref{eq:below_p} this shows
+		\begin{equation}
+			\label{eq:ell_bound}
+			\ell\big( R(F), D(F) \big) \leqslant M \qquad \text{for every subobject } F \subset E ,
+		\end{equation}
+		and moreover, since $\Lambda_E$ is finite,
+		\[
+		\gamma := M - \max \big\{ p(r) - s r : r \in \Lambda_E,\ r \neq r_i \big\} > 0 ,
+		\]
+		so that $\ell(R(F), D(F)) > M - \gamma$ forces $R(F) = r_i$.
+		For brevity write $\ell(F) := \ell(R(F), D(F))$.
+		Applying $\ell$ to \eqref{eq:modular} and using \eqref{eq:ell_bound} for $F \cap F'$ we get, for all $F, F' \subset E$,
+		\begin{equation}
+			\label{eq:ell_sum}
+			\ell(F + F') = \ell(F) + \ell(F') - \ell(F \cap F') \geqslant \ell(F) + \ell(F') - M .
+		\end{equation}
+		Now choose $F^{(1)}, F^{(2)}, \ldots \in \mathcal{S}_{r_i}$ with $D(F^{(j)}) \to d_i$, and put $\varepsilon_j := M - \ell(F^{(j)}) = d_i - D(F^{(j)}) \geqslant 0$.
+		Passing to a subsequence we may assume $\sum_j \varepsilon_j < \gamma$.
+		Let $G_k := F^{(1)} + \ldots + F^{(k)}$.
+		By induction on $k$, \eqref{eq:ell_sum} gives
+		\[
+		\ell(G_k) \geqslant \sum_{j=1}^{k} \ell(F^{(j)}) - (k-1) M = M - \sum_{j=1}^{k} \varepsilon_j > M - \gamma .
+		\]
+		The chain $G_1 \subset G_2 \subset \ldots$ stabilizes by noetherianity, say $G_k = G$ for $k \geqslant N$.
+		Then $\ell(G) > M - \gamma$, hence $R(G) = r_i$, and $G \supset F^{(j)}$ for every $j$.
+		For $j \geqslant N$ the quotient $G / F^{(j)}$ has $R(G / F^{(j)}) = r_i - r_i = 0$, so $D(G / F^{(j)}) \geqslant 0$ and $D(G) \geqslant D(F^{(j)})$.
+		Letting $j \to \infty$ we obtain $D(G) \geqslant d_i$, hence $D(G) = d_i$ by definition of $d_i$.
+		Thus $F_i := G$ has the required property.
+		
+		\step{the vertices form a chain}
+		Fix $1 \leqslant i \leqslant n$ and consider the functional $\ell_i(x, y) := y - s_i x$ and the number $M_i := \ell_i(r_{i-1}, d_{i-1}) = \ell_i(r_i, d_i)$.
+		By concavity, $p(x) \leqslant d_{i-1} + s_i (x - r_{i-1})$ for all $x$, with equality exactly for $x \in [r_{i-1}, r_i]$, because the slope of $p$ is $> s_i$ to the left of $r_{i-1}$ and $< s_i$ to the right of $r_i$.
+		Hence, by \eqref{eq:below_p}, $\ell_i(F) \leqslant M_i$ for every $F \subset E$, and $\ell_i(F) = M_i$ implies $r_{i-1} \leqslant R(F) \leqslant r_i$ and $D(F) = p(R(F))$.
+		Apply \eqref{eq:modular} to $F_{i-1}$ and $F_i$:
+		\[
+		\ell_i(F_{i-1} \cap F_i) + \ell_i(F_{i-1} + F_i) = \ell_i(F_{i-1}) + \ell_i(F_i) = 2 M_i .
+		\]
+		Both summands on the left are $\leqslant M_i$, so both equal $M_i$.
+		Since $R(F_{i-1} \cap F_i) \leqslant R(F_{i-1}) = r_{i-1}$, the first equality forces $R(F_{i-1} \cap F_i) = r_{i-1}$ and $D(F_{i-1} \cap F_i) = p(r_{i-1}) = d_{i-1} = D(F_{i-1})$.
+		Therefore the quotient $F_{i-1} / (F_{i-1} \cap F_i)$ has $R = 0$ and $D = 0$, i.e.\ $Z = 0$, so it is zero by \condref{cond:Z}.
+		Hence $F_{i-1} \subset F_i$.
+		We have obtained a chain
+		\[
+		0 = F_0 \subset F_1 \subset \ldots \subset F_n = E .
+		\]
+		
+		\step{the factors are semistable with strictly decreasing phases}
+		Put $A_i := F_i / F_{i-1}$.
+		Then $Z(A_i) = Z(F_i) - Z(F_{i-1})$, i.e.\ $R(A_i) = r_i - r_{i-1} > 0$ and $D(A_i) = d_i - d_{i-1}$, so $A_i \neq 0$ and its generalized slope is $M(A_i) = s_i$.
+		Since $s_1 > \ldots > s_n$, the phases of the $A_i$ strictly decrease.
+		It remains to show that $A_i$ is semistable.
+		Let $S \subset A_i$ be a nontrivial subobject and $F' \subset F_i$ its preimage, so that $F_{i-1} \subsetneq F' \subset F_i$ and $Z(S) = Z(F') - Z(F_{i-1})$.
+		Then $r_{i-1} \leqslant R(F') \leqslant r_i$, because $R(F' / F_{i-1}) \geqslant 0$ and $R(F_i / F') \geqslant 0$, and \eqref{eq:below_p} together with the affine form of $p$ on $[r_{i-1}, r_i]$ gives
+		\[
+		D(F') \leqslant p(R(F')) = d_{i-1} + s_i \big( R(F') - r_{i-1} \big) .
+		\]
+		In other words $D(S) \leqslant s_i R(S)$.
+		If $R(S) = 0$ this would give $D(S) \leqslant 0$, which is impossible for the nonzero object $S$; so $R(S) > 0$ and $M(S) = D(S) / R(S) \leqslant s_i = M(A_i)$, i.e.\ $\varphi(S) \leqslant \varphi(A_i)$.
+		Thus $A_i$ is semistable, and $0 = F_0 \subset \ldots \subset F_n = E$ is an HN filtration of $E$.
+	\end{proof}
+	
+	The filtration constructed in the proof is the Harder--Narasimhan polygon of $E$: in the plane of $Z$, the points $Z(F_i)$ are the vertices of the boundary of the convex hull of $\{ Z(F) : F \subset E \}$ lying to the left of the segment from $0$ to $Z(E)$, and the edges $Z(A_i)$ are the HN factors.
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=1.1, >=stealth]
+			\coordinate (v0) at (0,0);
+			\coordinate (v1) at (-1.6,0.4);
+			\coordinate (v2) at (-2.9,1.5);
+			\coordinate (v3) at (-3.5,2.9);
+			\coordinate (v4) at (-3.5,4.0);
+			% some points Z(F) inside the hull
+			\foreach \pt in {(-0.9,0.9), (-1.7,1.4), (-2.3,2.5), (-1.2,2.0), (-2.8,3.4), (-0.5,0.3), (-2.0,0.9)}
+			\fill[gray] \pt circle (1.1pt);
+			% chord
+			\draw[dashed] (v0) -- (v4);
+			% polygon
+			\draw[very thick] (v0) -- (v1) -- (v2) -- (v3) -- (v4);
+			\fill (v0) circle (1.6pt) node[below] {$0$};
+			\fill (v1) circle (1.6pt) node[below left] {$Z(F_1)$};
+			\fill (v2) circle (1.6pt) node[left] {$Z(F_2)$};
+			\fill (v3) circle (1.6pt) node[left] {$Z(F_3)$};
+			\fill (v4) circle (1.6pt) node[above] {$Z(E)$};
+		\end{tikzpicture}
+	\end{center}
+	
+	\begin{corollary}
+		\label{cor:HN_curves}
+		Let $C$ be a smooth projective curve over a field $\kk$ and $Z(E) = -\deg E + i \operatorname{rk} E$ on $\mathrm{Coh}(C)$.
+		Then $(\mathrm{Coh}(C), Z)$ is a stability condition.
+	\end{corollary}
+	
+	\begin{proof}
+		$\mathrm{Coh}(C)$ is noetherian and $R = \operatorname{rk}$ takes values in $\ZZ$, so Proposition~\ref{prop:HN_existence} applies.
+	\end{proof}
+	
+	\begin{remark}
+		The proposition does not cover Example~\ref{ex:finite_dim_algebra} in general, since there $\im Z$ need not have discrete image; that example was treated by a direct finite-length argument.
+		Bridgeland's original formulation replaces the two hypotheses by two chain conditions on phases, which cover both situations at once;
+		noetherianity excludes infinite descending chains of quotients with decreasing phases, and discreteness of $R$ excludes infinite descending chains of subobjects with increasing phases.
+	\end{remark}
+	
+	
+	\subsection{Uniqueness of Harder--Narasimhan filtrations}
+	
+	\begin{proposition}
+		\label{prop:HN_unique}
+		Let $Z$ be a stability function on $\calA$ and let $E$ be a nonzero object. If
+		\[
+		0 = E_0 \subset E_1 \subset \ldots \subset E_n = E
+		\qquad\text{and}\qquad
+		0 = E'_0 \subset E'_1 \subset \ldots \subset E'_m = E
+		\]
+		are two HN filtrations of $E$ with respect to $(\calA, Z)$, then $n = m$ and $E_i = E'_i$ as subobjects of $E$ for all $i$. In particular the HN factors and the phases $\varphi^{\pm}(E)$ depend only on $E$.
+	\end{proposition}
+	
+	\begin{proof}
+		Write $A_i := E_i / E_{i-1}$, $\varphi_i := \varphi(A_i)$ and $A'_j := E'_j / E'_{j-1}$, $\varphi'_j := \varphi(A'_j)$. We argue by induction on $n$.
+		
+		\step{$E_1 = E'_1$} Let $j$ be minimal with $E_1 \subset E'_j$; it exists since $E'_m = E$. The composite $E_1 \to E'_j \to A'_j$ is nonzero, because otherwise $E_1 \subset E'_{j-1}$. Both $E_1 = A_1$ and $A'_j$ are semistable, so Lemma~\ref{lem:schur}(1) gives $\varphi_1 \leqslant \varphi'_j \leqslant \varphi'_1$. By symmetry $\varphi'_1 \leqslant \varphi_1$. Hence $\varphi_1 = \varphi'_1$, and then $\varphi'_j \geqslant \varphi'_1$ forces $j = 1$ because the phases $\varphi'_j$ strictly decrease; thus $E_1 \subset E'_1$. By symmetry $E'_1 \subset E_1$, so $E_1 = E'_1$.
+		
+		\step{induction} If $n = 1$, then $E = E_1 = E'_1$, so $m = 1$ as well. If $n > 1$, consider $\bar E := E / E_1 = E / E'_1 \neq 0$. The images $\bar E_i := E_i / E_1$, $i \geqslant 1$, form a chain $0 = \bar E_1 \subset \ldots \subset \bar E_n = \bar E$ with factors $\bar E_i / \bar E_{i-1} \cong E_i / E_{i-1} = A_i$ for $i \geqslant 2$, hence an HN filtration of $\bar E$ of length $n - 1$; similarly for $\bar E'_j := E'_j / E'_1$. By induction $n - 1 = m - 1$ and $\bar E_i = \bar E'_i$ for all $i \geqslant 1$. Since subobjects of $\bar E$ correspond bijectively to subobjects of $E$ containing $E_1 = E'_1$, we get $E_i = E'_i$ for all $i$.
+	\end{proof}
+	
+	\begin{corollary}
+		\label{cor:HN_sub}
+		Let $(\calA, Z)$ be a stability condition and $E$ a nonzero object. Then $\varphi^+(E) = \max \{ \varphi(F) : 0 \neq F \subset E \}$, and the first step $E_1$ of the HN filtration is the unique largest subobject of $E$ of phase $\varphi^+(E)$. Dually $\varphi^-(E) = \min \{ \varphi(G) : E \twoheadrightarrow G \neq 0 \}$.
+	\end{corollary}
+	
+	\begin{proof}
+		Let $0 \neq F \subset E$, with HN filtration $0 \subset F_1 \subset \ldots \subset F$. The composite $F_1 \hookrightarrow F \hookrightarrow E$ is a nonzero map from the semistable object $F_1$ to $E$, so Lemma~\ref{lem:hom_HN} gives $\varphi^+(F) = \varphi(F_1) \leqslant \varphi^+(E)$, and $\varphi(F) \leqslant \varphi^+(F)$ by Lemma~\ref{lem:seesaw}. The value $\varphi^+(E)$ is attained by $F = E_1$. Now suppose $\varphi(F) = \varphi^+(E)$. Then $\varphi(F) = \varphi^+(F)$, so by the equality case of Lemma~\ref{lem:seesaw} all HN factors of $F$ have phase $\varphi^+(E)$, i.e.\ $F$ is semistable of phase $\varphi^+(E)$. All HN factors of $E / E_1$ have phase $< \varphi^+(E)$, so the composite $F \to E \to E / E_1$ vanishes by Lemma~\ref{lem:hom_HN}, i.e.\ $F \subset E_1$. The dual statement follows by the same argument applied to quotients, using Lemma~\ref{lem:quotients}.
+	\end{proof}
+	
+	
+	
+	\subsection{Examples}
+	
+	\begin{example}
+		Let $C$ be a smooth projective curve over a field $\kk$, $\calA = \mathrm{Coh}(C)$, and
+		\[
+		Z(E) := -\deg E + i \operatorname{rk} E .
+		\]
+		This is a stability function: for a nonzero sheaf $E$ either $\operatorname{rk} E > 0$, or $E$ is a torsion sheaf, in which case $\deg E$ is the length of $E$, which is positive, so $Z(E) \in \RR_{<0}$. For $\operatorname{rk} E > 0$ the generalized slope $M(E) = \deg E / \operatorname{rk} E$ is the usual slope, and torsion sheaves have $M = +\infty$; thus $(\calA, Z)$-(semi)stability is slope (semi)stability, and semistable sheaves of positive rank are torsion-free. The Harder--Narasimhan property holds (Harder--Narasimhan), so $(\mathrm{Coh}(C), Z)$ is a stability condition. This is Corollary~\ref{cor:HN_curves}.
+	\end{example}
+	
+	\begin{example}
+		Let $X$ be a smooth projective variety of dimension $n \geqslant 2$ and $\omega$ an ample divisor class. The homomorphism $Z(E) := -\omega^{n-1} \cdot c_1(E) + i \, \omega^n \cdot \operatorname{rk} E$ on $\Kgroup(\mathrm{Coh}(X))$ is not a stability function: for a nonzero sheaf $T$ supported in codimension $\geqslant 2$ both $\operatorname{rk} T$ and $c_1(T)$ vanish, so $Z(T) = 0 \notin \HH$. One can show that no homomorphism factoring through the Chern character is a stability function on $\mathrm{Coh}(X)$; this is the reason for passing to other hearts in the derived category.
+	\end{example}
+	
+	\begin{example}
+		\label{ex:finite_dim_algebra}
+		Let $A$ be a finite-dimensional algebra over a field $\kk$, $\calA = \operatorname{mod}\text{-}A$ the category of finite-dimensional right $A$-modules, and $S_1, \ldots, S_m$ representatives of the isomorphism classes of simple modules. Every $M \in \calA$ has a composition series, and by the Jordan--H\"older theorem the multiplicity $[M : S_j]$ of $S_j$ among its factors is well defined and additive in short exact sequences. Hence
+		\[
+		\Kgroup(\calA) \longrightarrow \ZZ^m, \qquad [M] \longmapsto \big( [M : S_1], \ldots, [M : S_m] \big)
+		\]
+		is a well-defined homomorphism; it is surjective, and it is injective because every class $[M]$ equals $\sum_j [M : S_j] [S_j]$. So $[S_1], \ldots, [S_m]$ form a basis of $\Kgroup(\calA) \cong \ZZ^m$, and for any $z_1, \ldots, z_m \in \CC$ there is a unique homomorphism $Z$ with $Z(S_j) = z_j$, namely $Z(M) = \sum_j [M : S_j] z_j$.
+		
+		Now let $z_1, \ldots, z_m \in \HH$. Then $Z$ is a stability function, since $Z(M)$ is a sum of vectors in $\HH$ with non-negative coefficients, not all zero. We claim that $(\calA, Z)$ is a stability condition. Let $M \neq 0$; we construct an HN filtration by induction on the length $\ell(M)$.
+		
+		For a subobject $N \subset M$ one has $0 \leqslant [N : S_j] \leqslant [M : S_j]$, so the classes $[N]$, hence the phases $\varphi(N)$, range over a finite set. Let $\varphi_1$ be the maximal phase of a nontrivial subobject, and among the nontrivial subobjects of phase $\varphi_1$ choose $M_1$ of maximal length. Then $M_1$ is semistable: its subobjects are subobjects of $M$, hence have phase $\leqslant \varphi_1$. Moreover every nontrivial $N \subset M$ with $\varphi(N) = \varphi_1$ satisfies $N \subset M_1$. Indeed, from the exact sequence
+		\[
+		0 \to M_1 \cap N \to M_1 \oplus N \to M_1 + N \to 0
+		\]
+		and Lemma~\ref{lem:direct_sums}, $\varphi(M_1 \oplus N) = \varphi_1$, while $\varphi(M_1 \cap N) \leqslant \varphi_1$ if $M_1 \cap N \neq 0$; so Lemma~\ref{lem:seesaw} gives $\varphi(M_1 + N) \geqslant \varphi_1$, hence $= \varphi_1$ by maximality of $\varphi_1$. By maximality of $\ell(M_1)$, $\ell(M_1 + N) \leqslant \ell(M_1)$, so $M_1 + N = M_1$. (If $M_1 \cap N = 0$, then $M_1 + N \cong M_1 \oplus N$ has phase $\varphi_1$ and larger length, which is impossible, so this case does not occur.)
+		
+		Finally, every nontrivial subobject $N' \subset M / M_1$ has $\varphi(N') < \varphi_1$: if $N \subset M$ is its preimage, then $0 \to M_1 \to N \to N' \to 0$ with $\varphi(N) \leqslant \varphi_1 = \varphi(M_1)$, so Lemma~\ref{lem:seesaw} gives $\varphi(N') \leqslant \varphi(N) \leqslant \varphi_1$, and $\varphi(N') = \varphi_1$ would force $\varphi(N) = \varphi_1$, hence $N \subset M_1$ and $N' = 0$. Since $\ell(M / M_1) < \ell(M)$, by induction $M / M_1$ has an HN filtration; its first factor has phase $< \varphi_1$ by what we just proved, so the preimage of this filtration in $M$, preceded by $M_1$, is an HN filtration of $M$. If $M_1 = M$ there is nothing to do.
+	\end{example}
+	
+	\begin{remark}
+		The argument of Example~\ref{ex:finite_dim_algebra} uses only that $\calA$ has finite length and that the classes of subobjects of a given object form a finite set; it applies verbatim to any abelian category of finite length with finitely many simple objects.
+	\end{remark}
+	
+	\begin{example}[a stability function without the Harder--Narasimhan property]
+		\label{ex:no_HN}
+		Let $\calA$ be the category of finitely generated $\ZZ$-graded modules over the polynomial ring $\kk[x]$ with $\deg x = 1$, and graded homomorphisms of degree $0$. For $M = \bigoplus_n M_n \in \calA$ the pieces $M_n$ vanish for $n \ll 0$ and have bounded dimension, so
+		\[
+		Z(M) := \sum_{n \in \ZZ} \big( -2^{-n} + i \, 4^{-n} \big) \dim_\kk M_n
+		\]
+		converges absolutely. Short exact sequences in $\calA$ are exact in each degree, so $Z$ is additive, and $\im Z(M) > 0$ for $M \neq 0$; thus $Z$ is a stability function.
+		
+		Consider $E := \kk[x]$, generated in degree $0$. Its graded submodules are exactly the ideals $(x^j) \cong \kk[x](-j)$, $j \geqslant 0$, and $0$. For $j \geqslant 0$,
+		\[
+		Z\big( (x^j) \big) = \sum_{n \geqslant j} \big( -2^{-n} + i \, 4^{-n} \big) = -2^{1-j} + i \, \tfrac{4}{3} \, 4^{-j},
+		\]
+		so $\tan\big( \pi - \pi \varphi((x^j)) \big) = \tfrac{2}{3} \cdot 2^{-j}$ is strictly decreasing in $j$; hence the phases $\varphi((x^j))$ strictly increase with $j$. Consequently no nonzero subobject of $E$ is semistable: $(x^j)$ has the subobject $(x^{j+1})$ of strictly larger phase. But the first step $E_1$ of an HN filtration of $E$ would be a nonzero semistable subobject of $E$. Hence $E$ has no HN filtration, and $(\calA, Z)$ is not a stability condition.
+	\end{example}
+	
+\end{document}
