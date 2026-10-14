@@ -491,7 +491,11 @@
 	
 	\begin{lemma}
 		\label{lem:D_bounded}
-		Assume that $\calA$ is noetherian and that $R$ has discrete image.
+		Assume that
+		\begin{itemize}
+			\item $\calA$ is noetherian and
+			\item that $R$ has discrete image in $ \mathbb{R} $.
+		\end{itemize}
 		Then for every object $E$ there is a constant $D_E \in \RR$ such that $D(F) \leqslant D_E$ for every subobject $F \subset E$.
 	\end{lemma}
 	
@@ -517,7 +521,10 @@
 		D(G_{k-1} + F_n) = D(G_{k-1}) + D(F_n) - D(G_{k-1} \cap F_n) \geqslant D(G_{k-1}) + D(F_n) - D' ,
 		\]
 		which tends to $\infty$ as $n \to \infty$.
-		Choose $n_k > n_{k-1}$ with $D(G_{k-1} + F_{n_k}) > \max \{ D(E), D(G_{k-1}) \}$.
+		Choose $n_k > n_{k-1}$ with 
+		\[
+		D(G_{k-1} + F_{n_k}) > \max \{ D(E), D(G_{k-1}) \}.
+		\]
 		Then $R(G_{k-1} + F_{n_k}) < R(E)$ by \eqref{eq:same_rank}, and $D(G_k) > D(G_{k-1})$ as required.
 		Since $D(G_k) > D(G_{k-1})$, the inclusion $G_{k-1} \subset G_k$ is strict, so $G_1 \subsetneq G_2 \subsetneq \ldots$ is an infinite strictly ascending chain of subobjects of $E$, contradicting noetherianity.
 	\end{proof}
