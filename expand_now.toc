@@ -6,4 +6,9 @@
 \contentsline {subsection}{\tocsubsection {}{1.4}{Basic properties}}{3}{subsection.1.4}%
 \contentsline {subsection}{\tocsubsection {}{1.5}{Uniqueness of Harder--Narasimhan filtrations}}{5}{subsection.1.5}%
 \contentsline {subsection}{\tocsubsection {}{1.6}{Existence of Harder--Narasimhan filtrations}}{5}{subsection.1.6}%
-\contentsline {subsection}{\tocsubsection {}{1.7}{Examples}}{11}{subsection.1.7}%
+\contentsline {subsection}{\tocsubsection {}{1.7}{Examples}}{12}{subsection.1.7}%
+\contentsline {section}{\tocsection {}{2}{t-structures and their hearts}}{13}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Conventions on triangulated categories}}{13}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Definition}}{14}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Truncation functors}}{15}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{The heart}}{16}{subsection.2.4}%

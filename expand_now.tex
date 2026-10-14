@@ -165,6 +165,10 @@
 \newcommand{\num}{\operatorname{Num}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Kgroup}{K_0}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\Dle}[1]{\calD^{\leqslant #1}}
+\newcommand{\Dge}[1]{\calD^{\geqslant #1}}
+\newcommand{\Cone}{\operatorname{Cone}}
 \newcommand{\re}{\operatorname{Re}}
 \newcommand{\im}{\operatorname{Im}}
 
@@ -879,4 +883,301 @@
 		so $\tan\big( \pi - \pi \varphi((x^j)) \big) = \tfrac{2}{3} \cdot 2^{-j}$ is strictly decreasing in $j$; hence the phases $\varphi((x^j))$ strictly increase with $j$. Consequently no nonzero subobject of $E$ is semistable: $(x^j)$ has the subobject $(x^{j+1})$ of strictly larger phase. But the first step $E_1$ of an HN filtration of $E$ would be a nonzero semistable subobject of $E$. Hence $E$ has no HN filtration, and $(\calA, Z)$ is not a stability condition.
 	\end{example}
 	
+	\section{t-structures and their hearts}
+	
+	\subsection{Conventions on triangulated categories}
+	
+	Throughout this section $\calD$ is an essentially small triangulated category with shift functor $[1]$.
+	A \emph{triangle} always means a distinguished triangle $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} X[1]$;
+	we call $Z$ a \emph{cone} of $f$ and write $Z = \Cone(f)$, keeping in mind that a cone is unique only up to (non-unique) isomorphism.
+	We shall freely use the following standard facts.
+	\begin{itemize}
+		\item[] \condlabel{TR-rot}{cond:TR-rot} (\emph{rotation}) If $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} X[1]$ is a triangle, then so are $Y \xrightarrow{g} Z \xrightarrow{h} X[1] \xrightarrow{-f[1]} Y[1]$ and $Z[-1] \xrightarrow{-h[-1]} X \xrightarrow{f} Y \xrightarrow{g} Z$.
+		\item[] \condlabel{TR-coh}{cond:TR-coh} (\emph{Hom is cohomological}) For every object $T$ and every triangle $X \to Y \to Z \to X[1]$ the sequences
+		\[
+		\Hom(T, X) \to \Hom(T, Y) \to \Hom(T, Z),
+		\qquad
+		\Hom(Z, T) \to \Hom(Y, T) \to \Hom(X, T)
+		\]
+		are exact; combined with \condref{cond:TR-rot} this gives the long exact sequences $\ldots \to \Hom(T, Z[-1]) \to \Hom(T, X) \to \Hom(T, Y) \to \Hom(T, Z) \to \Hom(T, X[1]) \to \ldots$ and dually.
+		In particular the composite of two consecutive maps in a triangle is zero.
+		\item[] \condlabel{TR-5}{cond:TR-5} (\emph{five lemma}) If $(\alpha, \beta, \gamma)$ is a morphism of triangles and two of $\alpha, \beta, \gamma$ are isomorphisms, so is the third.
+		In particular, in a triangle $0 \to Y \to Z \to 0$ the map $Y \to Z$ is an isomorphism.
+		\item[] \condlabel{TR-oct}{cond:TR-oct} (\emph{octahedral axiom}) For composable morphisms $X \xrightarrow{f} Y \xrightarrow{g} Z$ and chosen cones there is a triangle
+		\[
+		\Cone(f) \to \Cone(g f) \to \Cone(g) \to \Cone(f)[1]
+		\]
+		whose maps are compatible with the maps from $Y$, $Z$ and to $X[1]$, $Y[1]$.
+	\end{itemize}
+	
+	All subcategories are full and closed under isomorphisms.
+	For a class of objects $\mathcal{S}$ we write
+	\begin{align*}
+		\mathcal{S}^{\perp} &:= \defineset{ Y \in \calD }{ \Hom(S, Y) = 0 \text{ for all } S \in \mathcal{S} }, \\
+		{}^{\perp}\mathcal{S} &:= \defineset{ X \in \calD }{ \Hom(X, S) = 0 \text{ for all } S \in \mathcal{S} },
+	\end{align*}
+	and $\mathcal{S}[n] := \{ S[n] : S \in \mathcal{S} \}$.
+	A subcategory $\mathcal{C}$ is \emph{closed under extensions} if for every triangle $X \to Y \to Z \to X[1]$ with $X, Z \in \mathcal{C}$ also $Y \in \mathcal{C}$;
+	the \emph{extension closure} $\langle \mathcal{S} \rangle$ of a class $\mathcal{S}$ is the smallest subcategory containing $\mathcal{S}$ and $0$ and closed under extensions.
+	Since the split triangle $X \to X \oplus Z \to Z \xrightarrow{0} X[1]$ is distinguished, a subcategory closed under extensions is closed under finite direct sums.
+	
+	\subsection{Definition}
+	
+	A \emph{t-structure} on $\calD$ is a pair $(\Dle{0}, \Dge{0})$ of subcategories of $\calD$ such that, with the notation
+	\[
+	\Dle{n} := \Dle{0}[-n], \qquad \Dge{n} := \Dge{0}[-n] \qquad (n \in \ZZ),
+	\]
+	the following conditions hold:
+	\begin{itemize}
+		\item[] \condlabel{T1}{cond:T1} $\Dle{-1} \subset \Dle{0}$ and $\Dge{1} \subset \Dge{0}$, i.e.\ $\Dle{0}[1] \subset \Dle{0}$ and $\Dge{0}[-1] \subset \Dge{0}$;
+		\item[] \condlabel{T2}{cond:T2} $\Hom(X, Y) = 0$ for all $X \in \Dle{0}$ and $Y \in \Dge{1}$;
+		\item[] \condlabel{T3}{cond:T3} for every object $E \in \calD$ there is a triangle
+		\[
+		A \to E \to B \to A[1] \qquad \text{with } A \in \Dle{0} \text{ and } B \in \Dge{1}.
+		\]
+	\end{itemize}
+	The subcategory $\Dle{0}$ is called the \emph{aisle} and $\Dge{0}$ the \emph{coaisle} of the t-structure.
+	Applying the shift, \condref{cond:T1}--\condref{cond:T3} hold with $0$ replaced by any $n \in \ZZ$:
+	$\Dle{n-1} \subset \Dle{n}$, $\Dge{n+1} \subset \Dge{n}$, $\Hom(\Dle{n}, \Dge{n+1}) = 0$, and every object sits in a triangle $A \to E \to B \to A[1]$ with $A \in \Dle{n}$, $B \in \Dge{n+1}$.
+	By induction, $\Dle{n} \subset \Dle{m}$ and $\Dge{m} \subset \Dge{n}$ for $n \leqslant m$.
+	
+	The intuition comes from the standard example: for an abelian category $\calA$ and $\calD = \D^{\mathrm{b}}(\calA)$, the complexes with cohomology concentrated in degrees $\leqslant 0$, respectively $\geqslant 0$, form a t-structure, and the triangle in \condref{cond:T3} is the usual truncation $\tau^{\leqslant 0} E \to E \to \tau^{\geqslant 1} E$ of complexes; this example will be treated in detail below.
+	
+	\subsection{Truncation functors}
+	
+	\begin{lemma}
+		\label{lem:truncation_unique}
+		Let $(\Dle{0}, \Dge{0})$ satisfy \condref{cond:T1} and \condref{cond:T2}, let $E \in \calD$, and let $A \xrightarrow{a} E \xrightarrow{b} B \to A[1]$ be a triangle with $A \in \Dle{0}$ and $B \in \Dge{1}$.
+		\begin{enumerate}
+			\item For every $T \in \Dle{0}$ the map $a_* \colon \Hom(T, A) \to \Hom(T, E)$ is bijective, and for every $T \in \Dge{1}$ the map $b^* \colon \Hom(B, T) \to \Hom(E, T)$ is bijective.
+			\item If $A' \xrightarrow{a'} E \xrightarrow{b'} B' \to A'[1]$ is another triangle with $A' \in \Dle{0}$ and $B' \in \Dge{1}$, then there are unique morphisms $\alpha \colon A \to A'$ with $a' \alpha = a$ and $\beta \colon B \to B'$ with $\beta b = b'$; both are isomorphisms, and $(\alpha, \id_E, \beta)$ is an isomorphism of triangles.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{proof}
+		(1) By \condref{cond:TR-coh} and \condref{cond:TR-rot} the sequence
+		\[
+		\Hom(T, B[-1]) \to \Hom(T, A) \xrightarrow{a_*} \Hom(T, E) \to \Hom(T, B)
+		\]
+		is exact.
+		For $T \in \Dle{0}$ the last term vanishes by \condref{cond:T2}, and so does the first, because $B[-1] \in \Dge{2} \subset \Dge{1}$ by \condref{cond:T1}.
+		Hence $a_*$ is bijective.
+		Dually, the sequence $\Hom(A[1], T) \to \Hom(B, T) \xrightarrow{b^*} \Hom(E, T) \to \Hom(A, T)$ is exact, and for $T \in \Dge{1}$ both outer terms vanish, since $A[1] \in \Dle{-1} \subset \Dle{0}$.
+		
+		(2) Applying (1) to the second triangle with $T = A \in \Dle{0}$ gives a unique $\alpha \colon A \to A'$ with $a' \alpha = a$;
+		applying it to the first triangle with $T = A'$ gives a unique $\alpha' \colon A' \to A$ with $a \alpha' = a'$.
+		Then $a (\alpha' \alpha) = a' \alpha = a = a \, \id_A$, so $\alpha' \alpha = \id_A$ by the uniqueness in (1), and likewise $\alpha \alpha' = \id_{A'}$.
+		In the same way there is a unique $\beta \colon B \to B'$ with $\beta b = b'$, and it is an isomorphism.
+		By the axioms of a triangulated category the commutative square $a' \alpha = a \, \id_E$ extends to a morphism of triangles $(\alpha, \id_E, \beta'')$ for some $\beta'' \colon B \to B'$;
+		then $\beta'' b = b'$, so $\beta'' = \beta$ by uniqueness, and $(\alpha, \id_E, \beta)$ is a morphism of triangles, which is an isomorphism by \condref{cond:TR-5}.
+	\end{proof}
+	
+	Let now $(\Dle{0}, \Dge{0})$ be a t-structure.
+	For every object $E$ we fix a triangle as in \condref{cond:T3} and write it
+	\begin{equation}
+		\label{eq:truncation_triangle}
+		\tau^{\leqslant 0} E \to E \to \tau^{\geqslant 1} E \to (\tau^{\leqslant 0} E)[1] .
+	\end{equation}
+	By Lemma~\ref{lem:truncation_unique}(2) it is unique up to unique isomorphism.
+	For a morphism $f \colon E \to E'$ there is a unique morphism $\tau^{\leqslant 0} f \colon \tau^{\leqslant 0} E \to \tau^{\leqslant 0} E'$ compatible with the maps to $E$ and $E'$, namely the preimage of $f \circ (\tau^{\leqslant 0} E \to E)$ under the bijection of Lemma~\ref{lem:truncation_unique}(1) with $T = \tau^{\leqslant 0} E$;
+	uniqueness implies $\tau^{\leqslant 0}(g f) = \tau^{\leqslant 0} g \circ \tau^{\leqslant 0} f$ and $\tau^{\leqslant 0} \id = \id$.
+	Thus $\tau^{\leqslant 0}$ is a functor $\calD \to \Dle{0}$, and Lemma~\ref{lem:truncation_unique}(1) says precisely that it is right adjoint to the inclusion $\Dle{0} \hookrightarrow \calD$.
+	Dually $\tau^{\geqslant 1} \colon \calD \to \Dge{1}$ is a functor, left adjoint to the inclusion $\Dge{1} \hookrightarrow \calD$.
+	For $n \in \ZZ$ put
+	\[
+	\tau^{\leqslant n} := [-n] \circ \tau^{\leqslant 0} \circ [n], \qquad \tau^{\geqslant n} := [-n+1] \circ \tau^{\geqslant 1} \circ [n-1] ;
+	\]
+	these are right, respectively left, adjoint to the inclusions of $\Dle{n}$ and $\Dge{n}$, and for every $E$ there is a triangle $\tau^{\leqslant n} E \to E \to \tau^{\geqslant n+1} E \to (\tau^{\leqslant n} E)[1]$, unique up to unique isomorphism among triangles with first term in $\Dle{n}$ and third term in $\Dge{n+1}$.
+	We call these the \emph{truncation triangles} and $\tau^{\leqslant n}$, $\tau^{\geqslant n}$ the \emph{truncation functors}.
+	
+	\begin{lemma}
+		\label{lem:t_orthogonal}
+		Let $(\Dle{0}, \Dge{0})$ be a t-structure. Then:
+		\begin{enumerate}
+			\item $\Dge{1} = (\Dle{0})^{\perp}$ and $\Dle{0} = {}^{\perp}(\Dge{1})$; in particular each of $\Dle{0}$, $\Dge{0}$ determines the other.
+			\item An object $E$ lies in $\Dle{0}$ if and only if $\tau^{\geqslant 1} E = 0$, and in $\Dge{1}$ if and only if $\tau^{\leqslant 0} E = 0$.
+			\item $\Dle{0}$ and $\Dge{0}$ are closed under extensions, finite direct sums and direct summands.
+		\end{enumerate}
+		The same statements hold with $0$ replaced by any $n \in \ZZ$.
+	\end{lemma}
+	
+	\begin{proof}
+		(1) The inclusion $\Dge{1} \subset (\Dle{0})^{\perp}$ is \condref{cond:T2}.
+		Conversely let $E \in (\Dle{0})^{\perp}$.
+		The map $\tau^{\leqslant 0} E \to E$ is then zero, since $\tau^{\leqslant 0} E \in \Dle{0}$.
+		By Lemma~\ref{lem:truncation_unique}(1) with $T = \tau^{\leqslant 0} E$ the map $\Hom(\tau^{\leqslant 0} E, \tau^{\leqslant 0} E) \to \Hom(\tau^{\leqslant 0} E, E)$ is injective, and it sends the identity to zero;
+		hence $\id_{\tau^{\leqslant 0} E} = 0$, i.e.\ $\tau^{\leqslant 0} E = 0$.
+		The truncation triangle becomes $0 \to E \to \tau^{\geqslant 1} E \to 0$, so $E \cong \tau^{\geqslant 1} E \in \Dge{1}$ by \condref{cond:TR-5}.
+		The second equality is proved dually.
+		
+		(2) If $E \in \Dle{0}$, then $E \xrightarrow{\id} E \to 0 \to E[1]$ is a triangle with first term in $\Dle{0}$ and third term in $\Dge{1}$, so $\tau^{\geqslant 1} E \cong 0$ by uniqueness.
+		Conversely, if $\tau^{\geqslant 1} E = 0$, then $E \cong \tau^{\leqslant 0} E \in \Dle{0}$.
+		The second statement is dual.
+		
+		(3) By (1), $\Dle{0}$ is a left orthogonal ${}^{\perp}\mathcal{S}$ and $\Dge{0} = \Dge{1}[1]$ is a right orthogonal $\mathcal{S}'^{\perp}$.
+		A left orthogonal is closed under extensions: if $X \to Y \to Z \to X[1]$ is a triangle with $\Hom(X, S) = \Hom(Z, S) = 0$, then $\Hom(Y, S) = 0$ by the exact sequence $\Hom(Z, S) \to \Hom(Y, S) \to \Hom(X, S)$ of \condref{cond:TR-coh};
+		it is closed under direct summands because $\Hom(X \oplus X', S) = \Hom(X, S) \oplus \Hom(X', S)$;
+		and closure under finite direct sums follows from closure under extensions.
+		Right orthogonals are treated in the same way.
+	\end{proof}
+	
+	\begin{remark}
+		Because of Lemma~\ref{lem:t_orthogonal}(1) a t-structure is often specified by its aisle $\Dle{0}$ alone.
+		Note also the shape of the truncation triangle in Lemma~\ref{lem:truncation_unique}: it is exactly the triangle obtained by cutting a Harder--Narasimhan filtration between two consecutive factors, with $\Dle{0}$ playing the role of ``large phases'' and $\Dge{1}$ of ``small phases'';
+		this analogy will be made precise when we discuss slicings.
+	\end{remark}
+	
+	\subsection{The heart}
+	
+	Let $(\Dle{0}, \Dge{0})$ be a t-structure on $\calD$.
+	Its \emph{heart} is the subcategory
+	\[
+	\calA := \Dle{0} \cap \Dge{0} .
+	\]
+	By Lemma~\ref{lem:t_orthogonal}(3) it is closed under extensions, finite direct sums and direct summands, and it contains $0$;
+	so it is an additive subcategory of $\calD$.
+	For $n \in \ZZ$ we have $\calA[n] = \Dle{-n} \cap \Dge{-n}$ (the objects ``concentrated in degree $-n$''), and
+	\begin{equation}
+		\label{eq:heart_negative_ext}
+		\Hom(X, Y[k]) = 0 \qquad \text{for all } X, Y \in \calA \text{ and } k < 0,
+	\end{equation}
+	because $X \in \Dle{0}$ and $Y[k] \in \Dge{-k} \subset \Dge{1}$.
+	
+	Throughout the rest of this subsection we fix the t-structure and its heart $\calA$, and we repeatedly use the following observation.
+	
+	\begin{lemma}
+		\label{lem:cone_in_heart}
+		Let $f \colon X \to Y$ be a morphism in $\calA$ and $X \xrightarrow{f} Y \to C \to X[1]$ a triangle.
+		Then $C \in \Dle{0} \cap \Dge{-1}$, and in the truncation triangle $\tau^{\leqslant -1} C \to C \to \tau^{\geqslant 0} C \to (\tau^{\leqslant -1} C)[1]$ the objects
+		\[
+		K := (\tau^{\leqslant -1} C)[-1] \qquad\text{and}\qquad Q := \tau^{\geqslant 0} C
+		\]
+		both lie in $\calA$.
+	\end{lemma}
+	
+	\begin{proof}
+		By \condref{cond:TR-rot}, $C$ is an extension of $X[1]$ by $Y$: there is a triangle $Y \to C \to X[1] \to Y[1]$.
+		Since $Y \in \Dle{0}$ and $X[1] \in \Dle{-1} \subset \Dle{0}$, Lemma~\ref{lem:t_orthogonal}(3) gives $C \in \Dle{0}$;
+		since $Y \in \Dge{0}$ and $X[1] \in \Dge{-1}$, and $\Dge{0} \subset \Dge{-1}$, it gives $C \in \Dge{-1}$.
+		
+		By definition $\tau^{\leqslant -1} C \in \Dle{-1}$ and $Q = \tau^{\geqslant 0} C \in \Dge{0}$.
+		The rotated truncation triangle $Q[-1] \to \tau^{\leqslant -1} C \to C \to Q$ exhibits $\tau^{\leqslant -1} C$ as an extension of $C \in \Dge{-1}$ by $Q[-1] \in \Dge{1} \subset \Dge{-1}$, so $\tau^{\leqslant -1} C \in \Dge{-1}$ and hence $K = (\tau^{\leqslant -1} C)[-1] \in \Dle{0} \cap \Dge{0} = \calA$.
+		The triangle $C \to Q \to (\tau^{\leqslant -1} C)[1] \to C[1]$ exhibits $Q$ as an extension of $(\tau^{\leqslant -1} C)[1] \in \Dle{-2} \subset \Dle{0}$ by $C \in \Dle{0}$, so $Q \in \Dle{0}$ and hence $Q \in \calA$.
+	\end{proof}
+	
+	In the situation of Lemma~\ref{lem:cone_in_heart} we define morphisms $\kappa \colon K \to X$ and $\pi \colon Y \to Q$ as the composites
+	\[
+	\kappa \colon K = (\tau^{\leqslant -1} C)[-1] \longrightarrow C[-1] \longrightarrow X ,
+	\qquad
+	\pi \colon Y \longrightarrow C \longrightarrow Q ,
+	\]
+	where $C[-1] \to X$ is the map of the rotated triangle $C[-1] \to X \xrightarrow{f} Y \to C$.
+	
+	\begin{proposition}
+		\label{prop:kernel_cokernel}
+		In the situation of Lemma~\ref{lem:cone_in_heart}, $\kappa \colon K \to X$ is a kernel of $f$ in $\calA$ and $\pi \colon Y \to Q$ is a cokernel of $f$ in $\calA$.
+	\end{proposition}
+	
+	\begin{proof}
+		We show that for every $T \in \calA$ the sequence
+		\[
+		0 \to \Hom(T, K) \xrightarrow{\kappa_*} \Hom(T, X) \xrightarrow{f_*} \Hom(T, Y)
+		\]
+		is exact; by the Yoneda lemma this means that $\kappa$ is a kernel of $f$ in $\calA$.
+		
+		First, $\Hom(T, K) \to \Hom(T, C[-1])$ is bijective.
+		Indeed, the triangle $K \to C[-1] \to Q[-1] \to K[1]$ (the truncation triangle of $C$ shifted by $[-1]$) gives an exact sequence
+		\[
+		\Hom(T, Q[-2]) \to \Hom(T, K) \to \Hom(T, C[-1]) \to \Hom(T, Q[-1]) ,
+		\]
+		and both outer terms vanish by \condref{cond:T2}, because $T \in \Dle{0}$ while $Q[-1] \in \Dge{1}$ and $Q[-2] \in \Dge{2} \subset \Dge{1}$.
+		
+		Next, the rotated triangle $Y[-1] \to C[-1] \to X \xrightarrow{f} Y$ gives an exact sequence
+		\[
+		\Hom(T, Y[-1]) \to \Hom(T, C[-1]) \to \Hom(T, X) \xrightarrow{f_*} \Hom(T, Y) ,
+		\]
+		in which $\Hom(T, Y[-1]) = 0$ by \eqref{eq:heart_negative_ext}.
+		Hence $\Hom(T, C[-1]) \to \Hom(T, X)$ is injective with image $\ker f_*$.
+		Composing with the bijection of the previous paragraph gives the claim for $\kappa_* = (\text{this map}) \circ (\text{bijection})$.
+		
+		The statement about $\pi$ is proved dually, using the exact sequences
+		\begin{align*}
+			&\Hom(K[2], T) \to \Hom(Q, T) \to \Hom(C, T) \to \Hom(K[1], T), \\
+			&\Hom(X[1], T) \to \Hom(C, T) \to \Hom(Y, T) \xrightarrow{f^*} \Hom(X, T),
+		\end{align*}
+		in which $\Hom(K[1], T) = \Hom(K[2], T) = 0$ by \condref{cond:T2} (as $K[1] \in \Dle{-1}$, $K[2] \in \Dle{-2}$ and $T \in \Dge{0}$, so $\Hom(K[j], T) = \Hom(K[j-1], T[-1])$ with $T[-1] \in \Dge{1}$) and $\Hom(X[1], T) = 0$ by \eqref{eq:heart_negative_ext}.
+	\end{proof}
+	
+	\begin{lemma}
+		\label{lem:triangles_vs_ses}
+		Let $X', X, X'' \in \calA$.
+		\begin{enumerate}
+			\item If $X' \xrightarrow{u} X \xrightarrow{v} X'' \to X'[1]$ is a triangle, then $0 \to X' \xrightarrow{u} X \xrightarrow{v} X'' \to 0$ is a short exact sequence in $\calA$, i.e.\ $u$ is a kernel of $v$ and $v$ is a cokernel of $u$.
+			\item Conversely, if $0 \to X' \xrightarrow{u} X \xrightarrow{v} X'' \to 0$ is a short exact sequence in $\calA$ (meaning that $u$ is a kernel of $v$ and $v$ is a cokernel of $u$), then there is a unique morphism $w \colon X'' \to X'[1]$ such that $X' \xrightarrow{u} X \xrightarrow{v} X'' \xrightarrow{w} X'[1]$ is a triangle.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{proof}
+		(1) Apply Lemma~\ref{lem:cone_in_heart} and Proposition~\ref{prop:kernel_cokernel} to $f = u$ with cone $C = X''$.
+		Since $X'' \in \Dge{0}$, Lemma~\ref{lem:t_orthogonal}(2) (shifted) gives $\tau^{\leqslant -1} X'' = 0$, so $K = 0$ and $Q = X''$ with $\pi = v$;
+		thus $u$ is a monomorphism (its kernel is zero) and $v$ is a cokernel of $u$.
+		Apply them next to $f = v$, whose cone is $X'[1]$ by \condref{cond:TR-rot}:
+		since $X'[1] \in \Dle{-1}$ we get $\tau^{\leqslant -1}(X'[1]) = X'[1]$ and $\tau^{\geqslant 0}(X'[1]) = 0$, so $K = X'$ and $Q = 0$;
+		thus $v$ is an epimorphism and its kernel is $\kappa \colon X' \to X$, which is $u$ up to sign (the sign comes from the rotation in \condref{cond:TR-rot} and does not affect the kernel).
+		
+		(2) Complete $u$ to a triangle $X' \xrightarrow{u} X \xrightarrow{v'} C \to X'[1]$ and form $K$, $Q$, $\kappa$, $\pi$ as in Lemma~\ref{lem:cone_in_heart}.
+		By Proposition~\ref{prop:kernel_cokernel}, $\kappa \colon K \to X'$ is a kernel of $u$; as $u$ is a monomorphism, $K = 0$, i.e.\ $\tau^{\leqslant -1} C = 0$, and the map $C \to Q = \tau^{\geqslant 0} C$ is an isomorphism by \condref{cond:TR-5}.
+		In particular $C \in \calA$, and $\pi \colon X \to Q$ identifies with $v' \colon X \to C$, which is therefore a cokernel of $u$.
+		Two cokernels of $u$ are related by a unique isomorphism $\theta \colon C \to X''$ with $\theta v' = v$.
+		Transporting the triangle along $\theta$ we obtain a triangle $X' \xrightarrow{u} X \xrightarrow{v} X'' \xrightarrow{w} X'[1]$.
+		For uniqueness of $w$: if $w'$ also completes $u, v$ to a triangle, then by the axioms there is a morphism of triangles $(\id, \id, \gamma)$ between the two, with $\gamma \in \End(X'')$ satisfying $\gamma v = v$, hence $\gamma = \id$ since $v$ is an epimorphism; the compatibility with the third maps then reads $w' = w$.
+	\end{proof}
+	
+	\begin{theorem}
+		\label{thm:heart_abelian}
+		The heart $\calA$ of a t-structure is an abelian category.
+		Its short exact sequences are exactly the triangles of $\calD$ with all three terms in $\calA$, in the sense of Lemma~\ref{lem:triangles_vs_ses}.
+	\end{theorem}
+	
+	\begin{proof}
+		$\calA$ is additive, and every morphism has a kernel and a cokernel by Proposition~\ref{prop:kernel_cokernel}.
+		It remains to show that for every $f \colon X \to Y$ in $\calA$ the canonical morphism from the coimage $\operatorname{coker}(\ker f \to X)$ to the image $\ker(Y \to \operatorname{coker} f)$ is an isomorphism.
+		
+		Let $X \xrightarrow{f} Y \xrightarrow{g} C \to X[1]$ be a triangle, and let $K$, $Q$, $\kappa$, $\pi$ be as above, with $q \colon C \to Q$ the truncation map, so that $\pi = q g$.
+		Choose a triangle $I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1]$.
+		We apply \condref{cond:TR-oct} to the composable pair $Y \xrightarrow{g} C \xrightarrow{q} Q$: the cones are $\Cone(g) = X[1]$, $\Cone(q g) = \Cone(\pi) = I[1]$ and $\Cone(q) = (\tau^{\leqslant -1} C)[1] = K[2]$, so there is a triangle
+		\[
+		X[1] \to I[1] \to K[2] \to X[2] ,
+		\]
+		which after rotating and shifting becomes a triangle $K \to X \xrightarrow{e} I \to K[1]$;
+		the compatibilities in the octahedral axiom say that $j e = f$ and that $K \to X$ is the map $\kappa$ (up to sign).
+		
+		We claim that $I \in \calA$.
+		From the triangle $Q[-1] \to I \xrightarrow{j} Y \to Q$ and $Q[-1] \in \Dge{1} \subset \Dge{0}$, $Y \in \Dge{0}$ we get $I \in \Dge{0}$;
+		from the triangle $X \xrightarrow{e} I \to K[1] \to X[1]$ and $X \in \Dle{0}$, $K[1] \in \Dle{-1} \subset \Dle{0}$ we get $I \in \Dle{0}$.
+		
+		Now Lemma~\ref{lem:triangles_vs_ses}(1) applies to both triangles $K \to X \xrightarrow{e} I \to K[1]$ and $I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1]$, all of whose terms lie in $\calA$:
+		\[
+		0 \to K \xrightarrow{\pm\kappa} X \xrightarrow{e} I \to 0
+		\qquad\text{and}\qquad
+		0 \to I \xrightarrow{j} Y \xrightarrow{\pi} Q \to 0
+		\]
+		are short exact sequences in $\calA$.
+		The first says that $e$ is a cokernel of $\kappa = \ker f$, i.e.\ $e \colon X \to I$ is the coimage of $f$;
+		the second says that $j$ is a kernel of $\pi = \operatorname{coker} f$, i.e.\ $j \colon I \to Y$ is the image of $f$.
+		Since $f = j e$, the canonical map $\operatorname{coim} f \to \operatorname{im} f$ is the identity of $I$, an isomorphism.
+		Hence $\calA$ is abelian.
+		The last assertion is Lemma~\ref{lem:triangles_vs_ses}.
+	\end{proof}
+	
+	\begin{remark}
+		The proof shows more precisely how kernels, cokernels and images of a morphism $f \colon X \to Y$ in $\calA$ are read off from its cone $C$: the cone lives in two consecutive ``degrees'' $-1$ and $0$, and
+		\[
+		\ker f = (\tau^{\leqslant -1} C)[-1], \qquad \operatorname{coker} f = \tau^{\geqslant 0} C .
+		\]
+		In particular $f$ is a monomorphism in $\calA$ if and only if $C \in \calA$, and an epimorphism if and only if $C \in \calA[1]$.
+		Note also that a monomorphism in $\calA$ need not be a monomorphism in $\calD$, and the heart is in general not closed under cones: if $f$ has nonzero kernel, then $C \notin \calA$.
+	\end{remark}
+
+
 \end{document}
