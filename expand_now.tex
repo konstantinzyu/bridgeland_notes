@@ -71,10 +71,11 @@
 
 \theoremstyle{definition}
 
-\newenvironment{example}{\indent \textbf{Example.}}{$ \hfill \bigstar $}
+\newtheorem{example}[theorem]{Example}
 
 % preamble
 \usepackage{etoolbox}
+\AtEndEnvironment{example}{\hfill$\bigstar$}
 \newcounter{pstep}
 \AtBeginEnvironment{proof}{\setcounter{pstep}{0}}
 \newcommand{\step}[1]{\par\medskip\noindent\refstepcounter{pstep}\textbf{Step \thepstep}\ (\textit{#1}).\ \ignorespaces}
