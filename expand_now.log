@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  14 OCT 2026 15:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  14 OCT 2026 15:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1083,7 +1083,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.587 		\step{the Harder--Narasimhan polygon}
+l.586 		\step{the Harder--Narasimhan polygon}
                                               [7] [8] [9] [10] [11] [12]
 [13] (./expand_now.aux)
  ***********
@@ -1095,7 +1095,7 @@ Package rerunfilecheck Info: File `expand_now.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  27712 strings out of 474222
- 498261 string characters out of 5748734
+ 498264 string characters out of 5748734
  1944975 words of memory out of 5000000
  49256 multiletter control sequences out of 15000+600000
  570488 words of font info for 92 fonts, out of 8000000 for 9000
@@ -1122,7 +1122,7 @@ s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on expand_now.pdf (13 pages, 313928 bytes).
+Output written on expand_now.pdf (13 pages, 315340 bytes).
 PDF statistics:
  305 PDF objects out of 1000 (max. 8388607)
  243 compressed objects within 3 object streams
