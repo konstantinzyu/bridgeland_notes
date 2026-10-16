@@ -264,7 +264,7 @@
 	
 	\subsection{Stability functions}
 	
-	A group homomorphism $Z \colon \Kgroup(\calA) \to \CC$ is called a \emph{stability function} on $\calA$ if
+	A group homomorphism $Z \colon \Kgroup(\calA) \to \CC$ is called a \emph{stability function} on $\calA$ (\cite[Def.~4.1]{MS17}, \cite[Def.~2.1]{Bri07}) if
 	\begin{itemize}
 		\item[] \condlabel{Z}{cond:Z} $Z(E) \in \HH$ for every nonzero object $E \in \calA$.
 	\end{itemize}
@@ -282,7 +282,7 @@
 		the rank $R$, the degree $D$ and the slope $M$ reappear in the proof of existence of HN filtrations, where the geometry of the plane is more conveniently expressed through them.
 	\end{remark}
 	
-	Let $Z$ be a stability function on $\calA$. A nonzero object $E \in \calA$ is called \emph{$(\calA, Z)$-semistable} if
+	Let $Z$ be a stability function on $\calA$. A nonzero object $E \in \calA$ is called \emph{$(\calA, Z)$-semistable} (\cite[Def.~4.2]{MS17}, \cite[Def.~2.2]{Bri07}) if
 	\begin{itemize}
 		\item[] \condlabel{AZ-SS}{cond:AZ-SS} $\varphi(F) \leqslant \varphi(E)$ for every nontrivial subobject $F \subset E$,
 	\end{itemize}
@@ -321,7 +321,7 @@
 
 	An $(\calA, Z)$-semistable object $E$ has the HN filtration $0 \subset E$ of length $n = 1$; conversely, if an HN filtration of $E$ has length $1$, then $E$ is $(\calA, Z)$-semistable. Uniqueness of HN filtrations will be proved below; until then the words ``maximal phase'' refer to a chosen filtration.
 	
-	A \emph{stability condition} on the abelian category $\calA$ (\cite[Def.~4.6]{MS17}, \cite[Def.~2.1]{Bri07}) is a pair $(\calA, Z)$, where $Z \colon \Kgroup(\calA) \to \CC$ is a group homomorphism, such that
+	A \emph{stability condition} on the abelian category $\calA$ (\cite[Def.~4.6]{MS17}, \cite[Def.~2.3]{Bri07}) is a pair $(\calA, Z)$, where $Z \colon \Kgroup(\calA) \to \CC$ is a group homomorphism, such that
 	\begin{itemize}
 		\item[] \condlabel{AZ-SC1}{cond:AZ-SC1} $Z$ is a stability function on $\calA$, i.e.\ condition \condref{cond:Z} holds;
 		\item[] \condlabel{AZ-SC2}{cond:AZ-SC2} (\emph{Harder--Narasimhan property}) every nonzero object $E \in \calA$ admits an HN filtration with respect to $(\calA, Z)$.
@@ -338,7 +338,7 @@
 	
 	Throughout this subsection $Z$ is a stability function on $\calA$.
 	
-	\begin{lemma}[see-saw, {\cite[Lemma~4.4]{MS17}}, {\cite[Lemma~3]{Rud97}}]
+	\begin{lemma}[see-saw, {\cite[Lemmas~1.2, 1.3]{Rud97}}]
 		\label{lem:seesaw}
 		Let $0 = E_0 \subset E_1 \subset \ldots \subset E_m = E$ be a chain of subobjects with nonzero factors $B_j := E_j / E_{j-1}$, $j = 1, \ldots, m$. Then
 		\[
@@ -384,7 +384,7 @@
 		For a short exact sequence apply the above to the chain $0 \subset F \subset E$ with factors $F, G$: if, say, $\varphi(F) \leqslant \varphi(G)$, then $\varphi(F) \leqslant \varphi(E) \leqslant \varphi(G)$ and $\varphi(E)$ equals one of the endpoints only if $\varphi(F) = \varphi(G)$; the case $\varphi(F) \geqslant \varphi(G)$ is symmetric.
 	\end{proof}
 	
-	\begin{lemma}[quotient characterization]
+	\begin{lemma}[quotient characterization, {\cite[Exercise~4.4]{MS17}}]
 		\label{lem:quotients}
 		A nonzero object $E$ is $(\calA, Z)$-semistable 
 		if and only if $\varphi(E) \leqslant \varphi(G)$ for every nonzero quotient $E \twoheadrightarrow G$, 
@@ -399,7 +399,7 @@
 		The subobject $F = E$ and the quotient $G = E$ impose no condition.
 	\end{proof}
 	
-	\begin{lemma}[Schur, {\cite[Lemma~4.5]{MS17}}]
+	\begin{lemma}[Schur, {\cite[Thm~1]{Rud97}}, {\cite[Lemma~4.5]{MS17}}]
 		\label{lem:schur}
 		Let $E, F$ be $(\calA, Z)$-semistable objects.
 		\begin{enumerate}
@@ -444,7 +444,7 @@
 	
 	\subsection{Uniqueness of Harder--Narasimhan filtrations}
 	
-	\begin{proposition}[{\cite[Thm~2]{Rud97}}]
+	\begin{proposition}[{\cite[Thm~2]{Rud97}}, {\cite[Exercise~4.7]{MS17}}]
 		\label{prop:HN_unique}
 		Let $Z$ be a stability function on $\calA$ and let $E$ be a nonzero object. If
 		\[
@@ -463,7 +463,7 @@
 		\step{induction} If $n = 1$, then $E = E_1 = E'_1$, so $m = 1$ as well. If $n > 1$, consider $\bar E := E / E_1 = E / E'_1 \neq 0$. The images $\bar E_i := E_i / E_1$, $i \geqslant 1$, form a chain $0 = \bar E_1 \subset \ldots \subset \bar E_n = \bar E$ with factors $\bar E_i / \bar E_{i-1} \cong E_i / E_{i-1} = A_i$ for $i \geqslant 2$, hence an HN filtration of $\bar E$ of length $n - 1$; similarly for $\bar E'_j := E'_j / E'_1$. By induction $n - 1 = m - 1$ and $\bar E_i = \bar E'_i$ for all $i \geqslant 1$. Since subobjects of $\bar E$ correspond bijectively to subobjects of $E$ containing $E_1 = E'_1$, we get $E_i = E'_i$ for all $i$.
 	\end{proof}
 	
-	\begin{corollary}
+	\begin{corollary}[{\cite[Prop.~1.9]{Rud97}}]
 		\label{cor:HN_sub}
 		Let $(\calA, Z)$ be a stability condition and $E$ a nonzero object. Then $\varphi^+(E) = \max \{ \varphi(F) : 0 \neq F \subset E \}$, and the first step $E_1$ of the HN filtration is the unique largest subobject of $E$ of phase $\varphi^+(E)$. Dually $\varphi^-(E) = \min \{ \varphi(G) : E \twoheadrightarrow G \neq 0 \}$.
 	\end{corollary}
@@ -538,7 +538,7 @@
 		Since $D(G_k) > D(G_{k-1})$, the inclusion $G_{k-1} \subset G_k$ is strict, so $G_1 \subsetneq G_2 \subsetneq \ldots$ is an infinite strictly ascending chain of subobjects of $E$, contradicting noetherianity.
 	\end{proof}
 	
-	\begin{proposition}[{\cite[Prop.~4.10]{MS17}}, {\cite[Prop.~2.4]{Bri07}}]
+	\begin{proposition}[{\cite[Prop.~4.10]{MS17}}; cf.\ {\cite[Thm~2]{Rud97}}, {\cite[Prop.~2.4]{Bri07}}]
 		\label{prop:HN_existence}
 		Let $Z$ be a stability function on $\calA$.
 		Assume that $\calA$ is noetherian and that $R = \im Z$ has discrete image.
@@ -843,7 +843,7 @@
 	\end{example}
 	
 	\begin{example}
-		Let $X$ be a smooth projective variety of dimension $n \geqslant 2$ and $\omega$ an ample divisor class. The homomorphism $Z(E) := -\omega^{n-1} \cdot c_1(E) + i \, \omega^n \cdot \operatorname{rk} E$ on $\Kgroup(\mathrm{Coh}(X))$ is not a stability function: for a nonzero sheaf $T$ supported in codimension $\geqslant 2$ both $\operatorname{rk} T$ and $c_1(T)$ vanish, so $Z(T) = 0 \notin \HH$. One can show that no homomorphism factoring through the Chern character is a stability function on $\mathrm{Coh}(X)$ (see \cite[Example~4.3]{MS17} and, for surfaces, \cite[Lemma~2.7]{Bri08}); this is the reason for passing to other hearts in the derived category.
+		Let $X$ be a smooth projective variety of dimension $n \geqslant 2$ and $\omega$ an ample divisor class. The homomorphism $Z(E) := -\omega^{n-1} \cdot c_1(E) + i \, \omega^n \cdot \operatorname{rk} E$ on $\Kgroup(\mathrm{Coh}(X))$ is not a stability function: for a nonzero sheaf $T$ supported in codimension $\geqslant 2$ both $\operatorname{rk} T$ and $c_1(T)$ vanish, so $Z(T) = 0 \notin \HH$. One can show that no homomorphism factoring through the Chern character is a stability function on $\mathrm{Coh}(X)$ (see \cite[Example~4.3]{MS17}, where this is deduced from \cite[Lemma~2.7]{Tod09}); this is the reason for passing to other hearts in the derived category.
 	\end{example}
 	
 	\begin{example}[{\cite[Exercise~4.13]{MS17}}]
@@ -924,7 +924,7 @@
 	
 	\subsection{Definition}
 	
-	A \emph{t-structure} on $\calD$ (\cite[D\'ef.~1.3.1]{BBD82}, \cite[Def.~5.1]{MS17}) is a pair $(\Dle{0}, \Dge{0})$ of subcategories of $\calD$ such that, with the notation
+	A \emph{t-structure} on $\calD$ (\cite[D\'ef.~1.3.1]{BBD82}) is a pair $(\Dle{0}, \Dge{0})$ of subcategories of $\calD$ such that, with the notation
 	\[
 	\Dle{n} := \Dle{0}[-n], \qquad \Dge{n} := \Dge{0}[-n] \qquad (n \in \ZZ),
 	\]
@@ -1134,7 +1134,7 @@
 		For uniqueness of $w$: if $w'$ also completes $u, v$ to a triangle, then by the axioms there is a morphism of triangles $(\id, \id, \gamma)$ between the two, with $\gamma \in \End(X'')$ satisfying $\gamma v = v$, hence $\gamma = \id$ since $v$ is an epimorphism; the compatibility with the third maps then reads $w' = w$.
 	\end{proof}
 	
-	\begin{theorem}[{\cite[Thm~1.3.6]{BBD82}}]
+	\begin{theorem}[{\cite[Th\'eor\`eme~1.3.6]{BBD82}}]
 		\label{thm:heart_abelian}
 		The heart $\calA$ of a t-structure is an abelian category.
 		Its short exact sequences are exactly the triangles of $\calD$ with all three terms in $\calA$, in the sense of Lemma~\ref{lem:triangles_vs_ses}.
@@ -1248,6 +1248,11 @@
 		S.~S. Shatz,
 		\emph{The decomposition and specialization of algebraic families of vector bundles},
 		Compositio Math. \textbf{35} (1977), no.~2, 163--187.
+		
+		\bibitem[Tod09]{Tod09}
+		Y.~Toda,
+		\emph{Limit stable objects on Calabi--Yau 3-folds},
+		Duke Math.\ J. \textbf{149} (2009), no.~1, 157--208.
 		
 	\end{thebibliography}
 
