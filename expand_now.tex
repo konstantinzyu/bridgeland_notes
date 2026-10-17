@@ -1246,12 +1246,20 @@
 		\Hom(T, \tau^{\leqslant a} \tau^{\leqslant b} E) \cong \Hom(T, \tau^{\leqslant b} E) \cong \Hom(T, E) \cong \Hom(T, \tau^{\leqslant a} E) ,
 		\]
 		all induced by the natural maps to $E$;
-		by the Yoneda lemma the natural map $\tau^{\leqslant a} \tau^{\leqslant b} E \to \tau^{\leqslant a} E$ is an isomorphism.
+		by the Yoneda lemma the natural map 
+		\[
+		\tau^{\leqslant a} \tau^{\leqslant b} E \to \tau^{\leqslant a} E
+		\] 
+		is an isomorphism.
 		The second isomorphism is dual.
 		
 		(2) Put $X := \tau^{\leqslant b} E$.
-		The composite $\tau^{\leqslant a-1} E \to E$ factors uniquely through $X$ (adjunction, as $\tau^{\leqslant a-1} E \in \Dle{a-1} \subset \Dle{b}$), and by (1) the resulting map $\tau^{\leqslant a-1} E \to X$ is the truncation $\tau^{\leqslant a-1} X \to X$.
-		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant a-1} E \to X \to E$: the cones are $\tau^{\geqslant a} X$, $\tau^{\geqslant a} E$ and $\tau^{\geqslant b+1} E$, so there is a triangle
+		The composite $\tau^{\leqslant a-1} E \to E$ factors uniquely through $X$ 
+		(adjunction, as $\tau^{\leqslant a-1} E \in \Dle{a-1} \subset \Dle{b}$), 
+		and by (1) the resulting map $\tau^{\leqslant a-1} E \to X$ is the truncation 
+		$\tau^{\leqslant a-1} X \to X$.
+		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant a-1} E \to X \to E$: 
+		the cones are $\tau^{\geqslant a} X$, $\tau^{\geqslant a} E$ and $\tau^{\geqslant b+1} E$, so there is a triangle
 		\[
 		\tau^{\geqslant a} \tau^{\leqslant b} E \longrightarrow \tau^{\geqslant a} E \longrightarrow \tau^{\geqslant b+1} E \longrightarrow (\tau^{\geqslant a} \tau^{\leqslant b} E)[1] ,
 		\]
@@ -1283,9 +1291,18 @@
 	\begin{proof}
 		(1) If $E \in \Dle{0}$ then $\tau^{\leqslant 0} E = E$ by Lemma~\ref{lem:t_orthogonal}(2), and dually.
 		(2) follows from (1): $A \in \Dle{0} \cap \Dge{0}$ gives $H^0 A = \tau^{\geqslant 0} A = A$;
-		for $i > 0$ we have $A[i] \in \Dle{-i} \subset \Dle{-1}$, so $\tau^{\geqslant 0}(A[i]) = 0$ and $H^0(A[i]) = \tau^{\geqslant 0} \tau^{\leqslant 0} (A[i]) = \tau^{\geqslant 0}(A[i]) = 0$;
+		for $i > 0$ we have $A[i] \in \Dle{-i} \subset \Dle{-1}$, so $\tau^{\geqslant 0}(A[i]) = 0$ 
+		and 
+		\[
+		H^0(A[i]) = \tau^{\geqslant 0} \tau^{\leqslant 0} (A[i]) = \tau^{\geqslant 0}(A[i]) = 0;
+		\]
 		for $i < 0$ we have $A[i] \in \Dge{-i} \subset \Dge{1}$, so $\tau^{\leqslant 0}(A[i]) = 0$.
-		(3) By Lemma~\ref{lem:truncations_compose}(1), $\tau^{\leqslant i-1}(\tau^{\leqslant i} E) = \tau^{\leqslant i-1} E$, so the truncation triangle of $\tau^{\leqslant i} E$ at level $i-1$ reads $\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E \to \tau^{\geqslant i} \tau^{\leqslant i} E = H^i(E)[-i]$.
+		(3) By Lemma~\ref{lem:truncations_compose}(1), 
+		$\tau^{\leqslant i-1}(\tau^{\leqslant i} E) = \tau^{\leqslant i-1} E$, 
+		so the truncation triangle of $\tau^{\leqslant i} E$ at level $i-1$ reads 
+		\[
+		\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E \to \tau^{\geqslant i} \tau^{\leqslant i} E = H^i(E)[-i].
+		\]
 		(4) For $E \in \Dle{0}$, $H^0 E = \tau^{\geqslant 0} E$ by (1), and $\tau^{\geqslant 0}$ is left adjoint to the inclusion of $\Dge{0} \ni T$; dually for $E \in \Dge{0}$.
 	\end{proof}
 	
@@ -1304,7 +1321,7 @@
 		
 		\step{$X, Y, Z \in \Dle{0}$}
 		We show that $H^0 X \to H^0 Y \to H^0 Z \to 0$ is exact.
-		In an abelian category a sequence $A \to B \to C \to 0$ is exact if and only if $0 \to \Hom(C, T) \to \Hom(B, T) \to \Hom(A, T)$ is exact for every object $T$ (Yoneda).
+		In an abelian category a sequence $A \to B \to C \to 0$ is exact if and only if $0 \to \Hom(C, T) \to \Hom(B, T) \to \Hom(A, T)$ is exact for every object $T$ (by the Yoneda lemma).
 		For $T \in \calA$ the long exact sequence \condref{cond:TR-coh} gives
 		\[
 		\Hom(X[1], T) \to \Hom(Z, T) \to \Hom(Y, T) \to \Hom(X, T) ,
@@ -1321,9 +1338,20 @@
 		\]
 		compatible with the maps $\tau^{\leqslant 0} Y \to W$, $\tau^{\leqslant 0} Y \to Y \to Z$ and $Y \to \tau^{\geqslant 1} Y$.
 		Here $W \in \Dle{0}$ (an extension of $X[1]$ by $\tau^{\leqslant 0} Y$) and $\tau^{\geqslant 1} Y \in \Dge{1}$, so by Lemma~\ref{lem:truncation_unique}(2) this is the truncation triangle of $Z$: $W \cong \tau^{\leqslant 0} Z$, and under this identification $\tau^{\leqslant 0} Y \to W$ is $\tau^{\leqslant 0}$ of the map $Y \to Z$ (both are compatible with the maps to $Z$, and such a map is unique by adjunction).
-		Thus $X \to \tau^{\leqslant 0} Y \to \tau^{\leqslant 0} Z \to X[1]$ is a triangle with all terms in $\Dle{0}$, and Step~1 gives an exact sequence $H^0 X \to H^0 \tau^{\leqslant 0} Y \to H^0 \tau^{\leqslant 0} Z \to 0$.
+		Thus 
+		\[
+		X \to \tau^{\leqslant 0} Y \to \tau^{\leqslant 0} Z \to X[1]
+		\] 
+		is a triangle with all terms in $\Dle{0}$, and Step~1 gives an exact sequence 
+		\[
+		H^0 X \to H^0 \tau^{\leqslant 0} Y \to H^0 \tau^{\leqslant 0} Z \to 0.
+		\]
 		Finally $H^0 \tau^{\leqslant 0} = H^0$ by Lemma~\ref{lem:truncations_compose}(1), compatibly with the maps, which gives the claim.
-		The dual statement, exactness of $0 \to H^0 X \to H^0 Y \to H^0 Z$ when $Z \in \Dge{0}$, is proved in the same way (or by passing to the opposite category, which carries the t-structure $(\Dge{0}, \Dle{0})$).
+		The dual statement, exactness of 
+		\[
+		0 \to H^0 X \to H^0 Y \to H^0 Z
+		\] 
+		when $Z \in \Dge{0}$, is proved in the same way (or by passing to the opposite category, which carries the t-structure $(\Dge{0}, \Dle{0})$).
 		
 		\step{the general case}
 		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant 0} X \to X \to Y$: with $U := \Cone(\tau^{\leqslant 0} X \to Y)$ there is a triangle
@@ -1331,8 +1359,20 @@
 		\tau^{\geqslant 1} X \longrightarrow U \longrightarrow Z \longrightarrow (\tau^{\geqslant 1} X)[1] ,
 		\]
 		compatible with the maps $Y \to U$ and $Y \to Z$.
-		Step~2 applied to the triangle $\tau^{\leqslant 0} X \to Y \to U \to (\tau^{\leqslant 0} X)[1]$ gives an exact sequence $H^0 \tau^{\leqslant 0} X \to H^0 Y \to H^0 U \to 0$, and $H^0 \tau^{\leqslant 0} X = H^0 X$.
-		The dual half of Step~2 applied to the rotated triangle $U \to Z \to (\tau^{\geqslant 1} X)[1] \to U[1]$, whose third term lies in $\Dge{0}$, shows that $H^0 U \to H^0 Z$ is a monomorphism.
+		Step~2 applied to the triangle 
+		\[
+		\tau^{\leqslant 0} X \to Y \to U \to (\tau^{\leqslant 0} X)[1]
+		\] 
+		gives an exact sequence 
+		\[
+		H^0 \tau^{\leqslant 0} X \to H^0 Y \to H^0 U \to 0,
+		\] 
+		and $H^0 \tau^{\leqslant 0} X = H^0 X$.
+		The dual half of Step~2 applied to the rotated triangle 
+		\[
+		U \to Z \to (\tau^{\geqslant 1} X)[1] \to U[1],
+		\] 
+		whose third term lies in $\Dge{0}$, shows that $H^0 U \to H^0 Z$ is a monomorphism.
 		Since $H^0 Y \to H^0 Z$ is the composite $H^0 Y \to H^0 U \to H^0 Z$, its kernel equals the kernel of $H^0 Y \to H^0 U$, which is the image of $H^0 X \to H^0 Y$.
 	\end{proof}
 	
@@ -1456,12 +1496,24 @@
 		Conversely let $0 \neq E \in \Dle{0} \cap \Dge{0}$, with a sequence as in \condref{cond:BH2}.
 		We claim $k_1 \leqslant 0$.
 		Otherwise $k_1 \geqslant 1$, and $\Hom(A_1, E) = 0$ by Lemma~\ref{lem:devissage}, since $\Hom(B_1[k_1], B[k]) = \Hom(B_1, B[k - k_1]) = 0$ for $B \in \calA$, $k \leqslant 0$.
-		So the map $E_1 = A_1 \to E$ is zero, and the triangle $E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]$ splits: by \condref{cond:TR-coh} applied to $\Hom(E_1[1], -)$ the map $Q_1 \to E_1[1]$ has a section, so $E_1[1]$ is a direct summand of $Q_1$.
-		But $Q_1 \in \langle A_2, \ldots, A_n \rangle$ by Lemma~\ref{lem:cone_of_filtration}, and $\Hom(B_1[k_1 + 1], B_i[k_i]) = \Hom(B_1, B_i[k_i - k_1 - 1]) = 0$ for $i \geqslant 2$ since $k_i < k_1$;
+		So the map $E_1 = A_1 \to E$ is zero, and the triangle 
+		\[
+		E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]
+		\] 
+		splits: by \condref{cond:TR-coh} applied to $\Hom(E_1[1], -)$ the map $Q_1 \to E_1[1]$ has a section, so $E_1[1]$ is a direct summand of $Q_1$.
+		But $Q_1 \in \langle A_2, \ldots, A_n \rangle$ by Lemma~\ref{lem:cone_of_filtration}, and 
+		\[
+		\Hom(B_1[k_1 + 1], B_i[k_i]) = \Hom(B_1, B_i[k_i - k_1 - 1]) = 0
+		\] 
+		for $i \geqslant 2$ since $k_i < k_1$;
 		hence $\Hom(E_1[1], Q_1) = 0$ by Lemma~\ref{lem:devissage}, so the identity of $E_1[1]$ factors through $0$ and $B_1 = 0$, a contradiction.
 		Dually, $k_n \geqslant 0$.
 		Otherwise $k_n \leqslant -1$ and $\Hom(E, A_n) = 0$ by Lemma~\ref{lem:devissage}, since $E \in \langle \calA[k] : k \geqslant 0 \rangle$ and $\Hom(B[k], B_n[k_n]) = \Hom(B, B_n[k_n - k]) = 0$ for $k \geqslant 0$.
-		So in the triangle $E_{n-1} \to E \to A_n \to E_{n-1}[1]$ the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(A_n, -)$ the map $A_n \to E_{n-1}[1]$ has a retraction: $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
+		So in the triangle 
+		\[
+		E_{n-1} \to E \to A_n \to E_{n-1}[1]
+		\] 
+		the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(A_n, -)$ the map $A_n \to E_{n-1}[1]$ has a retraction: $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
 		But $\Hom(B_i[k_i + 1], B_n[k_n]) = \Hom(B_i, B_n[k_n - k_i - 1]) = 0$ for $i < n$ because $k_n < k_i$, so $\Hom(E_{n-1}[1], A_n) = 0$ by Lemma~\ref{lem:devissage}, and again $B_n = 0$, a contradiction.
 		Hence $0 \geqslant k_1 > \ldots > k_n \geqslant 0$, which forces $n = 1$ and $k_1 = 0$, i.e.\ $E = E_1 = A_1 = B_1 \in \calA$.
 		
@@ -1501,11 +1553,17 @@
 	\end{proposition}
 	
 	\begin{proof}
-		$\iota$ is well defined: a short exact sequence $0 \to A' \to A \to A'' \to 0$ in $\calA$ is a triangle in $\calD$ by Lemma~\ref{lem:triangles_vs_ses}(2), so $[A] = [A'] + [A'']$ holds in $\Kgroup(\calD)$.
+		$\iota$ is well defined: a short exact sequence 
+		\[
+		0 \to A' \to A \to A'' \to 0
+		\] 
+		in $\calA$ is a triangle in $\calD$ by Lemma~\ref{lem:triangles_vs_ses}(2), so $[A] = [A'] + [A'']$ holds in $\Kgroup(\calD)$.
 		
 		$\chi$ is well defined.
 		The sum is finite by Lemma~\ref{lem:cohomology_filtration}(1).
-		First, for a finite exact sequence $0 \to M_1 \to M_2 \to \ldots \to M_r \to 0$ in $\calA$ one has $\sum_j (-1)^j [M_j] = 0$ in $\Kgroup(\calA)$:
+		First, for a finite exact sequence 
+		\[0 \to M_1 \to M_2 \to \ldots \to M_r \to 0\] 
+		in $\calA$ one has $\sum_j (-1)^j [M_j] = 0$ in $\Kgroup(\calA)$:
 		splitting it into the short exact sequences $0 \to I_{j-1} \to M_j \to I_j \to 0$, where $I_j$ is the image of $M_j \to M_{j+1}$ and $I_0 = 0 = I_r$, gives $[M_j] = [I_{j-1}] + [I_j]$, and the alternating sum telescopes to $0$.
 		Now let $X \to Y \to Z \to X[1]$ be a triangle.
 		By Theorem~\ref{thm:H0_cohomological} and Lemma~\ref{lem:cohomology_filtration}(1) the long exact sequence

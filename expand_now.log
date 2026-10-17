@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  17 OCT 2026 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  17 OCT 2026 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1108,39 +1108,39 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1305 		\step{$X, Y, Z \in \Dle{0}$}
-                                     
+l.1322 		\step{$X, Y, Z \in \Dle{0}$}
+                                      [21]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1315 ...\in \Dle{0}$, or dually $Z \in \Dge{0}$}
-                                                   [21]
+l.1332 ...\in \Dle{0}$, or dually $Z \in \Dge{0}$}
+                                                  
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1328 		\step{the general case}
+l.1356 		\step{the general case}
                                  [22] [23]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1440 		\step{\condref{cond:T2}}
+l.1480 		\step{\condref{cond:T2}}
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1444 		\step{\condref{cond:T3}}
+l.1484 		\step{\condref{cond:T3}}
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1451 		\step{boundedness}
+l.1491 		\step{boundedness}
                            
-Overfull \hbox (3.05418pt too wide) in paragraph at lines 1451--1453
+Overfull \hbox (3.05418pt too wide) in paragraph at lines 1491--1493
 []\OT1/cmr/bx/n/12 Step 3 \OT1/cmr/m/n/12 (\OT1/cmr/m/it/12 bound-ed-ness\OT1/c
 mr/m/n/12 ). With no-ta-tion as in Step 2, Lemma [][]2.12[][] gives $\OML/cmm/m
 /it/12 E \OMS/cmsy/m/n/12 2 h\OML/cmm/m/it/12 A[]; [] ; A[]\OMS/cmsy/m/n/12 i ^
@@ -1152,14 +1152,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1454 		\step{the heart is $\calA$}
-                                    
+l.1494 		\step{the heart is $\calA$}
+                                     [24]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.5}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1468 ...filtration is the cohomology filtration}
-                                                   [24] [25] [26]
+l.1520 ...filtration is the cohomology filtration}
+                                                   [25] [26] [27]
 (./expand_now.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1169,8 +1169,8 @@ Package rerunfilecheck Info: File `expand_now.out' has not changed.
 (rerunfilecheck)             Checksum: 4746320545883B1CFD006D38E29EC92A;3892.
  ) 
 Here is how much of TeX's memory you used:
- 27870 strings out of 474222
- 500118 string characters out of 5748734
+ 27871 strings out of 474222
+ 500125 string characters out of 5748734
  1945975 words of memory out of 5000000
  49328 multiletter control sequences out of 15000+600000
  571479 words of font info for 95 fonts, out of 8000000 for 9000
@@ -1200,10 +1200,10 @@ nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on expand_now.pdf (26 pages, 439943 bytes).
+Output written on expand_now.pdf (27 pages, 440210 bytes).
 PDF statistics:
- 652 PDF objects out of 1000 (max. 8388607)
- 566 compressed objects within 6 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 656 PDF objects out of 1000 (max. 8388607)
+ 569 compressed objects within 6 object streams
+ 138 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
