@@ -920,7 +920,7 @@
 	\end{align*}
 	and $\mathcal{S}[n] := \{ S[n] : S \in \mathcal{S} \}$.
 	A subcategory $\mathcal{C}$ is \emph{closed under extensions} if for every triangle $X \to Y \to Z \to X[1]$ with $X, Z \in \mathcal{C}$ also $Y \in \mathcal{C}$;
-	the \emph{extension closure} $\langle \mathcal{S} \rangle$ of a class $\mathcal{S}$ is the smallest subcategory containing $\mathcal{S}$ and $0$ and closed under extensions.
+	the \emph{extension closure} $\langle \mathcal{S} \rangle$ of a class $\mathcal{S}$ is the smallest subcategory containing $\mathcal{S}$ and $0$ and closed under extensions (it is described concretely in Proposition~\ref{prop:extension_closure} below).
 	Since the split triangle $X \to X \oplus Z \to Z \xrightarrow{0} X[1]$ is distinguished, a subcategory closed under extensions is closed under finite direct sums.
 	
 	\subsection{Definition}
@@ -943,7 +943,8 @@
 	$\Dle{n-1} \subset \Dle{n}$, $\Dge{n+1} \subset \Dge{n}$, $\Hom(\Dle{n}, \Dge{n+1}) = 0$, and every object sits in a triangle $A \to E \to B \to A[1]$ with $A \in \Dle{n}$, $B \in \Dge{n+1}$.
 	By induction, $\Dle{n} \subset \Dle{m}$ and $\Dge{m} \subset \Dge{n}$ for $n \leqslant m$.
 	
-	The intuition comes from the standard example: for an abelian category $\calA$ and $\calD = \D^{\mathrm{b}}(\calA)$, the complexes with cohomology concentrated in degrees $\leqslant 0$, respectively $\geqslant 0$, form a t-structure, and the triangle in \condref{cond:T3} is the usual truncation 
+	The intuition comes from the standard example.
+	For an abelian category $\calA$ and $\calD = \D^{\mathrm{b}}(\calA)$, the complexes with cohomology concentrated in degrees $\leqslant 0$, respectively $\geqslant 0$, form a t-structure, and the triangle in \condref{cond:T3} is the usual truncation 
 	\[
 	\tau^{\leqslant 0} E \to E \to \tau^{\geqslant 1} E
 	\] 
@@ -1025,7 +1026,8 @@
 		The second statement is dual.
 		
 		(3) By (1), $\Dle{0}$ is a left orthogonal ${}^{\perp}\mathcal{S}$ and $\Dge{0} = \Dge{1}[1]$ is a right orthogonal $\mathcal{S}'^{\perp}$.
-		A left orthogonal is closed under extensions: if $X \to Y \to Z \to X[1]$ is a triangle with $\Hom(X, S) = \Hom(Z, S) = 0$, then $\Hom(Y, S) = 0$ by the exact sequence $\Hom(Z, S) \to \Hom(Y, S) \to \Hom(X, S)$ of \condref{cond:TR-coh};
+		A left orthogonal is closed under extensions.
+		Indeed, if $X \to Y \to Z \to X[1]$ is a triangle with $\Hom(X, S) = \Hom(Z, S) = 0$, then $\Hom(Y, S) = 0$ by the exact sequence $\Hom(Z, S) \to \Hom(Y, S) \to \Hom(X, S)$ of \condref{cond:TR-coh};
 		it is closed under direct summands because $\Hom(X \oplus X', S) = \Hom(X, S) \oplus \Hom(X', S)$;
 		and closure under finite direct sums follows from closure under extensions.
 		Right orthogonals are treated in the same way.
@@ -1066,7 +1068,7 @@
 	\end{lemma}
 	
 	\begin{proof}
-		By \condref{cond:TR-rot}, $C$ is an extension of $X[1]$ by $Y$: there is a triangle 
+		By \condref{cond:TR-rot}, $C$ is an extension of $X[1]$ by $Y$, namely there is a triangle 
 		\[
 		Y \to C \to X[1] \to Y[1].
 		\]
@@ -1164,7 +1166,7 @@
 		\[
 		X' \xrightarrow{u} X \xrightarrow{v} X'' \xrightarrow{w} X'[1].
 		\]
-		For uniqueness of $w$: if $w'$ also completes $u, v$ to a triangle, then by the axioms there is a morphism of triangles $(\id, \id, \gamma)$ between the two, with $\gamma \in \End(X'')$ satisfying $\gamma v = v$, hence $\gamma = \id$ since $v$ is an epimorphism; the compatibility with the third maps then reads $w' = w$.
+		As for the uniqueness of $w$, if $w'$ also completes $u, v$ to a triangle, then by the axioms there is a morphism of triangles $(\id, \id, \gamma)$ between the two, with $\gamma \in \End(X'')$ satisfying $\gamma v = v$, hence $\gamma = \id$ since $v$ is an epimorphism; the compatibility with the third maps then reads $w' = w$.
 	\end{proof}
 	
 	\begin{theorem}[{\cite[Th\'eor\`eme~1.3.6]{BBD82}}]
@@ -1182,7 +1184,8 @@
 		\[
 		I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1].
 		\]
-		We apply \condref{cond:TR-oct} to the composable pair $Y \xrightarrow{g} C \xrightarrow{q} Q$: the cones are $\Cone(g) = X[1]$, $\Cone(q g) = \Cone(\pi) = I[1]$ and $\Cone(q) = (\tau^{\leqslant -1} C)[1] = K[2]$, so there is a triangle
+		We apply \condref{cond:TR-oct} to the pair $Y \xrightarrow{g} C \xrightarrow{q} Q$.
+		The cones are $\Cone(g) = X[1]$, $\Cone(q g) = \Cone(\pi) = I[1]$ and $\Cone(q) = (\tau^{\leqslant -1} C)[1] = K[2]$, so there is a triangle
 		\[
 		X[1] \to I[1] \to K[2] \to X[2] ,
 		\]
@@ -1218,12 +1221,13 @@
 	\end{proof}
 	
 	\begin{remark}
-		The proof shows more precisely how kernels, cokernels and images of a morphism $f \colon X \to Y$ in $\calA$ are read off from its cone $C$: the cone lives in two consecutive ``degrees'' $-1$ and $0$, and
+		The proof shows more precisely how kernels, cokernels and images of a morphism $f \colon X \to Y$ in $\calA$ are read off from its cone $C$.
+		The cone lives in two consecutive ``degrees'' $-1$ and $0$, and
 		\[
 		\ker f = (\tau^{\leqslant -1} C)[-1], \qquad \operatorname{coker} f = \tau^{\geqslant 0} C .
 		\]
 		In particular $f$ is a monomorphism in $\calA$ if and only if $C \in \calA$, and an epimorphism if and only if $C \in \calA[1]$.
-		Note also that a monomorphism in $\calA$ need not be a monomorphism in $\calD$, and the heart is in general not closed under cones: if $f$ has nonzero kernel, then $C \notin \calA$.
+		Note also that a monomorphism in $\calA$ need not be a monomorphism in $\calD$, and the heart is in general not closed under cones, since $C \notin \calA$ as soon as $f$ has nonzero kernel.
 	\end{remark}
 
 
@@ -1258,8 +1262,8 @@
 		(adjunction, as $\tau^{\leqslant a-1} E \in \Dle{a-1} \subset \Dle{b}$), 
 		and by (1) the resulting map $\tau^{\leqslant a-1} E \to X$ is the truncation 
 		$\tau^{\leqslant a-1} X \to X$.
-		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant a-1} E \to X \to E$: 
-		the cones are $\tau^{\geqslant a} X$, $\tau^{\geqslant a} E$ and $\tau^{\geqslant b+1} E$, so there is a triangle
+		Apply \condref{cond:TR-oct} to the pair $\tau^{\leqslant a-1} E \to X \to E$.
+		The cones are $\tau^{\geqslant a} X$, $\tau^{\geqslant a} E$ and $\tau^{\geqslant b+1} E$, so there is a triangle
 		\[
 		\tau^{\geqslant a} \tau^{\leqslant b} E \longrightarrow \tau^{\geqslant a} E \longrightarrow \tau^{\geqslant b+1} E \longrightarrow (\tau^{\geqslant a} \tau^{\leqslant b} E)[1] ,
 		\]
@@ -1290,7 +1294,8 @@
 	
 	\begin{proof}
 		(1) If $E \in \Dle{0}$ then $\tau^{\leqslant 0} E = E$ by Lemma~\ref{lem:t_orthogonal}(2), and dually.
-		(2) follows from (1): $A \in \Dle{0} \cap \Dge{0}$ gives $H^0 A = \tau^{\geqslant 0} A = A$;
+		(2) follows from (1).
+		For $A \in \Dle{0} \cap \Dge{0}$ we get $H^0 A = \tau^{\geqslant 0} A = A$;
 		for $i > 0$ we have $A[i] \in \Dle{-i} \subset \Dle{-1}$, so $\tau^{\geqslant 0}(A[i]) = 0$ 
 		and 
 		\[
@@ -1308,7 +1313,11 @@
 	
 	\begin{theorem}[{\cite[Th\'eor\`eme~1.3.6]{BBD82}}]
 		\label{thm:H0_cohomological}
-		The functor $H^0 \colon \calD \to \calA$ is cohomological: for every triangle $X \to Y \to Z \to X[1]$ the sequence $H^0 X \to H^0 Y \to H^0 Z$ is exact in $\calA$.
+		The functor $H^0 \colon \calD \to \calA$ is cohomological, i.e.\ for every triangle $X \to Y \to Z \to X[1]$ the sequence
+		\[
+		H^0 X \to H^0 Y \to H^0 Z
+		\]
+		is exact in $\calA$.
 		Consequently there is a long exact sequence in $\calA$
 		\[
 		\cdots \to H^{i-1} Z \to H^i X \to H^i Y \to H^i Z \to H^{i+1} X \to \cdots
@@ -1321,23 +1330,33 @@
 		
 		\step{$X, Y, Z \in \Dle{0}$}
 		We show that $H^0 X \to H^0 Y \to H^0 Z \to 0$ is exact.
-		In an abelian category a sequence $A \to B \to C \to 0$ is exact if and only if $0 \to \Hom(C, T) \to \Hom(B, T) \to \Hom(A, T)$ is exact for every object $T$ (by the Yoneda lemma).
+		In an abelian category a sequence $A \to B \to C \to 0$ is exact if and only if
+		\[
+		0 \to \Hom(C, T) \to \Hom(B, T) \to \Hom(A, T)
+		\]
+		is exact for every object $T$ (by the Yoneda lemma).
 		For $T \in \calA$ the long exact sequence \condref{cond:TR-coh} gives
 		\[
 		\Hom(X[1], T) \to \Hom(Z, T) \to \Hom(Y, T) \to \Hom(X, T) ,
 		\]
 		and $\Hom(X[1], T) = 0$ by \condref{cond:T2}, as $X[1] \in \Dle{-1}$ and $T \in \Dge{0}$.
-		By Lemma~\ref{lem:H0_basic}(4) this sequence identifies with $0 \to \Hom(H^0 Z, T) \to \Hom(H^0 Y, T) \to \Hom(H^0 X, T)$, which is therefore exact.
+		By Lemma~\ref{lem:H0_basic}(4) this sequence identifies with
+		\[
+		0 \to \Hom(H^0 Z, T) \to \Hom(H^0 Y, T) \to \Hom(H^0 X, T) ,
+		\]
+		which is therefore exact.
 		
 		\step{$X \in \Dle{0}$, or dually $Z \in \Dge{0}$}
 		We show that $H^0 X \to H^0 Y \to H^0 Z \to 0$ is exact when $X \in \Dle{0}$.
 		By adjunction the map $X \to Y$ factors as $X \to \tau^{\leqslant 0} Y \to Y$.
-		Apply \condref{cond:TR-oct} to this composable pair: with $W := \Cone(X \to \tau^{\leqslant 0} Y)$ there is a triangle
+		Apply \condref{cond:TR-oct} to this pair.
+		With $W := \Cone(X \to \tau^{\leqslant 0} Y)$ there is a triangle
 		\[
 		W \longrightarrow Z \longrightarrow \tau^{\geqslant 1} Y \longrightarrow W[1] ,
 		\]
 		compatible with the maps $\tau^{\leqslant 0} Y \to W$, $\tau^{\leqslant 0} Y \to Y \to Z$ and $Y \to \tau^{\geqslant 1} Y$.
-		Here $W \in \Dle{0}$ (an extension of $X[1]$ by $\tau^{\leqslant 0} Y$) and $\tau^{\geqslant 1} Y \in \Dge{1}$, so by Lemma~\ref{lem:truncation_unique}(2) this is the truncation triangle of $Z$: $W \cong \tau^{\leqslant 0} Z$, and under this identification $\tau^{\leqslant 0} Y \to W$ is $\tau^{\leqslant 0}$ of the map $Y \to Z$ (both are compatible with the maps to $Z$, and such a map is unique by adjunction).
+		Here $W \in \Dle{0}$ (an extension of $X[1]$ by $\tau^{\leqslant 0} Y$) and $\tau^{\geqslant 1} Y \in \Dge{1}$, so by Lemma~\ref{lem:truncation_unique}(2) this is the truncation triangle of $Z$.
+		Hence $W \cong \tau^{\leqslant 0} Z$, and under this identification $\tau^{\leqslant 0} Y \to W$ is $\tau^{\leqslant 0}$ of the map $Y \to Z$ (both are compatible with the maps to $Z$, and such a map is unique by adjunction).
 		Thus 
 		\[
 		X \to \tau^{\leqslant 0} Y \to \tau^{\leqslant 0} Z \to X[1]
@@ -1354,7 +1373,8 @@
 		when $Z \in \Dge{0}$, is proved in the same way (or by passing to the opposite category, which carries the t-structure $(\Dge{0}, \Dle{0})$).
 		
 		\step{the general case}
-		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant 0} X \to X \to Y$: with $U := \Cone(\tau^{\leqslant 0} X \to Y)$ there is a triangle
+		Apply \condref{cond:TR-oct} to the pair $\tau^{\leqslant 0} X \to X \to Y$.
+		With $U := \Cone(\tau^{\leqslant 0} X \to Y)$ there is a triangle
 		\[
 		\tau^{\geqslant 1} X \longrightarrow U \longrightarrow Z \longrightarrow (\tau^{\geqslant 1} X)[1] ,
 		\]
@@ -1376,6 +1396,109 @@
 		Since $H^0 Y \to H^0 Z$ is the composite $H^0 Y \to H^0 U \to H^0 Z$, its kernel equals the kernel of $H^0 Y \to H^0 U$, which is the image of $H^0 X \to H^0 Y$.
 	\end{proof}
 	
+	\subsection{Extension closures}
+	
+	Recall from the conventions at the beginning of this section that a subcategory $\mathcal{C} \subset \calD$ is closed under extensions if $X, Z \in \mathcal{C}$ implies $Y \in \mathcal{C}$ for every triangle $X \to Y \to Z \to X[1]$, and that the extension closure $\langle \mathcal{S} \rangle$ of a class of objects $\mathcal{S}$ is the smallest subcategory of $\calD$ which contains $\mathcal{S}$ and $0$ and is closed under extensions.
+	In this subsection we describe $\langle \mathcal{S} \rangle$ concretely.
+	
+	A \emph{filtration} of an object $E$ \emph{with factors in} $\mathcal{S}$ is a finite sequence of morphisms
+	\[
+	0 = E_0 \to E_1 \to \ldots \to E_{n-1} \to E_n = E
+	\]
+	such that every cone $A_i := \Cone(E_{i-1} \to E_i)$, $i = 1, \ldots, n$, lies in $\mathcal{S}$.
+	The objects $A_i$ are called the \emph{factors} and $n$ the \emph{length} of the filtration;
+	the zero object has the filtration of length $0$.
+	We often write $E_i / E_{i-1}$ for $A_i$, although in a triangulated category this is only a notation for a cone.
+	
+	\begin{lemma}[refining a filtration]
+		\label{lem:refinement}
+		Let $X' \to X \to C \to X'[1]$ be a triangle and let $0 = C_0 \to C_1 \to \ldots \to C_m = C$ be a filtration of $C$ with factors $D_l = \Cone(C_{l-1} \to C_l)$.
+		Then there is a sequence of morphisms
+		\[
+		X' = Y_0 \to Y_1 \to \ldots \to Y_m = X
+		\]
+		with $\Cone(Y_{l-1} \to Y_l) \cong D_l$ for $l = 1, \ldots, m$.
+	\end{lemma}
+	
+	\begin{proof}
+		For $0 \leqslant l \leqslant m$ choose a cone $C / C_l$ of $C_l \to C$, with $C / C_0 = C$ and $C / C_m = 0$, and let $Y_l$ be a fibre of the composite $X \to C \to C / C_l$, so that
+		\[
+		Y_l \longrightarrow X \longrightarrow C / C_l \longrightarrow Y_l[1]
+		\]
+		is a triangle.
+		Then $Y_0 = X'$ and $Y_m = X$.
+		Applying \condref{cond:TR-oct} to the pair $C_{l-1} \to C_l \to C$, whose cones are $D_l$, $C / C_{l-1}$ and $C / C_l$, we obtain a triangle
+		\[
+		D_l \longrightarrow C / C_{l-1} \longrightarrow C / C_l \longrightarrow D_l[1]
+		\]
+		in which the second map is compatible with the maps from $C$.
+		Applying \condref{cond:TR-oct} to the pair $X \to C / C_{l-1} \to C / C_l$, whose cones are $Y_{l-1}[1]$, $Y_l[1]$ and $D_l[1]$, we obtain a triangle
+		\[
+		Y_{l-1}[1] \longrightarrow Y_l[1] \longrightarrow D_l[1] \longrightarrow Y_{l-1}[2] ,
+		\]
+		and shifting by $[-1]$ gives the required triangle $Y_{l-1} \to Y_l \to D_l \to Y_{l-1}[1]$.
+	\end{proof}
+	
+	\begin{lemma}
+		\label{lem:devissage}
+		Let $\mathcal{S}, \mathcal{T}$ be classes of objects of $\calD$ with $\Hom(S, T) = 0$ for all $S \in \mathcal{S}$, $T \in \mathcal{T}$.
+		Then $\Hom(X, Y) = 0$ for all $X \in \langle \mathcal{S} \rangle$ and $Y \in \langle \mathcal{T} \rangle$.
+	\end{lemma}
+	
+	\begin{proof}
+		For fixed $T \in \mathcal{T}$ the class $\{ X : \Hom(X, T) = 0 \} = {}^{\perp}\{T\}$ contains $\mathcal{S}$ and $0$ and is closed under extensions (proof of Lemma~\ref{lem:t_orthogonal}(3)), hence contains $\langle \mathcal{S} \rangle$.
+		Then for fixed $X \in \langle \mathcal{S} \rangle$ the class $\{ Y : \Hom(X, Y) = 0 \}$ contains $\mathcal{T}$ and $0$ and is closed under extensions, hence contains $\langle \mathcal{T} \rangle$.
+	\end{proof}
+	
+	\begin{lemma}
+		\label{lem:cone_of_filtration}
+		Let $0 = E_0 \to E_1 \to \ldots \to E_n = E$ be a filtration with factors $A_i = \Cone(E_{i-1} \to E_i)$, and for $0 \leqslant m \leqslant n$ let $Q_m$ be a cone of the composite $E_m \to E$.
+		Then $Q_n = 0$, $Q_0 = E$, and for $0 \leqslant m < n$ there is a triangle
+		\[
+		A_{m+1} \longrightarrow Q_m \longrightarrow Q_{m+1} \longrightarrow A_{m+1}[1] .
+		\]
+		In particular $E_m \in \langle A_1, \ldots, A_m \rangle$ and $Q_m \in \langle A_{m+1}, \ldots, A_n \rangle$.
+	\end{lemma}
+	
+	\begin{proof}
+		$Q_n$ is a cone of the identity and $Q_0$ a cone of $0 \to E$, whence the first two claims.
+		For $m < n$ apply \condref{cond:TR-oct} to the pair $E_m \to E_{m+1} \to E$.
+		Its cones are $A_{m+1}$, $Q_m$ and $Q_{m+1}$, which gives the triangle.
+		The membership of $E_m$ follows by induction on $m$ from the triangles $E_{m-1} \to E_m \to A_m$, that of $Q_m$ by descending induction on $m$ from the triangles just constructed.
+	\end{proof}
+	
+	\begin{proposition}[structure of the extension closure]
+		\label{prop:extension_closure}
+		Let $\mathcal{S}$ be a class of objects of $\calD$.
+		Then $\langle \mathcal{S} \rangle$ is the class of all objects admitting a filtration with factors in $\mathcal{S}$.
+		In particular $\langle \mathcal{S} \rangle$ is closed under finite direct sums, and if $\mathcal{S}[1] = \mathcal{S}$ then $\langle \mathcal{S} \rangle[1] = \langle \mathcal{S} \rangle$.
+	\end{proposition}
+	
+	\begin{proof}
+		Let $\mathcal{F}$ be the class of objects admitting a filtration with factors in $\mathcal{S}$.
+		
+		$\mathcal{F} \subset \langle \mathcal{S} \rangle$.
+		If $0 = E_0 \to \ldots \to E_n = E$ is a filtration with factors in $\mathcal{S}$, then $E_0 = 0 \in \langle \mathcal{S} \rangle$, and $E_i$ is an extension of $A_i \in \mathcal{S}$ by $E_{i-1}$, so $E_i \in \langle \mathcal{S} \rangle$ by induction on $i$.
+		
+		$\langle \mathcal{S} \rangle \subset \mathcal{F}$.
+		It suffices to show that $\mathcal{F}$ contains $\mathcal{S}$ and $0$ and is closed under isomorphisms and extensions.
+		The first two are clear (filtrations of length $1$ and $0$), and if $E \in \mathcal{F}$ and $E \cong E'$, composing the last map of a filtration of $E$ with the isomorphism gives a filtration of $E'$ with the same factors.
+		Let $X \to Y \to Z \to X[1]$ be a triangle with $X, Z \in \mathcal{F}$, and choose filtrations $0 = X_0 \to \ldots \to X_p = X$ and $0 = Z_0 \to \ldots \to Z_q = Z$ with factors in $\mathcal{S}$.
+		By Lemma~\ref{lem:refinement} applied to the triangle $X \to Y \to Z \to X[1]$ and the filtration of $Z$ there is a sequence $X = Y_0 \to \ldots \to Y_q = Y$ whose cones are the factors of the filtration of $Z$.
+		Concatenating,
+		\[
+		0 = X_0 \to \ldots \to X_p = X = Y_0 \to Y_1 \to \ldots \to Y_q = Y
+		\]
+		is a filtration of $Y$ with factors in $\mathcal{S}$, so $Y \in \mathcal{F}$.
+		
+		The last assertions follow from the split triangle $X \to X \oplus Z \to Z \to X[1]$ and from the fact that the shift of a filtration is a filtration with shifted factors.
+	\end{proof}
+	
+	\begin{remark}
+		Lemma~\ref{lem:cone_of_filtration} and Proposition~\ref{prop:extension_closure} together say that the ``quotient'' $Q_m = E / E_m$ of a filtered object by a step of its filtration is filtered by the remaining factors, exactly as for filtrations of modules.
+		We shall use this constantly, for Harder--Narasimhan filtrations in triangulated categories as well as for the cohomology filtration of the next subsection.
+	\end{remark}
+	
 	\subsection{Bounded t-structures}
 	
 	A t-structure is called \emph{bounded} if
@@ -1384,7 +1507,8 @@
 	\]
 	i.e.\ every object lies in $\Dle{b} \cap \Dge{a}$ for some integers $a \leqslant b$.
 	It is called \emph{non-degenerate} if $\bigcap_{n} \Dle{n} = 0 = \bigcap_{n} \Dge{n}$.
-	A bounded t-structure is non-degenerate: if $E \in \Dle{n}$ for all $n$ and $E \in \Dge{a}$, then $E \in \Dle{a-1} \cap \Dge{a}$, so $E \in \Dle{a-1} = {}^{\perp}\Dge{a}$ gives $\Hom(E, E) = 0$ and $E = 0$.
+	A bounded t-structure is non-degenerate.
+	Indeed, if $E \in \Dle{n}$ for all $n$ and $E \in \Dge{a}$, then $E \in \Dle{a-1} \cap \Dge{a}$, so $E \in \Dle{a-1} = {}^{\perp}\Dge{a}$ gives $\Hom(E, E) = 0$ and $E = 0$.
 	
 	\begin{lemma}[cohomology filtration]
 		\label{lem:cohomology_filtration}
@@ -1409,45 +1533,19 @@
 		
 		(2) If $E \in \Dle{n}$, then $E \in \Dint{a}{n}$ for some $a$, and (1) gives $H^i(E) = 0$ for $i > n$.
 		Conversely, if $H^i(E) = 0$ for $i > n$, then in the filtration of (1) all maps $\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E$ with $i > n$ have zero cone, hence are isomorphisms by \condref{cond:TR-5}, so $E = \tau^{\leqslant b} E \cong \tau^{\leqslant n} E \in \Dle{n}$.
-		The second statement is dual (using the filtration by the $\tau^{\geqslant i} E$), and the third follows from the first two and non-degeneracy, or directly: if all $H^i(E)$ vanish, the filtration in (1) shows $E \cong \tau^{\leqslant a-1} E = 0$.
+		The second statement is dual (using the filtration by the $\tau^{\geqslant i} E$), and the third follows from the first two and non-degeneracy.
+		Directly, if all $H^i(E)$ vanish, the filtration in (1) shows $E \cong \tau^{\leqslant a-1} E = 0$.
 		
 		(3) $\Dle{0}$ is closed under extensions and contains $\calA[k] = \Dint{-k}{-k}$ for $k \geqslant 0$, so it contains $\langle \calA[k] : k \geqslant 0 \rangle$.
-		Conversely, for $E \in \Dle{0}$ the filtration of (1) exhibits $E$ as an iterated extension of the objects $H^i(E)[-i] \in \calA[-i]$ with $i \leqslant 0$.
+		Conversely, for $E \in \Dle{0}$ the filtration of (1) has factors $H^i(E)[-i] \in \calA[-i]$ with $i \leqslant 0$, so $E \in \langle \calA[k] : k \geqslant 0 \rangle$ by Proposition~\ref{prop:extension_closure}.
 		Dually for $\Dge{0}$.
 		The last assertion follows since $\Dle{0}$ and $\Dge{0}$ are expressed in terms of $\calA$.
 	\end{proof}
 	
 	\subsection{Hearts of bounded t-structures}
 	
-	The following characterization, due to Bridgeland, describes hearts of bounded t-structures without mentioning the t-structure; it is the model for the notion of a slicing.
-	Two elementary facts about extension closures will be used.
-	
-	\begin{lemma}
-		\label{lem:devissage}
-		Let $\mathcal{S}, \mathcal{T}$ be classes of objects of $\calD$ with $\Hom(S, T) = 0$ for all $S \in \mathcal{S}$, $T \in \mathcal{T}$.
-		Then $\Hom(X, Y) = 0$ for all $X \in \langle \mathcal{S} \rangle$ and $Y \in \langle \mathcal{T} \rangle$.
-	\end{lemma}
-	
-	\begin{proof}
-		For fixed $T \in \mathcal{T}$ the class $\{ X : \Hom(X, T) = 0 \} = {}^{\perp}\{T\}$ contains $\mathcal{S}$ and $0$ and is closed under extensions (proof of Lemma~\ref{lem:t_orthogonal}(3)), hence contains $\langle \mathcal{S} \rangle$.
-		Then for fixed $X \in \langle \mathcal{S} \rangle$ the class $\{ Y : \Hom(X, Y) = 0 \}$ contains $\mathcal{T}$ and $0$ and is closed under extensions, hence contains $\langle \mathcal{T} \rangle$.
-	\end{proof}
-	
-	\begin{lemma}
-		\label{lem:cone_of_filtration}
-		Let $0 = E_0 \to E_1 \to \ldots \to E_n = E$ be a sequence of morphisms with cones $A_i := \Cone(E_{i-1} \to E_i)$, and for $0 \leqslant m \leqslant n$ let $Q_m$ be a cone of the composite $E_m \to E$.
-		Then $Q_n = 0$, $Q_0 = E$, and for $0 \leqslant m < n$ there is a triangle
-		\[
-		A_{m+1} \longrightarrow Q_m \longrightarrow Q_{m+1} \longrightarrow A_{m+1}[1] .
-		\]
-		In particular $E_m \in \langle A_1, \ldots, A_m \rangle$ and $Q_m \in \langle A_{m+1}, \ldots, A_n \rangle$.
-	\end{lemma}
-	
-	\begin{proof}
-		$Q_n$ is a cone of the identity and $Q_0$ a cone of $0 \to E$, whence the first two claims.
-		For $m < n$ apply \condref{cond:TR-oct} to the composable pair $E_m \to E_{m+1} \to E$: the cones are $A_{m+1}$, $Q_m$ and $Q_{m+1}$, which gives the triangle.
-		The membership of $E_m$ follows by induction on $m$ from the triangles $E_{m-1} \to E_m \to A_m$, that of $Q_m$ by descending induction on $m$ from the triangles just constructed.
-	\end{proof}
+	The following characterization, due to Bridgeland, describes hearts of bounded t-structures without mentioning the t-structure.
+	It is the model for the notion of a slicing.
 	
 	\begin{proposition}[{\cite[Lemma~3.2]{Bri07}}, {\cite[Def.~5.1]{MS17}}]
 		\label{prop:bounded_heart}
@@ -1500,7 +1598,8 @@
 		\[
 		E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]
 		\] 
-		splits: by \condref{cond:TR-coh} applied to $\Hom(E_1[1], -)$ the map $Q_1 \to E_1[1]$ has a section, so $E_1[1]$ is a direct summand of $Q_1$.
+		splits.
+		Indeed, by \condref{cond:TR-coh} applied to $\Hom(E_1[1], -)$ the map $Q_1 \to E_1[1]$ has a section, so $E_1[1]$ is a direct summand of $Q_1$.
 		But $Q_1 \in \langle A_2, \ldots, A_n \rangle$ by Lemma~\ref{lem:cone_of_filtration}, and 
 		\[
 		\Hom(B_1[k_1 + 1], B_i[k_i]) = \Hom(B_1, B_i[k_i - k_1 - 1]) = 0
@@ -1513,7 +1612,7 @@
 		\[
 		E_{n-1} \to E \to A_n \to E_{n-1}[1]
 		\] 
-		the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(A_n, -)$ the map $A_n \to E_{n-1}[1]$ has a retraction: $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
+		the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(A_n, -)$ the map $A_n \to E_{n-1}[1]$ has a retraction, so $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
 		But $\Hom(B_i[k_i + 1], B_n[k_n]) = \Hom(B_i, B_n[k_n - k_i - 1]) = 0$ for $i < n$ because $k_n < k_i$, so $\Hom(E_{n-1}[1], A_n) = 0$ by Lemma~\ref{lem:devissage}, and again $B_n = 0$, a contradiction.
 		Hence $0 \geqslant k_1 > \ldots > k_n \geqslant 0$, which forces $n = 1$ and $k_1 = 0$, i.e.\ $E = E_1 = A_1 = B_1 \in \calA$.
 		
@@ -1553,18 +1652,23 @@
 	\end{proposition}
 	
 	\begin{proof}
-		$\iota$ is well defined: a short exact sequence 
+		The map $\iota$ is well defined.
+		A short exact sequence 
 		\[
 		0 \to A' \to A \to A'' \to 0
 		\] 
 		in $\calA$ is a triangle in $\calD$ by Lemma~\ref{lem:triangles_vs_ses}(2), so $[A] = [A'] + [A'']$ holds in $\Kgroup(\calD)$.
 		
-		$\chi$ is well defined.
+		The map $\chi$ is well defined.
 		The sum is finite by Lemma~\ref{lem:cohomology_filtration}(1).
 		First, for a finite exact sequence 
 		\[0 \to M_1 \to M_2 \to \ldots \to M_r \to 0\] 
-		in $\calA$ one has $\sum_j (-1)^j [M_j] = 0$ in $\Kgroup(\calA)$:
-		splitting it into the short exact sequences $0 \to I_{j-1} \to M_j \to I_j \to 0$, where $I_j$ is the image of $M_j \to M_{j+1}$ and $I_0 = 0 = I_r$, gives $[M_j] = [I_{j-1}] + [I_j]$, and the alternating sum telescopes to $0$.
+		in $\calA$ one has $\sum_j (-1)^j [M_j] = 0$ in $\Kgroup(\calA)$.
+		Splitting it into the short exact sequences
+		\[
+		0 \to I_{j-1} \to M_j \to I_j \to 0 ,
+		\]
+		where $I_j$ is the image of $M_j \to M_{j+1}$ and $I_0 = 0 = I_r$, gives $[M_j] = [I_{j-1}] + [I_j]$, and the alternating sum telescopes to $0$.
 		Now let $X \to Y \to Z \to X[1]$ be a triangle.
 		By Theorem~\ref{thm:H0_cohomological} and Lemma~\ref{lem:cohomology_filtration}(1) the long exact sequence
 		\[
@@ -1573,9 +1677,14 @@
 		is a finite exact sequence in $\calA$, where $a \leqslant b$ are chosen so that all cohomology objects of $X, Y, Z$ outside $[a, b]$ vanish.
 		Its terms in positions $3(i - a) + 1$, $3(i - a) + 2$, $3(i - a) + 3$ are $H^i X$, $H^i Y$, $H^i Z$, so the alternating sum is $\pm \sum_i (-1)^{i} \big( [H^i X] - [H^i Y] + [H^i Z] \big)$, and its vanishing says $\chi(Y) = \chi(X) + \chi(Z)$.
 		
-		$\chi \circ \iota = \id$: for $A \in \calA$, Lemma~\ref{lem:H0_basic}(2) gives $H^0 A = A$ and $H^i A = 0$ for $i \neq 0$.
+		Next, $\chi \circ \iota = \id$, because for $A \in \calA$ Lemma~\ref{lem:H0_basic}(2) gives $H^0 A = A$ and $H^i A = 0$ for $i \neq 0$.
 		
-		$\iota \circ \chi = \id$: for $E \in \calD$ the cohomology filtration of Lemma~\ref{lem:cohomology_filtration}(1) has cones $H^i(E)[-i]$, so $[E] = \sum_i [H^i(E)[-i]] = \sum_i (-1)^i [H^i(E)]$ in $\Kgroup(\calD)$.
+		Finally, $\iota \circ \chi = \id$.
+		For $E \in \calD$ the cohomology filtration of Lemma~\ref{lem:cohomology_filtration}(1) has factors $H^i(E)[-i]$, so
+		\[
+		[E] = \sum_i [H^i(E)[-i]] = \sum_i (-1)^i [H^i(E)]
+		\]
+		in $\Kgroup(\calD)$.
 	\end{proof}
 	
 	\begin{remark}

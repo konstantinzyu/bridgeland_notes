@@ -13,8 +13,9 @@
 \contentsline {subsection}{\tocsubsection {}{2.3}{Truncation functors}}{15}{subsection.2.3}%
 \contentsline {subsection}{\tocsubsection {}{2.4}{The heart}}{17}{subsection.2.4}%
 \contentsline {subsection}{\tocsubsection {}{2.5}{Cohomology functors}}{20}{subsection.2.5}%
-\contentsline {subsection}{\tocsubsection {}{2.6}{Bounded t-structures}}{23}{subsection.2.6}%
-\contentsline {subsection}{\tocsubsection {}{2.7}{Hearts of bounded t-structures}}{23}{subsection.2.7}%
-\contentsline {subsection}{\tocsubsection {}{2.8}{The Grothendieck group}}{25}{subsection.2.8}%
-\contentsline {subsection}{\tocsubsection {}{2.9}{Examples}}{26}{subsection.2.9}%
-\contentsline {section}{\tocsection {}{}{References}}{26}{section*.16}%
+\contentsline {subsection}{\tocsubsection {}{2.6}{Extension closures}}{23}{subsection.2.6}%
+\contentsline {subsection}{\tocsubsection {}{2.7}{Bounded t-structures}}{24}{subsection.2.7}%
+\contentsline {subsection}{\tocsubsection {}{2.8}{Hearts of bounded t-structures}}{25}{subsection.2.8}%
+\contentsline {subsection}{\tocsubsection {}{2.9}{The Grothendieck group}}{27}{subsection.2.9}%
+\contentsline {subsection}{\tocsubsection {}{2.10}{Examples}}{28}{subsection.2.10}%
+\contentsline {section}{\tocsection {}{}{References}}{28}{section*.16}%
