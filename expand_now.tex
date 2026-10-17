@@ -895,11 +895,10 @@
 	\begin{itemize}
 		\item[] \condlabel{TR-rot}{cond:TR-rot} (\emph{rotation}) If $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} X[1]$ is a triangle, then so are $Y \xrightarrow{g} Z \xrightarrow{h} X[1] \xrightarrow{-f[1]} Y[1]$ and $Z[-1] \xrightarrow{-h[-1]} X \xrightarrow{f} Y \xrightarrow{g} Z$.
 		\item[] \condlabel{TR-coh}{cond:TR-coh} (\emph{Hom is cohomological}) For every object $T$ and every triangle $X \to Y \to Z \to X[1]$ the sequences
-		\[
-		\Hom(T, X) \to \Hom(T, Y) \to \Hom(T, Z),
-		\qquad
-		\Hom(Z, T) \to \Hom(Y, T) \to \Hom(X, T)
-		\]
+		\begin{align*}
+			&\Hom(T, X) \to \Hom(T, Y) \to \Hom(T, Z), \\
+			&\Hom(Z, T) \to \Hom(Y, T) \to \Hom(X, T)
+		\end{align*}
 		are exact; combined with \condref{cond:TR-rot} this gives the long exact sequences $\ldots \to \Hom(T, Z[-1]) \to \Hom(T, X) \to \Hom(T, Y) \to \Hom(T, Z) \to \Hom(T, X[1]) \to \ldots$ and dually.
 		In particular the composite of two consecutive maps in a triangle is zero.
 		\item[] \condlabel{TR-5}{cond:TR-5} (\emph{five lemma}) If $(\alpha, \beta, \gamma)$ is a morphism of triangles and two of $\alpha, \beta, \gamma$ are isomorphisms, so is the third.
@@ -942,7 +941,11 @@
 	$\Dle{n-1} \subset \Dle{n}$, $\Dge{n+1} \subset \Dge{n}$, $\Hom(\Dle{n}, \Dge{n+1}) = 0$, and every object sits in a triangle $A \to E \to B \to A[1]$ with $A \in \Dle{n}$, $B \in \Dge{n+1}$.
 	By induction, $\Dle{n} \subset \Dle{m}$ and $\Dge{m} \subset \Dge{n}$ for $n \leqslant m$.
 	
-	The intuition comes from the standard example: for an abelian category $\calA$ and $\calD = \D^{\mathrm{b}}(\calA)$, the complexes with cohomology concentrated in degrees $\leqslant 0$, respectively $\geqslant 0$, form a t-structure, and the triangle in \condref{cond:T3} is the usual truncation $\tau^{\leqslant 0} E \to E \to \tau^{\geqslant 1} E$ of complexes; this example will be treated in detail below.
+	The intuition comes from the standard example: for an abelian category $\calA$ and $\calD = \D^{\mathrm{b}}(\calA)$, the complexes with cohomology concentrated in degrees $\leqslant 0$, respectively $\geqslant 0$, form a t-structure, and the triangle in \condref{cond:T3} is the usual truncation 
+	\[
+	\tau^{\leqslant 0} E \to E \to \tau^{\geqslant 1} E
+	\] 
+	of complexes; this example will be treated in detail below. readability
 	
 	\subsection{Truncation functors}
 	
@@ -963,7 +966,11 @@
 		is exact.
 		For $T \in \Dle{0}$ the last term vanishes by \condref{cond:T2}, and so does the first, because $B[-1] \in \Dge{2} \subset \Dge{1}$ by \condref{cond:T1}.
 		Hence $a_*$ is bijective.
-		Dually, the sequence $\Hom(A[1], T) \to \Hom(B, T) \xrightarrow{b^*} \Hom(E, T) \to \Hom(A, T)$ is exact, and for $T \in \Dge{1}$ both outer terms vanish, since $A[1] \in \Dle{-1} \subset \Dle{0}$.
+		Dually, the sequence 
+		\[
+		\Hom(A[1], T) \to \Hom(B, T) \xrightarrow{b^*} \Hom(E, T) \to \Hom(A, T)
+		\] 
+		is exact, and for $T \in \Dge{1}$ both outer terms vanish, since $A[1] \in \Dle{-1} \subset \Dle{0}$.
 		
 		(2) Applying (1) to the second triangle with $T = A \in \Dle{0}$ gives a unique $\alpha \colon A \to A'$ with $a' \alpha = a$;
 		applying it to the first triangle with $T = A'$ gives a unique $\alpha' \colon A' \to A$ with $a \alpha' = a'$.
@@ -1057,13 +1064,26 @@
 	\end{lemma}
 	
 	\begin{proof}
-		By \condref{cond:TR-rot}, $C$ is an extension of $X[1]$ by $Y$: there is a triangle $Y \to C \to X[1] \to Y[1]$.
+		By \condref{cond:TR-rot}, $C$ is an extension of $X[1]$ by $Y$: there is a triangle 
+		\[
+		Y \to C \to X[1] \to Y[1].
+		\]
 		Since $Y \in \Dle{0}$ and $X[1] \in \Dle{-1} \subset \Dle{0}$, Lemma~\ref{lem:t_orthogonal}(3) gives $C \in \Dle{0}$;
 		since $Y \in \Dge{0}$ and $X[1] \in \Dge{-1}$, and $\Dge{0} \subset \Dge{-1}$, it gives $C \in \Dge{-1}$.
 		
 		By definition $\tau^{\leqslant -1} C \in \Dle{-1}$ and $Q = \tau^{\geqslant 0} C \in \Dge{0}$.
-		The rotated truncation triangle $Q[-1] \to \tau^{\leqslant -1} C \to C \to Q$ exhibits $\tau^{\leqslant -1} C$ as an extension of $C \in \Dge{-1}$ by $Q[-1] \in \Dge{1} \subset \Dge{-1}$, so $\tau^{\leqslant -1} C \in \Dge{-1}$ and hence $K = (\tau^{\leqslant -1} C)[-1] \in \Dle{0} \cap \Dge{0} = \calA$.
-		The triangle $C \to Q \to (\tau^{\leqslant -1} C)[1] \to C[1]$ exhibits $Q$ as an extension of $(\tau^{\leqslant -1} C)[1] \in \Dle{-2} \subset \Dle{0}$ by $C \in \Dle{0}$, so $Q \in \Dle{0}$ and hence $Q \in \calA$.
+		The rotated truncation triangle 
+		\[
+		Q[-1] \to \tau^{\leqslant -1} C \to C \to Q
+		\] 
+		exhibits $\tau^{\leqslant -1} C$ as an extension of $C \in \Dge{-1}$ by $Q[-1] \in \Dge{1} \subset \Dge{-1}$,
+		so $\tau^{\leqslant -1} C \in \Dge{-1}$ and hence 
+		$K = (\tau^{\leqslant -1} C)[-1] \in \Dle{0} \cap \Dge{0} = \calA$.
+		The triangle 
+		\[
+		C \to Q \to (\tau^{\leqslant -1} C)[1] \to C[1]
+		\] 
+		exhibits $Q$ as an extension of $(\tau^{\leqslant -1} C)[1] \in \Dle{-2} \subset \Dle{0}$ by $C \in \Dle{0}$, so $Q \in \Dle{0}$ and hence $Q \in \calA$.
 	\end{proof}
 	
 	In the situation of Lemma~\ref{lem:cone_in_heart} we define morphisms $\kappa \colon K \to X$ and $\pi \colon Y \to Q$ as the composites
@@ -1087,7 +1107,11 @@
 		is exact; by the Yoneda lemma this means that $\kappa$ is a kernel of $f$ in $\calA$.
 		
 		First, $\Hom(T, K) \to \Hom(T, C[-1])$ is bijective.
-		Indeed, the triangle $K \to C[-1] \to Q[-1] \to K[1]$ (the truncation triangle of $C$ shifted by $[-1]$) gives an exact sequence
+		Indeed, the triangle 
+		\[
+		K \to C[-1] \to Q[-1] \to K[1]
+		\] 
+		(the truncation triangle of $C$ shifted by $[-1]$) gives an exact sequence
 		\[
 		\Hom(T, Q[-2]) \to \Hom(T, K) \to \Hom(T, C[-1]) \to \Hom(T, Q[-1]) ,
 		\]
@@ -1126,11 +1150,18 @@
 		since $X'[1] \in \Dle{-1}$ we get $\tau^{\leqslant -1}(X'[1]) = X'[1]$ and $\tau^{\geqslant 0}(X'[1]) = 0$, so $K = X'$ and $Q = 0$;
 		thus $v$ is an epimorphism and its kernel is $\kappa \colon X' \to X$, which is $u$ up to sign (the sign comes from the rotation in \condref{cond:TR-rot} and does not affect the kernel).
 		
-		(2) Complete $u$ to a triangle $X' \xrightarrow{u} X \xrightarrow{v'} C \to X'[1]$ and form $K$, $Q$, $\kappa$, $\pi$ as in Lemma~\ref{lem:cone_in_heart}.
+		(2) Complete $u$ to a triangle 
+		\[
+		X' \xrightarrow{u} X \xrightarrow{v'} C \to X'[1]
+		\] 
+		and form $K$, $Q$, $\kappa$, $\pi$ as in Lemma~\ref{lem:cone_in_heart}.
 		By Proposition~\ref{prop:kernel_cokernel}, $\kappa \colon K \to X'$ is a kernel of $u$; as $u$ is a monomorphism, $K = 0$, i.e.\ $\tau^{\leqslant -1} C = 0$, and the map $C \to Q = \tau^{\geqslant 0} C$ is an isomorphism by \condref{cond:TR-5}.
 		In particular $C \in \calA$, and $\pi \colon X \to Q$ identifies with $v' \colon X \to C$, which is therefore a cokernel of $u$.
 		Two cokernels of $u$ are related by a unique isomorphism $\theta \colon C \to X''$ with $\theta v' = v$.
-		Transporting the triangle along $\theta$ we obtain a triangle $X' \xrightarrow{u} X \xrightarrow{v} X'' \xrightarrow{w} X'[1]$.
+		Transporting the triangle along $\theta$ we obtain a triangle 
+		\[
+		X' \xrightarrow{u} X \xrightarrow{v} X'' \xrightarrow{w} X'[1].
+		\]
 		For uniqueness of $w$: if $w'$ also completes $u, v$ to a triangle, then by the axioms there is a morphism of triangles $(\id, \id, \gamma)$ between the two, with $\gamma \in \End(X'')$ satisfying $\gamma v = v$, hence $\gamma = \id$ since $v$ is an epimorphism; the compatibility with the third maps then reads $w' = w$.
 	\end{proof}
 	
@@ -1145,19 +1176,32 @@
 		It remains to show that for every $f \colon X \to Y$ in $\calA$ the canonical morphism from the coimage $\operatorname{coker}(\ker f \to X)$ to the image $\ker(Y \to \operatorname{coker} f)$ is an isomorphism.
 		
 		Let $X \xrightarrow{f} Y \xrightarrow{g} C \to X[1]$ be a triangle, and let $K$, $Q$, $\kappa$, $\pi$ be as above, with $q \colon C \to Q$ the truncation map, so that $\pi = q g$.
-		Choose a triangle $I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1]$.
+		Choose a triangle 
+		\[
+		I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1].
+		\]
 		We apply \condref{cond:TR-oct} to the composable pair $Y \xrightarrow{g} C \xrightarrow{q} Q$: the cones are $\Cone(g) = X[1]$, $\Cone(q g) = \Cone(\pi) = I[1]$ and $\Cone(q) = (\tau^{\leqslant -1} C)[1] = K[2]$, so there is a triangle
 		\[
 		X[1] \to I[1] \to K[2] \to X[2] ,
 		\]
-		which after rotating and shifting becomes a triangle $K \to X \xrightarrow{e} I \to K[1]$;
+		which after rotating and shifting becomes a triangle 
+		\[
+		K \to X \xrightarrow{e} I \to K[1];
+		\]
 		the compatibilities in the octahedral axiom say that $j e = f$ and that $K \to X$ is the map $\kappa$ (up to sign).
 		
 		We claim that $I \in \calA$.
-		From the triangle $Q[-1] \to I \xrightarrow{j} Y \to Q$ and $Q[-1] \in \Dge{1} \subset \Dge{0}$, $Y \in \Dge{0}$ we get $I \in \Dge{0}$;
+		From the triangle 
+		\[
+		Q[-1] \to I \xrightarrow{j} Y \to Q
+		\] 
+		and $Q[-1] \in \Dge{1} \subset \Dge{0}$, $Y \in \Dge{0}$ we get $I \in \Dge{0}$;
 		from the triangle $X \xrightarrow{e} I \to K[1] \to X[1]$ and $X \in \Dle{0}$, $K[1] \in \Dle{-1} \subset \Dle{0}$ we get $I \in \Dle{0}$.
 		
-		Now Lemma~\ref{lem:triangles_vs_ses}(1) applies to both triangles $K \to X \xrightarrow{e} I \to K[1]$ and $I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1]$, all of whose terms lie in $\calA$:
+		Now Lemma~\ref{lem:triangles_vs_ses}(1) applies to both triangles 
+		\[
+		K \to X \xrightarrow{e} I \to K[1]
+		\] and $I \xrightarrow{j} Y \xrightarrow{\pi} Q \to I[1]$, all of whose terms lie in $\calA$:
 		\[
 		0 \to K \xrightarrow{\pm\kappa} X \xrightarrow{e} I \to 0
 		\qquad\text{and}\qquad
