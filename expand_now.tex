@@ -169,6 +169,8 @@
 \newcommand{\Dle}[1]{\calD^{\leqslant #1}}
 \newcommand{\Dge}[1]{\calD^{\geqslant #1}}
 \newcommand{\Cone}{\operatorname{Cone}}
+\newcommand{\Dint}[2]{\calD^{[#1, #2]}}
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\re}{\operatorname{Re}}
 \newcommand{\im}{\operatorname{Im}}
 
@@ -945,11 +947,7 @@
 	\[
 	\tau^{\leqslant 0} E \to E \to \tau^{\geqslant 1} E
 	\] 
-<<<<<<< HEAD
-	of complexes; this example will be treated in detail below.
-=======
-	of complexes; this example will be treated in detail below. readability
->>>>>>> 1e04fd0264196132c769f62c076987a2e68a641d
+	of complexes; see Example~\ref{ex:standard_t} below.
 	
 	\subsection{Truncation functors}
 	
@@ -1227,6 +1225,318 @@
 		In particular $f$ is a monomorphism in $\calA$ if and only if $C \in \calA$, and an epimorphism if and only if $C \in \calA[1]$.
 		Note also that a monomorphism in $\calA$ need not be a monomorphism in $\calD$, and the heart is in general not closed under cones: if $f$ has nonzero kernel, then $C \notin \calA$.
 	\end{remark}
+
+
+	\subsection{Cohomology functors}
+	
+	We continue with a fixed t-structure $(\Dle{0}, \Dge{0})$ on $\calD$ with heart $\calA$.
+	
+	\begin{lemma}[{\cite[1.3.4, 1.3.5]{BBD82}}]
+		\label{lem:truncations_compose}
+		Let $a \leqslant b$ be integers and $E \in \calD$.
+		\begin{enumerate}
+			\item The natural morphisms induce isomorphisms $\tau^{\leqslant a} \tau^{\leqslant b} E \cong \tau^{\leqslant a} E$ and $\tau^{\geqslant b} \tau^{\geqslant a} E \cong \tau^{\geqslant b} E$.
+			\item There is a unique morphism $\tau^{\geqslant a} \tau^{\leqslant b} E \to \tau^{\leqslant b} \tau^{\geqslant a} E$ compatible with the natural maps from $\tau^{\leqslant b} E$ and to $\tau^{\geqslant a} E$, and it is an isomorphism.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{proof}
+		(1) Since $\Dle{a} \subset \Dle{b}$, for every $T \in \Dle{a}$ the adjunction bijections give
+		\[
+		\Hom(T, \tau^{\leqslant a} \tau^{\leqslant b} E) \cong \Hom(T, \tau^{\leqslant b} E) \cong \Hom(T, E) \cong \Hom(T, \tau^{\leqslant a} E) ,
+		\]
+		all induced by the natural maps to $E$;
+		by the Yoneda lemma the natural map $\tau^{\leqslant a} \tau^{\leqslant b} E \to \tau^{\leqslant a} E$ is an isomorphism.
+		The second isomorphism is dual.
+		
+		(2) Put $X := \tau^{\leqslant b} E$.
+		The composite $\tau^{\leqslant a-1} E \to E$ factors uniquely through $X$ (adjunction, as $\tau^{\leqslant a-1} E \in \Dle{a-1} \subset \Dle{b}$), and by (1) the resulting map $\tau^{\leqslant a-1} E \to X$ is the truncation $\tau^{\leqslant a-1} X \to X$.
+		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant a-1} E \to X \to E$: the cones are $\tau^{\geqslant a} X$, $\tau^{\geqslant a} E$ and $\tau^{\geqslant b+1} E$, so there is a triangle
+		\[
+		\tau^{\geqslant a} \tau^{\leqslant b} E \longrightarrow \tau^{\geqslant a} E \longrightarrow \tau^{\geqslant b+1} E \longrightarrow (\tau^{\geqslant a} \tau^{\leqslant b} E)[1] ,
+		\]
+		compatible with the natural maps.
+		Its first term lies in $\Dle{b}$ (it is an extension of $(\tau^{\leqslant a-1} E)[1] \in \Dle{b}$ by $X \in \Dle{b}$, cf.\ the rotated triangle $X \to \tau^{\geqslant a} X \to (\tau^{\leqslant a-1} E)[1]$) and its third term lies in $\Dge{b+1}$.
+		By Lemma~\ref{lem:truncation_unique}(2) this triangle is the truncation triangle of $\tau^{\geqslant a} E$ at level $b$, i.e.\ $\tau^{\geqslant a} \tau^{\leqslant b} E \cong \tau^{\leqslant b} \tau^{\geqslant a} E$ compatibly with the maps to $\tau^{\geqslant a} E$;
+		compatibility with the maps from $\tau^{\leqslant b} E$ and uniqueness follow from the adjunction bijection $\Hom(\tau^{\leqslant b} E, \tau^{\leqslant b} \tau^{\geqslant a} E) \cong \Hom(\tau^{\leqslant b} E, \tau^{\geqslant a} E)$.
+	\end{proof}
+	
+	For $a \leqslant b$ we write $\Dint{a}{b} := \Dle{b} \cap \Dge{a}$ and $\tau^{[a, b]} := \tau^{\geqslant a} \tau^{\leqslant b} \cong \tau^{\leqslant b} \tau^{\geqslant a}$; by the proof of Lemma~\ref{lem:truncations_compose}(2) this functor takes values in $\Dint{a}{b}$.
+	In particular we define the \emph{cohomology functors}
+	\[
+	H^0 := \tau^{[0, 0]} = \tau^{\geqslant 0} \tau^{\leqslant 0} \colon \calD \longrightarrow \calA ,
+	\qquad
+	H^i(E) := H^0(E[i]) \qquad (i \in \ZZ) .
+	\]
+	Unwinding the definitions, $H^i(E)[-i] = \tau^{[i, i]} E = \tau^{\geqslant i} \tau^{\leqslant i} E$.
+	
+	\begin{lemma}
+		\label{lem:H0_basic}
+		\begin{enumerate}
+			\item For $E \in \Dle{0}$ one has $H^0(E) = \tau^{\geqslant 0} E$, and for $E \in \Dge{0}$ one has $H^0(E) = \tau^{\leqslant 0} E$.
+			\item For $A \in \calA$ one has $H^0(A) = A$ and $H^i(A) = 0$ for $i \neq 0$.
+			\item For every $E$ there is a triangle $\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E \to H^i(E)[-i] \to (\tau^{\leqslant i-1} E)[1]$, natural in $E$.
+			\item For $E \in \Dle{0}$ and $T \in \calA$ the natural map $\Hom(H^0 E, T) \to \Hom(E, T)$ is bijective; for $E \in \Dge{0}$ and $T \in \calA$ the natural map $\Hom(T, H^0 E) \to \Hom(T, E)$ is bijective.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{proof}
+		(1) If $E \in \Dle{0}$ then $\tau^{\leqslant 0} E = E$ by Lemma~\ref{lem:t_orthogonal}(2), and dually.
+		(2) follows from (1): $A \in \Dle{0} \cap \Dge{0}$ gives $H^0 A = \tau^{\geqslant 0} A = A$;
+		for $i > 0$ we have $A[i] \in \Dle{-i} \subset \Dle{-1}$, so $\tau^{\geqslant 0}(A[i]) = 0$ and $H^0(A[i]) = \tau^{\geqslant 0} \tau^{\leqslant 0} (A[i]) = \tau^{\geqslant 0}(A[i]) = 0$;
+		for $i < 0$ we have $A[i] \in \Dge{-i} \subset \Dge{1}$, so $\tau^{\leqslant 0}(A[i]) = 0$.
+		(3) By Lemma~\ref{lem:truncations_compose}(1), $\tau^{\leqslant i-1}(\tau^{\leqslant i} E) = \tau^{\leqslant i-1} E$, so the truncation triangle of $\tau^{\leqslant i} E$ at level $i-1$ reads $\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E \to \tau^{\geqslant i} \tau^{\leqslant i} E = H^i(E)[-i]$.
+		(4) For $E \in \Dle{0}$, $H^0 E = \tau^{\geqslant 0} E$ by (1), and $\tau^{\geqslant 0}$ is left adjoint to the inclusion of $\Dge{0} \ni T$; dually for $E \in \Dge{0}$.
+	\end{proof}
+	
+	\begin{theorem}[{\cite[Th\'eor\`eme~1.3.6]{BBD82}}]
+		\label{thm:H0_cohomological}
+		The functor $H^0 \colon \calD \to \calA$ is cohomological: for every triangle $X \to Y \to Z \to X[1]$ the sequence $H^0 X \to H^0 Y \to H^0 Z$ is exact in $\calA$.
+		Consequently there is a long exact sequence in $\calA$
+		\[
+		\cdots \to H^{i-1} Z \to H^i X \to H^i Y \to H^i Z \to H^{i+1} X \to \cdots
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		The long exact sequence follows from the first statement applied to the rotated triangles \condref{cond:TR-rot}, since $H^i = H^0 \circ [i]$.
+		We prove the first statement in three steps, following \cite{BBD82}.
+		
+		\step{$X, Y, Z \in \Dle{0}$}
+		We show that $H^0 X \to H^0 Y \to H^0 Z \to 0$ is exact.
+		In an abelian category a sequence $A \to B \to C \to 0$ is exact if and only if $0 \to \Hom(C, T) \to \Hom(B, T) \to \Hom(A, T)$ is exact for every object $T$ (Yoneda).
+		For $T \in \calA$ the long exact sequence \condref{cond:TR-coh} gives
+		\[
+		\Hom(X[1], T) \to \Hom(Z, T) \to \Hom(Y, T) \to \Hom(X, T) ,
+		\]
+		and $\Hom(X[1], T) = 0$ by \condref{cond:T2}, as $X[1] \in \Dle{-1}$ and $T \in \Dge{0}$.
+		By Lemma~\ref{lem:H0_basic}(4) this sequence identifies with $0 \to \Hom(H^0 Z, T) \to \Hom(H^0 Y, T) \to \Hom(H^0 X, T)$, which is therefore exact.
+		
+		\step{$X \in \Dle{0}$, or dually $Z \in \Dge{0}$}
+		We show that $H^0 X \to H^0 Y \to H^0 Z \to 0$ is exact when $X \in \Dle{0}$.
+		By adjunction the map $X \to Y$ factors as $X \to \tau^{\leqslant 0} Y \to Y$.
+		Apply \condref{cond:TR-oct} to this composable pair: with $W := \Cone(X \to \tau^{\leqslant 0} Y)$ there is a triangle
+		\[
+		W \longrightarrow Z \longrightarrow \tau^{\geqslant 1} Y \longrightarrow W[1] ,
+		\]
+		compatible with the maps $\tau^{\leqslant 0} Y \to W$, $\tau^{\leqslant 0} Y \to Y \to Z$ and $Y \to \tau^{\geqslant 1} Y$.
+		Here $W \in \Dle{0}$ (an extension of $X[1]$ by $\tau^{\leqslant 0} Y$) and $\tau^{\geqslant 1} Y \in \Dge{1}$, so by Lemma~\ref{lem:truncation_unique}(2) this is the truncation triangle of $Z$: $W \cong \tau^{\leqslant 0} Z$, and under this identification $\tau^{\leqslant 0} Y \to W$ is $\tau^{\leqslant 0}$ of the map $Y \to Z$ (both are compatible with the maps to $Z$, and such a map is unique by adjunction).
+		Thus $X \to \tau^{\leqslant 0} Y \to \tau^{\leqslant 0} Z \to X[1]$ is a triangle with all terms in $\Dle{0}$, and Step~1 gives an exact sequence $H^0 X \to H^0 \tau^{\leqslant 0} Y \to H^0 \tau^{\leqslant 0} Z \to 0$.
+		Finally $H^0 \tau^{\leqslant 0} = H^0$ by Lemma~\ref{lem:truncations_compose}(1), compatibly with the maps, which gives the claim.
+		The dual statement, exactness of $0 \to H^0 X \to H^0 Y \to H^0 Z$ when $Z \in \Dge{0}$, is proved in the same way (or by passing to the opposite category, which carries the t-structure $(\Dge{0}, \Dle{0})$).
+		
+		\step{the general case}
+		Apply \condref{cond:TR-oct} to the composable pair $\tau^{\leqslant 0} X \to X \to Y$: with $U := \Cone(\tau^{\leqslant 0} X \to Y)$ there is a triangle
+		\[
+		\tau^{\geqslant 1} X \longrightarrow U \longrightarrow Z \longrightarrow (\tau^{\geqslant 1} X)[1] ,
+		\]
+		compatible with the maps $Y \to U$ and $Y \to Z$.
+		Step~2 applied to the triangle $\tau^{\leqslant 0} X \to Y \to U \to (\tau^{\leqslant 0} X)[1]$ gives an exact sequence $H^0 \tau^{\leqslant 0} X \to H^0 Y \to H^0 U \to 0$, and $H^0 \tau^{\leqslant 0} X = H^0 X$.
+		The dual half of Step~2 applied to the rotated triangle $U \to Z \to (\tau^{\geqslant 1} X)[1] \to U[1]$, whose third term lies in $\Dge{0}$, shows that $H^0 U \to H^0 Z$ is a monomorphism.
+		Since $H^0 Y \to H^0 Z$ is the composite $H^0 Y \to H^0 U \to H^0 Z$, its kernel equals the kernel of $H^0 Y \to H^0 U$, which is the image of $H^0 X \to H^0 Y$.
+	\end{proof}
+	
+	\subsection{Bounded t-structures}
+	
+	A t-structure is called \emph{bounded} if
+	\[
+	\calD = \bigcup_{a \leqslant b} \Dint{a}{b} ,
+	\]
+	i.e.\ every object lies in $\Dle{b} \cap \Dge{a}$ for some integers $a \leqslant b$.
+	It is called \emph{non-degenerate} if $\bigcap_{n} \Dle{n} = 0 = \bigcap_{n} \Dge{n}$.
+	A bounded t-structure is non-degenerate: if $E \in \Dle{n}$ for all $n$ and $E \in \Dge{a}$, then $E \in \Dle{a-1} \cap \Dge{a}$, so $E \in \Dle{a-1} = {}^{\perp}\Dge{a}$ gives $\Hom(E, E) = 0$ and $E = 0$.
+	
+	\begin{lemma}[cohomology filtration]
+		\label{lem:cohomology_filtration}
+		Let the t-structure be bounded, and let $E \in \Dint{a}{b}$.
+		\begin{enumerate}
+			\item $H^i(E) = 0$ for $i \notin [a, b]$, $\tau^{\leqslant a-1} E = 0$ and $\tau^{\leqslant b} E = E$, and the triangles of Lemma~\ref{lem:H0_basic}(3) form a filtration
+			\[
+			0 = \tau^{\leqslant a-1} E \to \tau^{\leqslant a} E \to \tau^{\leqslant a+1} E \to \ldots \to \tau^{\leqslant b} E = E
+			\]
+			with $\Cone(\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E) = H^i(E)[-i]$, $a \leqslant i \leqslant b$.
+			\item $E \in \Dle{n}$ if and only if $H^i(E) = 0$ for all $i > n$; $E \in \Dge{n}$ if and only if $H^i(E) = 0$ for all $i < n$; $E = 0$ if and only if $H^i(E) = 0$ for all $i$.
+			\item $\Dle{0} = \langle \calA[k] : k \geqslant 0 \rangle$ and $\Dge{0} = \langle \calA[k] : k \leqslant 0 \rangle$.
+			In particular a bounded t-structure is determined by its heart.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{proof}
+		(1) By Lemma~\ref{lem:t_orthogonal}(2) (shifted), $E \in \Dge{a}$ gives $\tau^{\leqslant a-1} E = 0$ and $E \in \Dle{b}$ gives $\tau^{\leqslant b} E = E$.
+		For $i < a$ we get $\tau^{\leqslant i} E = \tau^{\leqslant i} \tau^{\leqslant a-1} E = 0$ by Lemma~\ref{lem:truncations_compose}(1), hence $H^i(E)[-i] = \tau^{\geqslant i} \tau^{\leqslant i} E = 0$;
+		for $i > b$ the map $\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E$ is the identity of $E$ (both sides equal $E$ since $\Dle{b} \subset \Dle{i-1}$), so its cone $H^i(E)[-i]$ vanishes.
+		The filtration statement is Lemma~\ref{lem:H0_basic}(3).
+		
+		(2) If $E \in \Dle{n}$, then $E \in \Dint{a}{n}$ for some $a$, and (1) gives $H^i(E) = 0$ for $i > n$.
+		Conversely, if $H^i(E) = 0$ for $i > n$, then in the filtration of (1) all maps $\tau^{\leqslant i-1} E \to \tau^{\leqslant i} E$ with $i > n$ have zero cone, hence are isomorphisms by \condref{cond:TR-5}, so $E = \tau^{\leqslant b} E \cong \tau^{\leqslant n} E \in \Dle{n}$.
+		The second statement is dual (using the filtration by the $\tau^{\geqslant i} E$), and the third follows from the first two and non-degeneracy, or directly: if all $H^i(E)$ vanish, the filtration in (1) shows $E \cong \tau^{\leqslant a-1} E = 0$.
+		
+		(3) $\Dle{0}$ is closed under extensions and contains $\calA[k] = \Dint{-k}{-k}$ for $k \geqslant 0$, so it contains $\langle \calA[k] : k \geqslant 0 \rangle$.
+		Conversely, for $E \in \Dle{0}$ the filtration of (1) exhibits $E$ as an iterated extension of the objects $H^i(E)[-i] \in \calA[-i]$ with $i \leqslant 0$.
+		Dually for $\Dge{0}$.
+		The last assertion follows since $\Dle{0}$ and $\Dge{0}$ are expressed in terms of $\calA$.
+	\end{proof}
+	
+	\subsection{Hearts of bounded t-structures}
+	
+	The following characterization, due to Bridgeland, describes hearts of bounded t-structures without mentioning the t-structure; it is the model for the notion of a slicing.
+	Two elementary facts about extension closures will be used.
+	
+	\begin{lemma}
+		\label{lem:devissage}
+		Let $\mathcal{S}, \mathcal{T}$ be classes of objects of $\calD$ with $\Hom(S, T) = 0$ for all $S \in \mathcal{S}$, $T \in \mathcal{T}$.
+		Then $\Hom(X, Y) = 0$ for all $X \in \langle \mathcal{S} \rangle$ and $Y \in \langle \mathcal{T} \rangle$.
+	\end{lemma}
+	
+	\begin{proof}
+		For fixed $T \in \mathcal{T}$ the class $\{ X : \Hom(X, T) = 0 \} = {}^{\perp}\{T\}$ contains $\mathcal{S}$ and $0$ and is closed under extensions (proof of Lemma~\ref{lem:t_orthogonal}(3)), hence contains $\langle \mathcal{S} \rangle$.
+		Then for fixed $X \in \langle \mathcal{S} \rangle$ the class $\{ Y : \Hom(X, Y) = 0 \}$ contains $\mathcal{T}$ and $0$ and is closed under extensions, hence contains $\langle \mathcal{T} \rangle$.
+	\end{proof}
+	
+	\begin{lemma}
+		\label{lem:cone_of_filtration}
+		Let $0 = E_0 \to E_1 \to \ldots \to E_n = E$ be a sequence of morphisms with cones $A_i := \Cone(E_{i-1} \to E_i)$, and for $0 \leqslant m \leqslant n$ let $Q_m$ be a cone of the composite $E_m \to E$.
+		Then $Q_n = 0$, $Q_0 = E$, and for $0 \leqslant m < n$ there is a triangle
+		\[
+		A_{m+1} \longrightarrow Q_m \longrightarrow Q_{m+1} \longrightarrow A_{m+1}[1] .
+		\]
+		In particular $E_m \in \langle A_1, \ldots, A_m \rangle$ and $Q_m \in \langle A_{m+1}, \ldots, A_n \rangle$.
+	\end{lemma}
+	
+	\begin{proof}
+		$Q_n$ is a cone of the identity and $Q_0$ a cone of $0 \to E$, whence the first two claims.
+		For $m < n$ apply \condref{cond:TR-oct} to the composable pair $E_m \to E_{m+1} \to E$: the cones are $A_{m+1}$, $Q_m$ and $Q_{m+1}$, which gives the triangle.
+		The membership of $E_m$ follows by induction on $m$ from the triangles $E_{m-1} \to E_m \to A_m$, that of $Q_m$ by descending induction on $m$ from the triangles just constructed.
+	\end{proof}
+	
+	\begin{proposition}[{\cite[Lemma~3.2]{Bri07}}, {\cite[Def.~5.1]{MS17}}]
+		\label{prop:bounded_heart}
+		Let $\calA \subset \calD$ be a full additive subcategory.
+		Then $\calA$ is the heart of a bounded t-structure on $\calD$ if and only if
+		\begin{itemize}
+			\item[] \condlabel{BH1}{cond:BH1} $\Hom(A, B[k]) = 0$ for all $A, B \in \calA$ and all integers $k < 0$;
+			\item[] \condlabel{BH2}{cond:BH2} every nonzero object $E \in \calD$ admits a finite sequence of morphisms
+			\[
+			0 = E_0 \to E_1 \to \ldots \to E_{n-1} \to E_n = E
+			\]
+			whose cones $A_i := \Cone(E_{i-1} \to E_i)$ are of the form $A_i = B_i[k_i]$ with $0 \neq B_i \in \calA$ and $k_1 > k_2 > \ldots > k_n$.
+		\end{itemize}
+		In this case the t-structure is $(\langle \calA[k] : k \geqslant 0 \rangle, \langle \calA[k] : k \leqslant 0 \rangle)$, and the sequence in \condref{cond:BH2} is the cohomology filtration of Lemma~\ref{lem:cohomology_filtration}, with $B_i = H^{-k_i}(E)$.
+	\end{proposition}
+	
+	\begin{proof}
+		Suppose $\calA$ is the heart of a bounded t-structure.
+		Then \condref{cond:BH1} is \eqref{eq:heart_negative_ext}.
+		For \condref{cond:BH2}, let $E \neq 0$, say $E \in \Dint{a}{b}$, and take the filtration of Lemma~\ref{lem:cohomology_filtration}(1), discarding the steps with $H^i(E) = 0$ (their maps are isomorphisms);
+		its cones are $H^i(E)[-i]$ with $i$ increasing, i.e.\ $B_i[k_i]$ with $k_i = -i$ strictly decreasing.
+		The description of the t-structure is Lemma~\ref{lem:cohomology_filtration}(3).
+		
+		Conversely, let $\calA$ satisfy \condref{cond:BH1} and \condref{cond:BH2}, and put
+		\[
+		\Dle{0} := \langle \calA[k] : k \geqslant 0 \rangle , \qquad \Dge{0} := \langle \calA[k] : k \leqslant 0 \rangle .
+		\]
+		Then $\Dle{n} = \langle \calA[k] : k \geqslant -n \rangle$ and $\Dge{n} = \langle \calA[k] : k \leqslant -n \rangle$, so \condref{cond:T1} is clear.
+		
+		\step{\condref{cond:T2}}
+		For $A, B \in \calA$, $k \geqslant 0$ and $l \leqslant -1$ we have $\Hom(A[k], B[l]) = \Hom(A, B[l - k]) = 0$ by \condref{cond:BH1}, since $l - k < 0$.
+		Lemma~\ref{lem:devissage} gives $\Hom(\Dle{0}, \Dge{1}) = 0$.
+		
+		\step{\condref{cond:T3}}
+		Let $E \neq 0$ (for $E = 0$ take the zero triangle) and take a sequence as in \condref{cond:BH2}.
+		Let $m$ be the number of indices $i$ with $k_i \geqslant 0$, so that $k_1 > \ldots > k_m \geqslant 0 > k_{m+1} > \ldots > k_n$.
+		By Lemma~\ref{lem:cone_of_filtration}, $E_m \in \langle A_1, \ldots, A_m \rangle \subset \Dle{0}$ and a cone $Q_m$ of $E_m \to E$ lies in $\langle A_{m+1}, \ldots, A_n \rangle \subset \langle \calA[k] : k \leqslant -1 \rangle = \Dge{1}$.
+		Thus $E_m \to E \to Q_m \to E_m[1]$ is the required triangle.
+		So $(\Dle{0}, \Dge{0})$ is a t-structure.
+		
+		\step{boundedness}
+		With notation as in Step~2, Lemma~\ref{lem:cone_of_filtration} gives $E \in \langle A_1, \ldots, A_n \rangle \subset \langle \calA[k] : k_n \leqslant k \leqslant k_1 \rangle \subset \Dle{-k_n} \cap \Dge{-k_1}$.
+		
+		\step{the heart is $\calA$}
+		Clearly $\calA \subset \Dle{0} \cap \Dge{0}$.
+		Conversely let $0 \neq E \in \Dle{0} \cap \Dge{0}$, with a sequence as in \condref{cond:BH2}.
+		We claim $k_1 \leqslant 0$.
+		Otherwise $k_1 \geqslant 1$, and $\Hom(A_1, E) = 0$ by Lemma~\ref{lem:devissage}, since $\Hom(B_1[k_1], B[k]) = \Hom(B_1, B[k - k_1]) = 0$ for $B \in \calA$, $k \leqslant 0$.
+		So the map $E_1 = A_1 \to E$ is zero, and the triangle $E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]$ splits: by \condref{cond:TR-coh} applied to $\Hom(E_1[1], -)$ the map $Q_1 \to E_1[1]$ has a section, so $E_1[1]$ is a direct summand of $Q_1$.
+		But $Q_1 \in \langle A_2, \ldots, A_n \rangle$ by Lemma~\ref{lem:cone_of_filtration}, and $\Hom(B_1[k_1 + 1], B_i[k_i]) = \Hom(B_1, B_i[k_i - k_1 - 1]) = 0$ for $i \geqslant 2$ since $k_i < k_1$;
+		hence $\Hom(E_1[1], Q_1) = 0$ by Lemma~\ref{lem:devissage}, so the identity of $E_1[1]$ factors through $0$ and $B_1 = 0$, a contradiction.
+		Dually, $k_n \geqslant 0$.
+		Otherwise $k_n \leqslant -1$ and $\Hom(E, A_n) = 0$ by Lemma~\ref{lem:devissage}, since $E \in \langle \calA[k] : k \geqslant 0 \rangle$ and $\Hom(B[k], B_n[k_n]) = \Hom(B, B_n[k_n - k]) = 0$ for $k \geqslant 0$.
+		So in the triangle $E_{n-1} \to E \to A_n \to E_{n-1}[1]$ the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(A_n, -)$ the map $A_n \to E_{n-1}[1]$ has a retraction: $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
+		But $\Hom(B_i[k_i + 1], B_n[k_n]) = \Hom(B_i, B_n[k_n - k_i - 1]) = 0$ for $i < n$ because $k_n < k_i$, so $\Hom(E_{n-1}[1], A_n) = 0$ by Lemma~\ref{lem:devissage}, and again $B_n = 0$, a contradiction.
+		Hence $0 \geqslant k_1 > \ldots > k_n \geqslant 0$, which forces $n = 1$ and $k_1 = 0$, i.e.\ $E = E_1 = A_1 = B_1 \in \calA$.
+		
+		\step{the filtration is the cohomology filtration}
+		For the t-structure just constructed, Step~2 shows that for every $j$ the object $E_{m_j}$, where $m_j := \#\{ i : k_i \geqslant -j \}$, is $\tau^{\leqslant j} E$ (its cone in $E$ lies in $\Dge{j+1}$, and it lies in $\Dle{j}$).
+		Hence the sequence in \condref{cond:BH2} is obtained from the cohomology filtration by discarding the trivial steps, and $B_i[k_i] = \Cone(\tau^{\leqslant -k_i - 1} E \to \tau^{\leqslant -k_i} E) = H^{-k_i}(E)[k_i]$.
+	\end{proof}
+	
+	\begin{corollary}[{\cite[Exercise~5.6]{MS17}}]
+		\label{cor:hearts_inclusion}
+		Let $\calA \subset \calB$ be hearts of bounded t-structures on $\calD$. Then $\calA = \calB$.
+	\end{corollary}
+	
+	\begin{proof}
+		By Lemma~\ref{lem:cohomology_filtration}(3), $\Dle{0}_{\calA} = \langle \calA[k] : k \geqslant 0 \rangle \subset \langle \calB[k] : k \geqslant 0 \rangle = \Dle{0}_{\calB}$ and likewise $\Dge{0}_{\calA} \subset \Dge{0}_{\calB}$.
+		Taking right orthogonals in the first inclusion and using Lemma~\ref{lem:t_orthogonal}(1) gives $\Dge{1}_{\calA} \supset \Dge{1}_{\calB}$, i.e.\ $\Dge{0}_{\calA} \supset \Dge{0}_{\calB}$.
+		Hence $\Dge{0}_{\calA} = \Dge{0}_{\calB}$, so the two t-structures coincide by Lemma~\ref{lem:t_orthogonal}(1), and so do their hearts.
+	\end{proof}
+	
+	\subsection{The Grothendieck group}
+	
+	The \emph{Grothendieck group} $\Kgroup(\calD)$ of the (essentially small) triangulated category $\calD$ is the abelian group generated by the isomorphism classes $[E]$ of objects of $\calD$ subject to the relations $[Y] = [X] + [Z]$ for every triangle $X \to Y \to Z \to X[1]$.
+	From the triangles $X \to 0 \to X[1] \to X[1]$ and $X \to X \oplus Z \to Z \to X[1]$ one gets
+	\[
+	[X[1]] = -[X], \qquad [X \oplus Z] = [X] + [Z], \qquad [0] = 0 ,
+	\]
+	and for a sequence $0 = E_0 \to E_1 \to \ldots \to E_n = E$ with cones $A_i$ one gets $[E] = \sum_i [A_i]$ by induction.
+	
+	\begin{proposition}[{\cite[Exercise~5.4]{MS17}}]
+		\label{prop:K0_heart}
+		Let $\calA$ be the heart of a bounded t-structure on $\calD$.
+		Then the homomorphism
+		\[
+		\iota \colon \Kgroup(\calA) \longrightarrow \Kgroup(\calD), \qquad [A] \longmapsto [A],
+		\]
+		is an isomorphism, with inverse $\chi \colon [E] \mapsto \sum_{i \in \ZZ} (-1)^i [H^i(E)]$.
+	\end{proposition}
+	
+	\begin{proof}
+		$\iota$ is well defined: a short exact sequence $0 \to A' \to A \to A'' \to 0$ in $\calA$ is a triangle in $\calD$ by Lemma~\ref{lem:triangles_vs_ses}(2), so $[A] = [A'] + [A'']$ holds in $\Kgroup(\calD)$.
+		
+		$\chi$ is well defined.
+		The sum is finite by Lemma~\ref{lem:cohomology_filtration}(1).
+		First, for a finite exact sequence $0 \to M_1 \to M_2 \to \ldots \to M_r \to 0$ in $\calA$ one has $\sum_j (-1)^j [M_j] = 0$ in $\Kgroup(\calA)$:
+		splitting it into the short exact sequences $0 \to I_{j-1} \to M_j \to I_j \to 0$, where $I_j$ is the image of $M_j \to M_{j+1}$ and $I_0 = 0 = I_r$, gives $[M_j] = [I_{j-1}] + [I_j]$, and the alternating sum telescopes to $0$.
+		Now let $X \to Y \to Z \to X[1]$ be a triangle.
+		By Theorem~\ref{thm:H0_cohomological} and Lemma~\ref{lem:cohomology_filtration}(1) the long exact sequence
+		\[
+		0 \to H^{a} X \to H^{a} Y \to H^{a} Z \to H^{a+1} X \to \ldots \to H^{b} X \to H^{b} Y \to H^{b} Z \to 0
+		\]
+		is a finite exact sequence in $\calA$, where $a \leqslant b$ are chosen so that all cohomology objects of $X, Y, Z$ outside $[a, b]$ vanish.
+		Its terms in positions $3(i - a) + 1$, $3(i - a) + 2$, $3(i - a) + 3$ are $H^i X$, $H^i Y$, $H^i Z$, so the alternating sum is $\pm \sum_i (-1)^{i} \big( [H^i X] - [H^i Y] + [H^i Z] \big)$, and its vanishing says $\chi(Y) = \chi(X) + \chi(Z)$.
+		
+		$\chi \circ \iota = \id$: for $A \in \calA$, Lemma~\ref{lem:H0_basic}(2) gives $H^0 A = A$ and $H^i A = 0$ for $i \neq 0$.
+		
+		$\iota \circ \chi = \id$: for $E \in \calD$ the cohomology filtration of Lemma~\ref{lem:cohomology_filtration}(1) has cones $H^i(E)[-i]$, so $[E] = \sum_i [H^i(E)[-i]] = \sum_i (-1)^i [H^i(E)]$ in $\Kgroup(\calD)$.
+	\end{proof}
+	
+	\begin{remark}
+		Different bounded t-structures on the same $\calD$ thus have hearts with canonically isomorphic Grothendieck groups, all identified with $\Kgroup(\calD)$.
+		This is what allows one to fix a single lattice $\Lambda$ and a map $\Kgroup(\calD) \to \Lambda$ once and for all when studying stability conditions whose hearts vary.
+		Note also that the construction only makes sense for essentially small categories, and that $\Kgroup$ of a triangulated category with arbitrary direct sums vanishes (Eilenberg swindle: $X \oplus \bigoplus_{\NN} X \cong \bigoplus_{\NN} X$ forces $[X] = 0$).
+	\end{remark}
+	
+	\subsection{Examples}
+	
+	\begin{example}[the standard t-structure, {\cite[Exemple~1.3.2]{BBD82}}]
+		\label{ex:standard_t}
+		\textcolor{red}{To be written: the standard t-structure on $\D^{\mathrm{b}}(\calA)$, its heart, and $\D^{\mathrm{b}}$ of the heart.}
+	\end{example}
+	
+	\begin{example}[the stable homotopy category]
+		\label{ex:SH}
+		\textcolor{red}{To be written: the Postnikov t-structure on $\mathrm{SH}$, its heart $\mathrm{Ab}$, and $\mathrm{SH} \not\simeq \D(\mathrm{Ab})$.}
+	\end{example}
 
 
 	\begin{thebibliography}{GKR04}
