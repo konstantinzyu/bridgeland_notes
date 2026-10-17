@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  13 OCT 2026 09:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  17 OCT 2026 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -948,7 +948,7 @@ File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 \c@theorem=\count343
 \c@pstep=\count344
-Package hyperref Info: Option `colorlinks' set `true' on input line 89.
+Package hyperref Info: Option `colorlinks' set `true' on input line 93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
@@ -958,49 +958,49 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./expand_now.aux)
 \openout1 = `expand_now.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 236.
-LaTeX Font Info:    ... okay on input line 236.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 236
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 244.
+LaTeX Font Info:    ... okay on input line 244.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 244
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 236
+LaTeX Font Info:    Trying to load font information for U+msb on input line 244
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 23
-6.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 24
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 23
-6.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 24
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 23
-6.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 24
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1039,7 +1039,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package xypdf Info: Line width: 0.47998pt on input line 236.
+Package xypdf Info: Line width: 0.47998pt on input line 244.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count346
@@ -1062,7 +1062,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 236.
+Package hyperref Info: Link coloring ON on input line 244.
 
 (./expand_now.out) (./expand_now.out)
 \@outlinefile=\write5
@@ -1072,79 +1072,81 @@ Package hyperref Info: Link coloring ON on input line 236.
 \tf@toc=\write6
 \openout6 = `expand_now.toc'.
 
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (26.73878pt too wide) in paragraph at lines 479--484
-\OT1/cmr/m/n/12 which tends to $\OMS/cmsy/m/n/12 1$ \OT1/cmr/m/n/12 as $\OML/cm
-m/m/it/12 n \OMS/cmsy/m/n/12 ! 1$\OT1/cmr/m/n/12 . Choose $\OML/cmm/m/it/12 n[]
- > n[]$ \OT1/cmr/m/n/12 with $\OML/cmm/m/it/12 D\OT1/cmr/m/n/12 (\OML/cmm/m/it/
-12 G[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12
- > []\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 D\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 E\OT
-1/cmr/m/n/12 )\OML/cmm/m/it/12 ; D\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 G[]\OT1/cmr
-/m/n/12 )\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 .
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/e
+nc/dvips/cm-super/cm-super-ts1.enc}] [2] [3]
+Overfull \hbox (5.80333pt too wide) in paragraph at lines 404--406
+[][]\OT1/cmr/bx/n/12 Lemma 1.3 \OT1/cmr/m/n/12 (Schur, [[], Thm 1], [[], Lemma 
+4.5])\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 Let $\OML/cmm/m/it/12 E; F$ \OT1/cmr
+/m/it/12 be $\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 A\OML/cmm/m/it/12 ; Z\OT1/cmr/m/
+n/12 )$\OT1/cmr/m/it/12 -semistable
  []
 
-[5]
-Overfull \hbox (15.87129pt too wide) in paragraph at lines 555--559
-\OT1/cmr/m/n/12 so that $\OML/cmm/m/it/12 `\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R\
-OT1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; D\OT1/cmr
-/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 )) \OML/cmm/m/it/12 > M \OMS/cmsy/m/
-n/12 ^^@ \OML/cmm/m/it/12 ^^M$ \OT1/cmr/m/n/12 forces $\OML/cmm/m/it/12 R\OT1/c
-mr/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 r[]$\OT1/cmr/
-m/n/12 . For brevity write $\OML/cmm/m/it/12 `\OT1/cmr/m/n/12 (\OML/cmm/m/it/12
- F\OT1/cmr/m/n/12 ) := \OML/cmm/m/it/12 `\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R\OT
-1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; D\OT1/cmr/m
-/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 ))$.
- []
-
-[6] [7]
+[4] [5] [6]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.665 		\step{$E_1 = E'_1$}
-                            Let $j$ be minimal with $E_1 \subset E'_j$; it e...
+l.552 		\step{the part of rank zero}
+                                    
+Underfull \vbox (badness 7685) has occurred while \output is active []
 
+ [7]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.667 		\step{induction}
-                         If $n = 1$, then $E = E_1 = E'_1$, so $m = 1$ as we...
-[8] [9] [10] (./expand_now.aux)
+l.591 		\step{the Harder--Narasimhan polygon}
+                                             
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
+ [8]
+Underfull \vbox (badness 5878) has occurred while \output is active []
+
+ [9]
+[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] (./expand_now.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `expand_now.out' has not changed.
-(rerunfilecheck)             Checksum: 418A24D1BDAFCAFE7454E25B6B8B2B10;1896.
+(rerunfilecheck)             Checksum: 8C48B73557F1872CD15CA88BF769B863;2946.
  ) 
 Here is how much of TeX's memory you used:
- 27655 strings out of 474222
- 497288 string characters out of 5748734
- 1943975 words of memory out of 5000000
- 49206 multiletter control sequences out of 15000+600000
- 570488 words of font info for 92 fonts, out of 8000000 for 9000
+ 27818 strings out of 474222
+ 499487 string characters out of 5748734
+ 1945975 words of memory out of 5000000
+ 49308 multiletter control sequences out of 15000+600000
+ 571479 words of font info for 95 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 102i,14n,106p,1433b,979s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on expand_now.pdf (10 pages, 234383 bytes).
+ 102i,18n,106p,1433b,979s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on expand_now.pdf (21 pages, 403930 bytes).
 PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 513 PDF objects out of 1000 (max. 8388607)
+ 433 compressed objects within 5 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 
