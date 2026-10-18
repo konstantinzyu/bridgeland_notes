@@ -78,6 +78,7 @@
 \AtEndEnvironment{example}{\hfill$\bigstar$}
 \newcounter{pstep}
 \AtBeginEnvironment{proof}{\setcounter{pstep}{0}}
+\AtBeginEnvironment{example}{\setcounter{pstep}{0}}
 \newcommand{\step}[1]{\par\medskip\noindent\refstepcounter{pstep}\textbf{Step \thepstep}\ (\textit{#1}).\ \ignorespaces}
 % illustrations inside proofs: small font, slightly indented, so that they are
 % visibly separate from the text of the proof
@@ -167,6 +168,7 @@
 \newcommand{\Kgroup}{K_0}
 \newcommand{\calD}{\mathcal{D}}
 \newcommand{\calH}{\mathcal{H}}
+\newcommand{\SH}{\mathrm{SH}}
 \newcommand{\Dle}[1]{\calD^{\leqslant #1}}
 \newcommand{\Dge}[1]{\calD^{\geqslant #1}}
 \newcommand{\Cone}{\operatorname{Cone}}
@@ -1802,11 +1804,105 @@
 	
 	\begin{example}[the stable homotopy category]
 		\label{ex:SH}
-		\textcolor{red}{To be written: the Postnikov t-structure on $\mathrm{SH}$, its heart $\mathrm{Ab}$, and $\mathrm{SH} \not\simeq \D(\mathrm{Ab})$.}
+		Let $\SH$ be the stable homotopy category.
+		Its objects are spectra, i.e.\ sequences $X = (X_n)_{n \geqslant 0}$ of pointed spaces with structure maps $\Sigma X_n \to X_{n+1}$, and its morphisms are obtained from maps of spectra by inverting the stable weak equivalences, i.e.\ the maps inducing isomorphisms on all \emph{stable homotopy groups}
+		\[
+		\pi_k(X) := \operatorname*{colim}_{n} \pi_{n+k}(X_n), \qquad k \in \ZZ .
+		\]
+		We shall use the following facts, for which we refer to \cite[Part~III]{Ada74}, \cite{Mar83} and \cite[\S 1.4.3]{Lur17}.
+		Note that homotopy groups are graded homologically, so some care is needed when comparing with the cohomological conventions of this section.
+		\begin{itemize}
+			\item[] \condlabel{S1}{cond:S1} $\SH$ is a triangulated category with arbitrary coproducts, whose shift is the suspension $X[1] = \Sigma X$, and $\pi_k(\Sigma X) = \pi_{k-1}(X)$.
+			The functors $\pi_k \colon \SH \to \Ab$ are homological and commute with coproducts: a triangle $X \to Y \to Z \to \Sigma X$ induces a long exact sequence $\ldots \to \pi_k X \to \pi_k Y \to \pi_k Z \to \pi_{k-1} X \to \ldots$
+			\item[] \condlabel{S2}{cond:S2} (\emph{Whitehead's theorem}) A morphism $f$ in $\SH$ is an isomorphism if and only if $\pi_k(f)$ is an isomorphism for all $k$; equivalently, $X = 0$ if and only if $\pi_k(X) = 0$ for all $k$.
+			\item[] \condlabel{S3}{cond:S3} (\emph{Postnikov sections}) For every $X \in \SH$ and $n \in \ZZ$ there is a morphism $X \to X_{\leqslant n}$ which induces isomorphisms on $\pi_k$ for $k \leqslant n$, where $\pi_k(X_{\leqslant n}) = 0$ for $k > n$.
+			\item[] \condlabel{S4}{cond:S4} If $\pi_k(X) = 0$ for all $k < 0$ and $\pi_k(Y) = 0$ for all $k \geqslant 0$, then $\Hom_{\SH}(X, Y) = 0$.
+			\item[] \condlabel{S5}{cond:S5} (\emph{Eilenberg--MacLane spectra}) For every abelian group $A$ there is a spectrum $HA$ with $\pi_0(HA) = A$ and $\pi_k(HA) = 0$ for $k \neq 0$.
+			If $\pi_k(X) = 0$ for all $k < 0$, then $\pi_0$ induces a bijection $\Hom_{\SH}(X, HA) \to \Hom_{\Ab}(\pi_0 X, A)$.
+		\end{itemize}
+		A spectrum $X$ with $\pi_k(X) = 0$ for $k < 0$ is called \emph{connective}, and \emph{coconnective} if $\pi_k(X) = 0$ for $k > 0$.
+		
+		\step{the Postnikov t-structure}
+		Define
+		\begin{align*}
+			\SH^{\leqslant 0} &:= \defineset{ X \in \SH }{ \pi_k(X) = 0 \text{ for all } k < 0 }, \\
+			\SH^{\geqslant 0} &:= \defineset{ X \in \SH }{ \pi_k(X) = 0 \text{ for all } k > 0 },
+		\end{align*}
+		the connective and the coconnective spectra.
+		Since $\pi_k(X[n]) = \pi_{k-n}(X)$, we get
+		\[
+		\SH^{\leqslant n} = \defineset{ X }{ \pi_k(X) = 0 \text{ for } k < -n },
+		\qquad
+		\SH^{\geqslant n} = \defineset{ X }{ \pi_k(X) = 0 \text{ for } k > -n } ;
+		\]
+		the direction of the inequalities is reversed with respect to Example~\ref{ex:standard_t} because homotopy groups are graded homologically.
+		We claim that $(\SH^{\leqslant 0}, \SH^{\geqslant 0})$ is a t-structure, the \emph{Postnikov t-structure}.
+		Condition \condref{cond:T1} is clear from the displayed description, and \condref{cond:T2} is exactly \condref{cond:S4}, since $\SH^{\geqslant 1} = \{ X : \pi_k(X) = 0 \text{ for } k \geqslant 0 \}$.
+		For \condref{cond:T3}, let $X \in \SH$, let $p \colon X \to X_{\leqslant -1}$ be a Postnikov section as in \condref{cond:S3}, and complete it to a triangle
+		\[
+		A \longrightarrow X \xrightarrow{\ p\ } X_{\leqslant -1} \longrightarrow \Sigma A .
+		\]
+		Then $X_{\leqslant -1} \in \SH^{\geqslant 1}$ by construction, and we show $A \in \SH^{\leqslant 0}$ using the long exact sequence of \condref{cond:S1}
+		\[
+		\pi_{k+1} X \xrightarrow{\ \pi_{k+1}(p)\ } \pi_{k+1} X_{\leqslant -1} \longrightarrow \pi_k A \longrightarrow \pi_k X \xrightarrow{\ \pi_k(p)\ } \pi_k X_{\leqslant -1} .
+		\]
+		Let $k \leqslant -1$.
+		Then $\pi_k(p)$ is an isomorphism, so $\pi_k A$ is the cokernel of $\pi_{k+1}(p)$, and $\pi_{k+1}(p)$ is surjective, being an isomorphism if $k + 1 \leqslant -1$ and a map to $\pi_0 X_{\leqslant -1} = 0$ if $k + 1 = 0$.
+		Hence $\pi_k A = 0$ for $k \leqslant -1$, i.e.\ $A$ is connective.
+		This proves \condref{cond:T3}, and by Lemma~\ref{lem:truncation_unique} the truncation functors are $\tau^{\geqslant 1} X = X_{\leqslant -1}$ and $\tau^{\leqslant 0} X = A$, the \emph{connective cover} of $X$.
+		
+		\step{the heart}
+		The heart $\SH^{\heartsuit} := \SH^{\leqslant 0} \cap \SH^{\geqslant 0}$ consists of the spectra with homotopy concentrated in degree $0$, and by \condref{cond:S5} it contains the Eilenberg--MacLane spectra.
+		We show that
+		\[
+		\pi_0 \colon \SH^{\heartsuit} \longrightarrow \Ab
+		\qquad\text{and}\qquad
+		H \colon \Ab \longrightarrow \SH^{\heartsuit}, \quad A \longmapsto HA,
+		\]
+		are mutually quasi-inverse equivalences of categories.
+		Let $X, Y \in \SH^{\heartsuit}$ and put $A := \pi_0 X$, $B := \pi_0 Y$.
+		By \condref{cond:S5} there is a unique morphism $u_Y \colon Y \to HB$ inducing the identity on $\pi_0$, and by \condref{cond:S2} it is an isomorphism, since both sides have no other homotopy groups.
+		Thus every object of the heart is an Eilenberg--MacLane spectrum, and the composite
+		\[
+		\Hom_{\SH}(X, Y) \xrightarrow{\ (u_Y)_* \ } \Hom_{\SH}(X, HB) \xrightarrow{\ \pi_0 \ } \Hom_{\Ab}(A, B)
+		\]
+		is bijective by \condref{cond:S5}; it equals the map $f \mapsto \pi_0(f)$, because $\pi_0(u_Y) = \id_B$.
+		So $\pi_0$ is fully faithful on $\SH^{\heartsuit}$, essentially surjective by \condref{cond:S5}, hence an equivalence, and $H$ is a quasi-inverse because $\pi_0(HA) = A$.
+		In particular the abelian structure of Theorem~\ref{thm:heart_abelian} on $\SH^{\heartsuit}$ is that of $\Ab$, and, as in Example~\ref{ex:standard_t}, the cohomology functor $H^0$ of the t-structure is identified with $\pi_0$;
+		more precisely $H^i(X) = \tau^{\geqslant 0} \tau^{\leqslant 0}(X[i])$ corresponds to $\pi_0(X[i]) = \pi_{-i}(X)$ under $\pi_0$.
+		
+		\step{the t-structure is non-degenerate but not bounded}
+		By \condref{cond:S2}, $\bigcap_n \SH^{\leqslant n} = \{ X : \pi_k(X) = 0 \text{ for all } k \} = 0$, and likewise $\bigcap_n \SH^{\geqslant n} = 0$, so the Postnikov t-structure is non-degenerate.
+		It is not bounded.
+		Indeed, by \condref{cond:S1} the spectrum $X := \bigoplus_{k \geqslant 0} \Sigma^k H\ZZ$ has $\pi_k(X) = \ZZ$ for all $k \geqslant 0$, so $X \notin \SH^{\geqslant n}$ for every $n$.
+		(The sphere spectrum is another example, since infinitely many of its homotopy groups are nonzero, but this is a deep theorem, whereas the previous example is formal.)
+		Consequently Lemma~\ref{lem:cohomology_filtration} and Proposition~\ref{prop:K0_heart} do not apply; in fact $\Kgroup(\SH) = 0$ by the Eilenberg swindle of the remark after Proposition~\ref{prop:K0_heart}, and for the same reason $\Kgroup(\Ab) = 0$.
+		
+		\step{$\SH$ is not a derived category}
+		Although the heart of the Postnikov t-structure is $\Ab$, the triangulated category $\SH$ is not equivalent to $\D(\Ab)$, not even to any triangulated category of the form $\D(\calA)$ with $\calA$ abelian.
+		We give the classical argument for $\D(\Ab)$.
+		For an object $X$ of a triangulated category write $X / 2$ for a cone of $2 \cdot \id_X \colon X \to X$.
+		
+		In $\D(\Ab)$ one has $2 \cdot \id_{X/2} = 0$ for every object $X$.
+		Indeed, since $\ZZ$ is a hereditary ring, every object of $\D(\Ab)$ is isomorphic to the direct sum of its shifted cohomology groups, $X \cong \bigoplus_i H^i(X)[-i]$ \cite[Ch.~III, Exercise~IV.2.?]{GM03}, and cones commute with direct sums and shifts, so it suffices to treat $X = M[0]$ for an abelian group $M$.
+		The cone of $2 \colon M \to M$ is the complex $M \xrightarrow{2} M$ in degrees $-1, 0$, whose cohomology is $M[2] := \{ m : 2m = 0 \}$ in degree $-1$ and $M / 2M$ in degree $0$;
+		hence $M / 2 \cong M[2][1] \oplus (M / 2M)[0]$, and multiplication by $2$ is zero on both summands.
+		
+		In $\SH$, on the other hand, the \emph{mod $2$ Moore spectrum} $S / 2$, the cone of $2 \cdot \id$ on the sphere spectrum $S$, satisfies $\pi_2(S / 2) \cong \ZZ / 4$ \cite{Sch10}, so $2 \cdot \id_{S/2} \neq 0$, since it induces multiplication by $2$ on $\pi_2(S/2)$.
+		
+		Now suppose $F \colon \SH \to \D(\Ab)$ were an exact equivalence.
+		Since $F$ is additive, $F(2 \cdot \id_S) = 2 \cdot \id_{F(S)}$, and since $F$ is exact it sends the triangle $S \xrightarrow{2} S \to S / 2 \to \Sigma S$ to a triangle, so $F(S / 2) \cong F(S) / 2$.
+		Then $F(2 \cdot \id_{S/2}) = 2 \cdot \id_{F(S/2)} = 0$ by the first part, whereas $2 \cdot \id_{S/2} \neq 0$ and $F$ is faithful, a contradiction.
+		The same argument excludes an exact equivalence of $\SH$ with $\D(\calA)$ for any abelian category $\calA$ in which $2 \cdot \id_{X/2} = 0$ for all $X$, and a refinement of it (using the Moore spectrum for $n = 2$ and the fact that $\SH$ is not ``algebraic'') is the subject of \cite{Sch10}.
 	\end{example}
 
 
 	\begin{thebibliography}{GKR04}
+		
+		\bibitem[Ada74]{Ada74}
+		J.~F. Adams,
+		\emph{Stable homotopy and generalised homology},
+		Chicago Lectures in Mathematics, University of Chicago Press, Chicago, 1974.
 		
 		\bibitem[BBD82]{BBD82}
 		A.~Beilinson, J.~Bernstein, P.~Deligne,
@@ -1848,10 +1944,20 @@
 		\emph{Stability structures, motivic Donaldson--Thomas invariants and cluster transformations},
 		preprint, arXiv:0811.2435.
 		
+		\bibitem[Lur17]{Lur17}
+		J.~Lurie,
+		\emph{Higher algebra},
+		preprint, 2017, available at the author's web page.
+		
 		\bibitem[Mac07]{Mac07}
 		E.~Macr\`\i,
 		\emph{Stability conditions on curves},
 		Math.\ Res.\ Lett. \textbf{14} (2007), no.~4, 657--672.
+		
+		\bibitem[Mar83]{Mar83}
+		H.~R. Margolis,
+		\emph{Spectra and the Steenrod algebra},
+		North-Holland Mathematical Library \textbf{29}, North-Holland, Amsterdam, 1983.
 		
 		\bibitem[MS17]{MS17}
 		E.~Macr\`\i, B.~Schmidt,
@@ -1868,6 +1974,11 @@
 		A.~Rudakov,
 		\emph{Stability for an abelian category},
 		J.~Algebra \textbf{197} (1997), no.~1, 231--245.
+		
+		\bibitem[Sch10]{Sch10}
+		S.~Schwede,
+		\emph{Algebraic versus topological triangulated categories},
+		in: Triangulated categories, London Math.\ Soc.\ Lecture Note Ser.\ \textbf{375}, Cambridge Univ.\ Press, Cambridge, 2010, 389--407.
 		
 		\bibitem[Sha77]{Sha77}
 		S.~S. Shatz,
