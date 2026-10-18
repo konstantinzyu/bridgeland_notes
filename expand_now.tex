@@ -1286,7 +1286,15 @@
 		compatible with the natural maps.
 		Its first term lies in $\Dle{b}$ (it is an extension of $(\tau^{\leqslant a-1} E)[1] \in \Dle{b}$ by $X \in \Dle{b}$, cf.\ the rotated triangle $X \to \tau^{\geqslant a} X \to (\tau^{\leqslant a-1} E)[1]$) and its third term lies in $\Dge{b+1}$.
 		By Lemma~\ref{lem:truncation_unique}(2) this triangle is the truncation triangle of $\tau^{\geqslant a} E$ at level $b$, i.e.\ $\tau^{\geqslant a} \tau^{\leqslant b} E \cong \tau^{\leqslant b} \tau^{\geqslant a} E$ compatibly with the maps to $\tau^{\geqslant a} E$;
-		compatibility with the maps from $\tau^{\leqslant b} E$ and uniqueness follow from the adjunction bijection $\Hom(\tau^{\leqslant b} E, \tau^{\leqslant b} \tau^{\geqslant a} E) \cong \Hom(\tau^{\leqslant b} E, \tau^{\geqslant a} E)$.
+		compatibility with the maps from $\tau^{\leqslant b} E$ follows from the adjunction bijection 
+		\[
+		\Hom(\tau^{\leqslant b} E, \tau^{\leqslant b} \tau^{\geqslant a} E) \cong \Hom(\tau^{\leqslant b} E, \tau^{\geqslant a} E),
+		\] 
+		since both composites $\tau^{\leqslant b} E \to \tau^{\leqslant b} \tau^{\geqslant a} E \to \tau^{\geqslant a} E$ equal the composite $\tau^{\leqslant b} E \to E \to \tau^{\geqslant a} E$.
+		Finally, a morphism $\tau^{\geqslant a} \tau^{\leqslant b} E \to \tau^{\leqslant b} \tau^{\geqslant a} E$ compatible with the maps to $\tau^{\geqslant a} E$ is unique, because $\tau^{\geqslant a} \tau^{\leqslant b} E \in \Dle{b}$ and $\tau^{\leqslant b}$ is right adjoint to the inclusion of $\Dle{b}$, so that 
+		\[
+		\Hom(\tau^{\geqslant a} \tau^{\leqslant b} E, \tau^{\leqslant b} \tau^{\geqslant a} E) \cong \Hom(\tau^{\geqslant a} \tau^{\leqslant b} E, \tau^{\geqslant a} E).
+		\]
 	\end{proof}
 	
 	For $a \leqslant b$ we write $\Dint{a}{b} := \Dle{b} \cap \Dge{a}$ and $\tau^{[a, b]} := \tau^{\geqslant a} \tau^{\leqslant b} \cong \tau^{\leqslant b} \tau^{\geqslant a}$; by the proof of Lemma~\ref{lem:truncations_compose}(2) this functor takes values in $\Dint{a}{b}$.
@@ -1525,6 +1533,7 @@
 	It is called \emph{non-degenerate} if $\bigcap_{n} \Dle{n} = 0 = \bigcap_{n} \Dge{n}$.
 	A bounded t-structure is non-degenerate.
 	Indeed, if $E \in \Dle{n}$ for all $n$ and $E \in \Dge{a}$, then $E \in \Dle{a-1} \cap \Dge{a}$, so $E \in \Dle{a-1} = {}^{\perp}\Dge{a}$ gives $\Hom(E, E) = 0$ and $E = 0$.
+	Dually, if $E \in \Dge{n}$ for all $n$ and $E \in \Dle{b}$, then $E \in \Dle{b} \cap \Dge{b+1}$ and again $\Hom(E, E) = 0$.
 	
 	\begin{lemma}[cohomology filtration]
 		\label{lem:cohomology_filtration}
@@ -1628,7 +1637,7 @@
 		\[
 		E_{n-1} \to E \to A_n \to E_{n-1}[1]
 		\] 
-		the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(A_n, -)$ the map $A_n \to E_{n-1}[1]$ has a retraction, so $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
+		the middle map is zero, and by \condref{cond:TR-coh} applied to $\Hom(-, A_n)$ the map $A_n \to E_{n-1}[1]$ has a retraction, so $A_n$ is a direct summand of $E_{n-1}[1] \in \langle A_1[1], \ldots, A_{n-1}[1] \rangle$.
 		But $\Hom(B_i[k_i + 1], B_n[k_n]) = \Hom(B_i, B_n[k_n - k_i - 1]) = 0$ for $i < n$ because $k_n < k_i$, so $\Hom(E_{n-1}[1], A_n) = 0$ by Lemma~\ref{lem:devissage}, and again $B_n = 0$, a contradiction.
 		Hence $0 \geqslant k_1 > \ldots > k_n \geqslant 0$, which forces $n = 1$ and $k_1 = 0$, i.e.\ $E = E_1 = A_1 = B_1 \in \calA$.
 		
@@ -1879,7 +1888,7 @@
 		It is not bounded.
 		Indeed, by \condref{cond:S1} the spectrum $X := \bigoplus_{k \geqslant 0} \Sigma^k H\ZZ$ has $\pi_k(X) = \ZZ$ for all $k \geqslant 0$, so $X \notin \SH^{\geqslant n}$ for every $n$.
 		(The sphere spectrum is another example, since infinitely many of its homotopy groups are nonzero, but this is a deep theorem, whereas the previous example is formal.)
-		Consequently Lemma~\ref{lem:cohomology_filtration} and Proposition~\ref{prop:K0_heart} do not apply; in fact $\Kgroup(\SH) = 0$ by the Eilenberg swindle of the remark after Proposition~\ref{prop:K0_heart}, and for the same reason $\Kgroup(\Ab) = 0$.
+		Consequently Lemma~\ref{lem:cohomology_filtration} and Proposition~\ref{prop:K0_heart} do not apply.
 		
 		\step{$\SH$ is not a derived category}
 		Although the heart of the Postnikov t-structure is $\Ab$, the triangulated category $\SH$ is not equivalent to $\D(\Ab)$.
