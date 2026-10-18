@@ -166,6 +166,7 @@
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Kgroup}{K_0}
 \newcommand{\calD}{\mathcal{D}}
+\newcommand{\calH}{\mathcal{H}}
 \newcommand{\Dle}[1]{\calD^{\leqslant #1}}
 \newcommand{\Dge}[1]{\calD^{\geqslant #1}}
 \newcommand{\Cone}{\operatorname{Cone}}
@@ -1710,7 +1711,93 @@
 	
 	\begin{example}[the standard t-structure, {\cite[Exemple~1.3.2]{BBD82}}]
 		\label{ex:standard_t}
-		\textcolor{red}{To be written: the standard t-structure on $\D^{\mathrm{b}}(\calA)$, its heart, and $\D^{\mathrm{b}}$ of the heart.}
+		Let $\calA$ be an abelian category and let $\calD := \D^{\mathrm{b}}(\calA)$ be its bounded derived category.
+		We use cohomological grading, so a complex is $X = (\ldots \to X^{i-1} \xrightarrow{d^{i-1}} X^i \xrightarrow{d^i} X^{i+1} \to \ldots)$, and $H^i(X) = \ker d^i / \image d^{i-1}$.
+		We recall the facts about $\D^{\mathrm{b}}(\calA)$ that we need, referring to \cite[Ch.~III]{GM03} for proofs.
+		\begin{itemize}
+			\item[] \condlabel{D1}{cond:D1} The objects of $\calD$ are the bounded complexes in $\calA$, and every morphism $X \to Y$ in $\calD$ can be written as a \emph{roof} $X \xleftarrow{s} X' \xrightarrow{f} Y$, where $f$ and $s$ are morphisms of complexes and $s$ is a quasi-isomorphism; such a roof represents the zero morphism if and only if there is a quasi-isomorphism $t \colon X'' \to X'$ such that $f t$ is homotopic to zero.
+			A morphism of complexes defines an isomorphism in $\calD$ if and only if it is a quasi-isomorphism.
+			\item[] \condlabel{D2}{cond:D2} $\calD$ is triangulated, the shift being $X[1]^i = X^{i+1}$ with differential $-d$, and every short exact sequence of complexes $0 \to X' \to X \to X'' \to 0$ gives rise to a triangle $X' \to X \to X'' \to X'[1]$ in $\calD$; every triangle in $\calD$ is isomorphic to one of this form.
+			\item[] \condlabel{D3}{cond:D3} The cohomology objects $H^i(X)$ depend only on the isomorphism class of $X$ in $\calD$ and define functors $H^i \colon \calD \to \calA$; a triangle $X \to Y \to Z \to X[1]$ induces a long exact sequence $\ldots \to H^i X \to H^i Y \to H^i Z \to H^{i+1} X \to \ldots$ in $\calA$.
+		\end{itemize}
+		An object $A \in \calA$ is regarded as the complex $A[0]$ concentrated in degree $0$.
+		
+		\step{the standard t-structure}
+		Define
+		\begin{align*}
+			&\Dle{0} := \defineset{ X \in \calD }{ H^i(X) = 0 \text{ for all } i > 0 }, \\
+			&\Dge{0} := \defineset{ X \in \calD }{ H^i(X) = 0 \text{ for all } i < 0 } .
+		\end{align*}
+		These are subcategories closed under isomorphisms by \condref{cond:D3}, and $\Dle{n}$, $\Dge{n}$ consist of the complexes with cohomology vanishing in degrees $> n$, respectively $< n$.
+		We claim that $(\Dle{0}, \Dge{0})$ is a bounded t-structure on $\calD$, the \emph{standard t-structure}.
+		Condition \condref{cond:T1} is clear from the description of $\Dle{n}$ and $\Dge{n}$.
+		
+		For \condref{cond:T3}, let $X \in \calD$ and consider the subcomplex and the quotient complex
+		\begin{align*}
+			X_{\leqslant 0} := &\big( \ldots \to X^{-2} \to X^{-1} \to \ker d^0 \to 0 \to \ldots \big), \\
+			X_{\geqslant 1} := X / X_{\leqslant 0} = &\big( \ldots \to 0 \to X^0 / \ker d^0 \to X^1 \to X^2 \to 
+			\ldots \big),
+		\end{align*}
+		with $\ker d^0$ and $X^0 / \ker d^0$ placed in degree $0$.
+		A direct computation gives $H^i(X_{\leqslant 0}) = H^i(X)$ for $i \leqslant 0$ and $H^i(X_{\leqslant 0}) = 0$ for $i > 0$;
+		similarly $H^0(X_{\geqslant 1}) = 0$, since $X^0 / \ker d^0 \cong \image d^0 \to X^1$ is a monomorphism, and $H^i(X_{\geqslant 1}) = \ker d^i / \image d^{i-1} = H^i(X)$ for $i \geqslant 1$.
+		So $X_{\leqslant 0} \in \Dle{0}$, $X_{\geqslant 1} \in \Dge{1}$, and by \condref{cond:D2} the short exact sequence $0 \to X_{\leqslant 0} \to X \to X_{\geqslant 1} \to 0$ gives a triangle
+		\[
+		X_{\leqslant 0} \longrightarrow X \longrightarrow X_{\geqslant 1} \longrightarrow X_{\leqslant 0}[1]
+		\]
+		of the required form.
+		
+		For \condref{cond:T2}, let $X \in \Dle{0}$, $Y \in \Dge{1}$ and let $X \xleftarrow{s} X' \xrightarrow{f} Y$ be a roof as in \condref{cond:D1}.
+		Replacing $Y$ by the quasi-isomorphic quotient $Y_{\geqslant 1}$ (which changes the roof by an isomorphism of $\calD$), we may assume $Y^i = 0$ for $i \leqslant 0$.
+		Since $s$ is a quasi-isomorphism, $H^i(X') = H^i(X) = 0$ for $i > 0$, so the inclusion $t \colon X'_{\leqslant 0} \to X'$ is a quasi-isomorphism.
+		The composite $f t$ is a morphism of complexes from a complex concentrated in degrees $\leqslant 0$ to a complex concentrated in degrees $\geqslant 1$, hence is zero.
+		By \condref{cond:D1} the roof represents the zero morphism, and $\Hom(X, Y) = 0$.
+		
+		Boundedness is clear, since a bounded complex has cohomology only in finitely many degrees.
+		By the uniqueness in Lemma~\ref{lem:truncation_unique}(2), the truncation functors of this t-structure are $\tau^{\leqslant 0} X = X_{\leqslant 0}$ and $\tau^{\geqslant 1} X = X_{\geqslant 1}$, and more generally $\tau^{\leqslant n}$ and $\tau^{\geqslant n}$ are the usual truncations of complexes.
+		
+		\step{the heart}
+		The heart $\calH := \Dle{0} \cap \Dge{0}$ consists of the complexes whose cohomology is concentrated in degree $0$.
+		We show that
+		\[
+		H^0 \colon \calH \longrightarrow \calA
+		\qquad\text{and}\qquad
+		\calA \longrightarrow \calH, \quad A \longmapsto A[0],
+		\]
+		are mutually quasi-inverse equivalences of categories.
+		
+		First, every $X \in \calH$ is isomorphic in $\calD$ to $H^0(X)[0]$.
+		Indeed, the inclusion $X_{\leqslant 0} \to X$ is a quasi-isomorphism because $H^i(X) = 0$ for $i > 0$, and the morphism of complexes $X_{\leqslant 0} \to H^0(X)[0]$ which is the projection $\ker d^0 \to \ker d^0 / \image d^{-1} = H^0(X)$ in degree $0$ and zero elsewhere is a quasi-isomorphism because $H^i(X_{\leqslant 0}) = H^i(X) = 0$ for $i < 0$.
+		By \condref{cond:D1} both maps are isomorphisms in $\calD$, and the resulting isomorphism $X \cong H^0(X)[0]$ induces the identity on $H^0$.
+		
+		Second, the functor $A \mapsto A[0]$ is fully faithful, i.e.\ for $A, B \in \calA$ the map
+		\[
+		\Hom_{\calA}(A, B) \longrightarrow \Hom_{\calD}(A[0], B[0])
+		\]
+		is bijective.
+		For surjectivity, let $A[0] \xleftarrow{s} X' \xrightarrow{f} B[0]$ be a roof.
+		As above we may replace $X'$ by $X'_{\leqslant 0}$ and assume $X'^i = 0$ for $i > 0$; then $H^0(X') = X'^0 / \image d^{-1}$.
+		A morphism of complexes from $X'$ to a complex concentrated in degree $0$ is the same as a morphism $X'^0 \to B$ vanishing on $\image d^{-1}$, i.e.\ a morphism $H^0(X') \to B$;
+		thus $f$ and $s$ are induced by morphisms $\bar f \colon H^0(X') \to B$ and $\bar s \colon H^0(X') \to A$, and $\bar s$ is an isomorphism because $s$ is a quasi-isomorphism.
+		Let $p \colon X' \to H^0(X')[0]$ be the projection, a quasi-isomorphism.
+		Then $s = \bar s p$ and $f = \bar f p$, so the roof $(s, f)$ represents the same morphism as the roof $A[0] \xleftarrow{\bar s} H^0(X')[0] \xrightarrow{\bar f} B[0]$, which is the morphism $\bar f \bar s^{-1} \colon A \to B$ of $\calA$.
+		For injectivity, let $g \colon A \to B$ be a morphism in $\calA$ which becomes zero in $\calD$.
+		By \condref{cond:D1} there is a quasi-isomorphism $t \colon X'' \to A[0]$ with $g t$ homotopic to zero, and after replacing $X''$ by $X''_{\leqslant 0}$ we may assume $X''^i = 0$ for $i > 0$.
+		A homotopy between $g t$ and $0$ consists of maps $X''^{i} \to B[0]^{i-1}$, which all vanish since $B[0]$ is concentrated in degree $0$ and $X''^{1} = 0$;
+		so $g t = 0$ as a morphism of complexes, i.e.\ $g$ vanishes on the image of $t^0 \colon X''^0 \to A$.
+		This image is all of $A$, because $t$ induces an isomorphism $H^0(X'') = X''^0 / \image d^{-1} \to A$.
+		Hence $g = 0$.
+		
+		Combining the two facts, $A \mapsto A[0]$ is fully faithful with image $\calH$ (up to isomorphism), so it is an equivalence $\calA \to \calH$, and $H^0$ is a quasi-inverse since $H^0(A[0]) = A$.
+		An equivalence of categories preserves kernels and cokernels, so the abelian structure which Theorem~\ref{thm:heart_abelian} puts on $\calH$ is the one transported from $\calA$;
+		in particular, by Lemma~\ref{lem:triangles_vs_ses}, the short exact sequences of $\calA$ are exactly the triangles of $\calD$ with all three vertices in $\calA$, up to isomorphism.
+		Likewise the cohomology functors of the t-structure are the usual ones, since $\tau^{\geqslant 0} \tau^{\leqslant 0} X = (X_{\leqslant 0})_{\geqslant 0}$ is a complex concentrated in degree $0$ with $H^0 = H^0(X)$.
+		
+		\step{consequences}
+		Proposition~\ref{prop:K0_heart} gives $\Kgroup(\D^{\mathrm{b}}(\calA)) \cong \Kgroup(\calA)$, the isomorphism being $[X] \mapsto \sum_i (-1)^i [H^i(X)]$.
+		Finally, the bounded derived category of the heart is $\D^{\mathrm{b}}(\calH) \simeq \D^{\mathrm{b}}(\calA) = \calD$, tautologically.
+		For an arbitrary bounded t-structure on a triangulated category $\calD$ with heart $\calH$ this last statement has no analogue in general.
+		There is a natural way to compare $\D^{\mathrm{b}}(\calH)$ with $\calD$ when $\calD$ comes with an enhancement (the \emph{realization functor} of \cite[\S 3.1]{BBD82}), but it need not be an equivalence, and for triangulated categories which are not derived categories of anything, such as the one in Example~\ref{ex:SH}, there is nothing to compare at all.
 	\end{example}
 	
 	\begin{example}[the stable homotopy category]
