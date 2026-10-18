@@ -10,7 +10,7 @@
 \contentsline {section}{\tocsection {}{2}{t-structures and their hearts}}{14}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Conventions on triangulated categories}}{14}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Definition}}{15}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Truncation functors}}{15}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Truncation functors}}{16}{subsection.2.3}%
 \contentsline {subsection}{\tocsubsection {}{2.4}{The heart}}{17}{subsection.2.4}%
 \contentsline {subsection}{\tocsubsection {}{2.5}{Cohomology functors}}{20}{subsection.2.5}%
 \contentsline {subsection}{\tocsubsection {}{2.6}{Extension closures}}{23}{subsection.2.6}%
