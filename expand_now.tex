@@ -923,6 +923,24 @@
 	the \emph{extension closure} $\langle \mathcal{S} \rangle$ of a class $\mathcal{S}$ is the smallest subcategory containing $\mathcal{S}$ and $0$ and closed under extensions (it is described concretely in Proposition~\ref{prop:extension_closure} below).
 	Since the split triangle $X \to X \oplus Z \to Z \xrightarrow{0} X[1]$ is distinguished, a subcategory closed under extensions is closed under finite direct sums.
 	
+	\begin{lemma}
+		\label{lem:orthogonals}
+		For every class of objects $\mathcal{S}$ the subcategories $\mathcal{S}^{\perp}$ and ${}^{\perp}\mathcal{S}$ contain $0$ and are closed under isomorphisms, extensions, finite direct sums and direct summands.
+		If moreover $\mathcal{S}[1] = \mathcal{S}$, then they are closed under $[1]$ and $[-1]$.
+	\end{lemma}
+	
+	\begin{proof}
+		We treat ${}^{\perp}\mathcal{S}$; the case of $\mathcal{S}^{\perp}$ is dual.
+		Closure under isomorphisms and the membership of $0$ are clear.
+		If $X \to Y \to Z \to X[1]$ is a triangle with $\Hom(X, S) = \Hom(Z, S) = 0$ for some $S \in \mathcal{S}$, then $\Hom(Y, S) = 0$ by the exact sequence
+		\[
+		\Hom(Z, S) \to \Hom(Y, S) \to \Hom(X, S)
+		\]
+		of \condref{cond:TR-coh}; this gives closure under extensions, hence under finite direct sums.
+		Closure under direct summands follows from $\Hom(X \oplus X', S) = \Hom(X, S) \oplus \Hom(X', S)$.
+		Finally, if $\mathcal{S}[1] = \mathcal{S}$, then $\Hom(X[\pm 1], S) = \Hom(X, S[\mp 1])$ vanishes for all $S \in \mathcal{S}$ as soon as $\Hom(X, -)$ vanishes on $\mathcal{S}$.
+	\end{proof}
+	
 	\subsection{Definition}
 	
 	A \emph{t-structure} on $\calD$ (\cite[D\'ef.~1.3.1]{BBD82}) is a pair $(\Dle{0}, \Dge{0})$ of subcategories of $\calD$ such that, with the notation
@@ -1025,12 +1043,7 @@
 		Conversely, if $\tau^{\geqslant 1} E = 0$, then $E \cong \tau^{\leqslant 0} E \in \Dle{0}$.
 		The second statement is dual.
 		
-		(3) By (1), $\Dle{0}$ is a left orthogonal ${}^{\perp}\mathcal{S}$ and $\Dge{0} = \Dge{1}[1]$ is a right orthogonal $\mathcal{S}'^{\perp}$.
-		A left orthogonal is closed under extensions.
-		Indeed, if $X \to Y \to Z \to X[1]$ is a triangle with $\Hom(X, S) = \Hom(Z, S) = 0$, then $\Hom(Y, S) = 0$ by the exact sequence $\Hom(Z, S) \to \Hom(Y, S) \to \Hom(X, S)$ of \condref{cond:TR-coh};
-		it is closed under direct summands because $\Hom(X \oplus X', S) = \Hom(X, S) \oplus \Hom(X', S)$;
-		and closure under finite direct sums follows from closure under extensions.
-		Right orthogonals are treated in the same way.
+		(3) By (1), $\Dle{0} = {}^{\perp}(\Dge{1})$ is a left orthogonal and $\Dge{0} = (\Dle{0})^{\perp}[1] = (\Dle{-1})^{\perp}$ is a right orthogonal, so Lemma~\ref{lem:orthogonals} applies.
 	\end{proof}
 	
 	\begin{remark}
@@ -1446,8 +1459,8 @@
 	\end{lemma}
 	
 	\begin{proof}
-		For fixed $T \in \mathcal{T}$ the class $\{ X : \Hom(X, T) = 0 \} = {}^{\perp}\{T\}$ contains $\mathcal{S}$ and $0$ and is closed under extensions (proof of Lemma~\ref{lem:t_orthogonal}(3)), hence contains $\langle \mathcal{S} \rangle$.
-		Then for fixed $X \in \langle \mathcal{S} \rangle$ the class $\{ Y : \Hom(X, Y) = 0 \}$ contains $\mathcal{T}$ and $0$ and is closed under extensions, hence contains $\langle \mathcal{T} \rangle$.
+		For fixed $T \in \mathcal{T}$ the subcategory ${}^{\perp}\{T\}$ contains $\mathcal{S}$, and by Lemma~\ref{lem:orthogonals} it contains $0$ and is closed under extensions, hence it contains $\langle \mathcal{S} \rangle$.
+		Then for fixed $X \in \langle \mathcal{S} \rangle$ the subcategory $\{X\}^{\perp}$ contains $\mathcal{T}$ and, again by Lemma~\ref{lem:orthogonals}, contains $\langle \mathcal{T} \rangle$.
 	\end{proof}
 	
 	\begin{lemma}
