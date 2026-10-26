@@ -2043,7 +2043,8 @@
 		\end{enumerate}
 	\end{proposition}
 
-	We write $\tau_{\geqslant \psi} E \to E \to \tau_{< \psi} E$ for the truncation triangle of the t-structure in (1), so that $\tau_{\geqslant \psi} E \in \calP(\geqslant \psi)$ and $\tau_{< \psi} E \in \calP(< \psi)$, and likewise $\tau_{> \psi} E \to E \to \tau_{\leqslant \psi} E$ for the t-structure in (2).
+	We write $E_{\geqslant \psi} \to E \to E_{< \psi}$ for the truncation triangle of the t-structure in (1), so that $E_{\geqslant \psi} \in \calP(\geqslant \psi)$ and $E_{< \psi} \in \calP(< \psi)$, and likewise $E_{> \psi} \to E \to E_{\leqslant \psi}$ for the t-structure in (2);
+	for the slicing attached to a bounded heart in Proposition~\ref{prop:discrete_slicing}(1) below one has $E_{\geqslant -n} = \tau^{\leqslant n} E$ and $E_{< -n} = \tau^{\geqslant n + 1} E$, which for the standard t-structure are the truncations $X_{\leqslant n}$ and $X_{\geqslant n + 1}$ of complexes used in Example~\ref{ex:standard_t}.
 	Beware that the aisle of these t-structures consists of the objects of \emph{large} phase, whereas in the notation $\Dle{0}$ for a t-structure the aisle is suggested to consist of objects of small degree;
 	this is the unavoidable clash of conventions noted in \cite[footnote in \S 3]{Bri07}, and it is the reason for the reversal of inequalities already observed in Example~\ref{ex:SH}.
 
@@ -2089,12 +2090,12 @@
 			\node[font=\footnotesize] at (-1.3,-0.3) {$\cdots$};
 			\node[font=\footnotesize] at (1.8,-0.3) {$\cdots$};
 			\draw[dashed] (0.3,-0.7) -- (0.3,1.1) node[above, font=\footnotesize] {$\psi$};
-			\draw[decorate, decoration={brace, amplitude=4pt}] (0.5,0.35) -- (3.8,0.35) node[midway, above=3pt, font=\footnotesize] {factors of $\tau_{\geqslant \psi} E = E_m$};
-			\draw[decorate, decoration={brace, amplitude=4pt}] (-3.6,0.35) -- (0.1,0.35) node[midway, above=3pt, font=\footnotesize] {factors of $\tau_{< \psi} E = Q_m$};
+			\draw[decorate, decoration={brace, amplitude=4pt}] (0.5,0.35) -- (3.8,0.35) node[midway, above=3pt, font=\footnotesize] {factors of $E_{\geqslant \psi} = E_m$};
+			\draw[decorate, decoration={brace, amplitude=4pt}] (-3.6,0.35) -- (0.1,0.35) node[midway, above=3pt, font=\footnotesize] {factors of $E_{< \psi} = Q_m$};
 		\end{tikzpicture}
 	\end{center}
 	The picture shows the phases of the HN factors of $E$ on the real line;
-	the truncation at $\psi$ cuts the HN filtration between the factors of phase $\geqslant \psi$, which build $\tau_{\geqslant \psi} E$, and those of phase $< \psi$, which build $\tau_{< \psi} E$.
+	the truncation at $\psi$ cuts the HN filtration between the factors of phase $\geqslant \psi$, which build $E_{\geqslant \psi}$, and those of phase $< \psi$, which build $E_{< \psi}$.
 
 	\subsection{Uniqueness of Harder--Narasimhan filtrations}
 
@@ -2119,12 +2120,12 @@
 		Fix $\psi \in \RR$.
 		Since $\calP(> \psi) \subset \calP(\geqslant \psi)$, Lemma~\ref{lem:truncation_unique}(1) applied to the t-structure of Proposition~\ref{prop:slicing_t}(1) gives a unique morphism
 		\[
-		c_\psi \colon \tau_{> \psi} E \longrightarrow \tau_{\geqslant \psi} E
+		c_\psi \colon E_{> \psi} \longrightarrow E_{\geqslant \psi}
 		\]
 		compatible with the morphisms to $E$.
 		We claim that $\psi \in \Phi$ if and only if $c_\psi$ is not an isomorphism.
 		Put $k := \# \{ i : \varphi_i \geqslant \psi \}$ and $k' := \# \{ i : \varphi_i > \psi \}$.
-		By Proposition~\ref{prop:slicing_t}(3) and Lemma~\ref{lem:truncation_unique}(2) there are isomorphisms $\tau_{\geqslant \psi} E \cong E_k$ and $\tau_{> \psi} E \cong E_{k'}$ compatible with the morphisms to $E$, and under them $c_\psi$ corresponds to a morphism $E_{k'} \to E_k$ compatible with the morphisms to $E$.
+		By Proposition~\ref{prop:slicing_t}(3) and Lemma~\ref{lem:truncation_unique}(2) there are isomorphisms $E_{\geqslant \psi} \cong E_k$ and $E_{> \psi} \cong E_{k'}$ compatible with the morphisms to $E$, and under them $c_\psi$ corresponds to a morphism $E_{k'} \to E_k$ compatible with the morphisms to $E$.
 		Such a morphism is unique, by Lemma~\ref{lem:truncation_unique}(1) applied to $E_{k'} \in \calP(\geqslant \psi)$ and the truncation triangle $E_k \to E \to Q_k \to E_k[1]$, so it is the composite $E_{k'} \to E_{k'+1} \to \ldots \to E_k$ of the morphisms of the filtration.
 		If $\psi \notin \Phi$, then $k = k'$ and this composite is the identity.
 		If $\psi \in \Phi$, say $\psi = \varphi_k$, then $k = k' + 1$ and the composite is the morphism $E_{k-1} \to E_k$, whose cone $A_k$ is nonzero;
@@ -2143,7 +2144,7 @@
 		\qquad\text{and}\qquad
 		E_{i-1} \xrightarrow{\varepsilon_{i-1}} E'_{i-1} \to E'_i
 		\]
-		are morphisms from $E_{i-1} \in \calP(\geqslant \varphi_{i-1}) \subset \calP(\geqslant \psi)$ to $E'_i = \tau_{\geqslant \psi} E$ compatible with the morphisms to $E$, hence they coincide by Lemma~\ref{lem:truncation_unique}(1).
+		are morphisms from $E_{i-1} \in \calP(\geqslant \varphi_{i-1}) \subset \calP(\geqslant \psi)$ to $E'_i = E_{\geqslant \psi}$ compatible with the morphisms to $E$, hence they coincide by Lemma~\ref{lem:truncation_unique}(1).
 		Finally, the commutative square formed by $E_{i-1} \to E_i$, $E'_{i-1} \to E'_i$, $\varepsilon_{i-1}$ and $\varepsilon_i$ extends to a morphism of triangles $(\varepsilon_{i-1}, \varepsilon_i, \alpha_i)$ by the axioms of a triangulated category, and $\alpha_i \colon A_i \to A'_i$ is an isomorphism by \condref{cond:TR-5}.
 	\end{proof}
 
