@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  18 OCT 2026 23:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  26 OCT 2026 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -946,61 +946,80 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 zlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-\c@theorem=\count343
-\c@pstep=\count344
-Package hyperref Info: Option `colorlinks' set `true' on input line 94.
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex
+\pgfdecoratedcompleteddistance=\dimen337
+\pgfdecoratedremainingdistance=\dimen338
+\pgfdecoratedinputsegmentcompleteddistance=\dimen339
+\pgfdecoratedinputsegmentremainingdistance=\dimen340
+\pgf@decorate@distancetomove=\dimen341
+\pgf@decorate@repeatstate=\count343
+\pgfdecorationsegmentamplitude=\dimen342
+\pgfdecorationsegmentlength=\dimen343
+)
+\tikz@lib@dec@box=\box126
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+\c@theorem=\count344
+\c@pstep=\count345
+Package hyperref Info: Option `colorlinks' set `true' on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count345
-\l__pdf_internal_box=\box126
+\l__color_backend_stack_int=\count346
+\l__pdf_internal_box=\box127
 )
 (./expand_now.aux)
 \openout1 = `expand_now.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 249
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 250
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 249
+LaTeX Font Info:    Trying to load font information for U+msb on input line 250
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 24
-9.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 25
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 24
-9.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 25
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 24
-9.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1039,19 +1058,19 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package xypdf Info: Line width: 0.47998pt on input line 249.
+Package xypdf Info: Line width: 0.47998pt on input line 250.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count346
-\scratchdimen=\dimen337
-\scratchbox=\box127
-\nofMPsegments=\count347
-\nofMParguments=\count348
+\scratchcounter=\count347
+\scratchdimen=\dimen344
+\scratchbox=\box128
+\nofMPsegments=\count348
+\nofMParguments=\count349
 \everyMPshowfont=\toks57
-\MPscratchCnt=\count349
-\MPscratchDim=\dimen338
-\MPnumerator=\count350
-\makeMPintoPDFobject=\count351
+\MPscratchCnt=\count350
+\MPscratchDim=\dimen345
+\MPnumerator=\count351
+\makeMPintoPDFobject=\count352
 \everyMPtoPDFconversion=\toks58
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1062,7 +1081,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 249.
+Package hyperref Info: Link coloring ON on input line 250.
 
 (./expand_now.out) (./expand_now.out)
 \@outlinefile=\write5
@@ -1073,8 +1092,11 @@ Package hyperref Info: Link coloring ON on input line 249.
 \openout6 = `expand_now.toc'.
 
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/e
-nc/dvips/cm-super/cm-super-ts1.enc}] [2] [3]
-Overfull \hbox (5.80333pt too wide) in paragraph at lines 409--411
+nc/dvips/cm-super/cm-super-ts1.enc}] [2]
+Underfull \vbox (badness 3792) has occurred while \output is active []
+
+ [3]
+Overfull \hbox (5.80333pt too wide) in paragraph at lines 410--412
 [][]\OT1/cmr/bx/n/12 Lemma 1.3 \OT1/cmr/m/n/12 (Schur, [[], Thm 1], [[], Lemma 
 4.5])\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 Let $\OML/cmm/m/it/12 E; F$ \OT1/cmr
 /m/it/12 be $\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 A\OML/cmm/m/it/12 ; Z\OT1/cmr/m/
@@ -1086,20 +1108,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.557 		\step{the part of rank zero}
-                                    
-Underfull \vbox (badness 7685) has occurred while \output is active []
-
- [7]
+l.558 		\step{the part of rank zero}
+                                     [7]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.596 		\step{the Harder--Narasimhan polygon}
-                                             
-Underfull \vbox (badness 1242) has occurred while \output is active []
-
- [8]
+l.597 		\step{the Harder--Narasimhan polygon}
+                                              [8]
 Underfull \vbox (badness 5878) has occurred while \output is active []
 
  [9]
@@ -1108,39 +1124,39 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1355 		\step{$X, Y, Z \in \Dle{0}$}
+l.1356 		\step{$X, Y, Z \in \Dle{0}$}
                                      
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1373 ...\in \Dle{0}$, or dually $Z \in \Dge{0}$}
+l.1374 ...\in \Dle{0}$, or dually $Z \in \Dge{0}$}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1399 		\step{the general case}
+l.1400 		\step{the general case}
                                  [22] [23] [24] [25]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1603 		\step{\condref{cond:T2}}
+l.1604 		\step{\condref{cond:T2}}
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1607 		\step{\condref{cond:T3}}
+l.1608 		\step{\condref{cond:T3}}
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1614 		\step{boundedness}
+l.1615 		\step{boundedness}
                            
-Overfull \hbox (3.05418pt too wide) in paragraph at lines 1614--1616
+Overfull \hbox (3.05418pt too wide) in paragraph at lines 1615--1617
 []\OT1/cmr/bx/n/12 Step 3 \OT1/cmr/m/n/12 (\OT1/cmr/m/it/12 bound-ed-ness\OT1/c
 mr/m/n/12 ). With no-ta-tion as in Step 2, Lemma [][]2.13[][] gives $\OML/cmm/m
 /it/12 E \OMS/cmsy/m/n/12 2 h\OML/cmm/m/it/12 A[]; [] ; A[]\OMS/cmsy/m/n/12 i ^
@@ -1152,68 +1168,125 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1617 		\step{the heart is $\calA$}
+l.1618 		\step{the heart is $\calA$}
                                     
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.5}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1644 ...filtration is the cohomology filtration}
+l.1645 ...filtration is the cohomology filtration}
                                                    [26] [27]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1736 		\step{the standard t-structure}
+l.1737 		\step{the standard t-structure}
                                          [28]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1771 		\step{the heart}
+l.1772 		\step{the heart}
                           [29]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1808 		\step{consequences}
+l.1809 		\step{consequences}
                              [30]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1837 		\step{the Postnikov t-structure}
+l.1838 		\step{the Postnikov t-structure}
                                          
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1866 		\step{the heart}
+l.1867 		\step{the heart}
                           [31]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1886 ...cture is non-degenerate but not bounded}
+l.1887 ...cture is non-degenerate but not bounded}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1893 		\step{$\SH$ is not a derived category}
-                                                [32] [33] (./expand_now.aux)
+l.1894 		\step{$\SH$ is not a derived category}
+                                                [32] [33] [34]
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2042 		\step{the axioms}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2051 		\step{boundedness}
+                           
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2056 		\step{the heart}
+                          [35]
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2099 ...{the set of phases is determined by $E$}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2117 		\step{the isomorphisms $\varepsilon_i$}
+                                                 [36] [37] [38]
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+ [39]
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2292 ...ondref{cond:SL1} and \condref{cond:SL2}}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2301 		\step{HN filtrations of sheaves}
+                                         
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2314 		\step{HN filtrations of complexes}
+                                           
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2323 ...e slice $\calP(\frac12)$ is not abelian}
+                                                   [40] [41] (./expand_now.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `expand_now.out' has not changed.
-(rerunfilecheck)             Checksum: 25F3A8B2A0ACAB4B575F4FC1FAE24757;4077.
+(rerunfilecheck)             Checksum: 5891EA350A99ACA48A1A6CB2C6BCC471;5169.
  ) 
 Here is how much of TeX's memory you used:
- 27918 strings out of 474222
- 500760 string characters out of 5748734
+ 28550 strings out of 474222
+ 520023 string characters out of 5748734
  1947975 words of memory out of 5000000
- 49353 multiletter control sequences out of 15000+600000
+ 49929 multiletter control sequences out of 15000+600000
  571479 words of font info for 95 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  102i,18n,106p,1433b,979s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1240,11 +1313,12 @@ nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on expand_now.pdf (33 pages, 480027 bytes).
+m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on expand_now.pdf (41 pages, 534680 bytes).
 PDF statistics:
- 778 PDF objects out of 1000 (max. 8388607)
- 684 compressed objects within 7 object streams
- 160 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 986 PDF objects out of 1000 (max. 8388607)
+ 880 compressed objects within 9 object streams
+ 203 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -42,6 +42,7 @@
 \usepackage{hyperref}
 \usepackage{tikz-cd} % Ещё для коммутативных диаграмм
 \usetikzlibrary{babel}
+\usetikzlibrary{decorations.pathreplacing}
 
 % named conditions inside definitions:
 % \condlabel{Z}{cond:Z} prints (Z) and sets an anchor,
@@ -1052,7 +1053,7 @@
 	\begin{remark}
 		Because of Lemma~\ref{lem:t_orthogonal}(1) a t-structure is often specified by its aisle $\Dle{0}$ alone.
 		Note also the shape of the truncation triangle in Lemma~\ref{lem:truncation_unique}: it is exactly the triangle obtained by cutting a Harder--Narasimhan filtration between two consecutive factors, with $\Dle{0}$ playing the role of ``large phases'' and $\Dge{1}$ of ``small phases'';
-		this analogy will be made precise when we discuss slicings; see also the notion of $t$-stability in \cite{GKR04}.
+		this analogy will be made precise when we discuss slicings (Proposition~\ref{prop:slicing_t}); see also the notion of $t$-stability in \cite{GKR04}.
 	\end{remark}
 	
 	\subsection{The heart}
@@ -1912,6 +1913,422 @@
 	\end{example}
 
 
+	\section{Slicings}
+
+	\subsection{Definition}
+
+	Throughout this section $\calD$ is an essentially small triangulated category, and we keep the conventions of Section~2.1;
+	in particular all subcategories are full and closed under isomorphisms, and $\langle \mathcal{S} \rangle$ denotes the extension closure of a class of objects $\mathcal{S}$, described in Proposition~\ref{prop:extension_closure}.
+
+	Proposition~\ref{prop:bounded_heart} describes the heart of a bounded t-structure by means of filtrations whose factors are shifts $B_i[k_i]$ of objects of the heart, with strictly decreasing integers $k_i$.
+	A slicing is obtained by replacing the integers $k_i$ by real numbers.
+
+	A \emph{slicing} $\calP$ of $\calD$ (\cite[Def.~3.3]{Bri07}, \cite[Def.~5.5]{MS17}) is a collection of subcategories $\calP(\varphi) \subset \calD$, one for each $\varphi \in \RR$, each containing the zero object, such that
+	\begin{itemize}
+		\item[] \condlabel{SL1}{cond:SL1} $\calP(\varphi + 1) = \calP(\varphi)[1]$ for all $\varphi \in \RR$;
+		\item[] \condlabel{SL2}{cond:SL2} $\Hom(A, B) = 0$ whenever $A \in \calP(\varphi_1)$, $B \in \calP(\varphi_2)$ and $\varphi_1 > \varphi_2$;
+		\item[] \condlabel{SL3}{cond:SL3} every nonzero object $E \in \calD$ admits a finite sequence of morphisms
+		\[
+		0 = E_0 \to E_1 \to \ldots \to E_{n-1} \to E_n = E
+		\]
+		whose cones $A_i := \Cone(E_{i-1} \to E_i)$, $i = 1, \ldots, n$, are nonzero objects of $\calP(\varphi_i)$ for some real numbers $\varphi_1 > \varphi_2 > \ldots > \varphi_n$.
+	\end{itemize}
+	The nonzero objects of $\calP(\varphi)$ are called \emph{$\calP$-semistable of phase $\varphi$}, and we write $\varphi(E) := \varphi$ for such an object.
+	The phase of a semistable object is well defined, since a nonzero object $E$ satisfies $\Hom(E, E) \neq 0$ and therefore lies in at most one of the subcategories $\calP(\varphi)$ by \condref{cond:SL2}.
+	A sequence as in \condref{cond:SL3} is called a \emph{Harder--Narasimhan filtration} (\emph{HN filtration}) of $E$ with respect to $\calP$, the objects $A_i$ are its \emph{HN factors}, and we put $\varphi^+(E) := \varphi_1$ and $\varphi^-(E) := \varphi_n$.
+	\begin{center}
+		\begin{tikzcd}[column sep=large, row sep=large]
+			0 = E_0 \arrow[r]
+			& E_1 \arrow[r] \arrow[d]
+			& E_2 \arrow[r] \arrow[d]
+			& \cdots \arrow[r]
+			& E_{n-1} \arrow[r] \arrow[d]
+			& E_n = E \arrow[d] \\
+			& A_1 & A_2 & & A_{n-1} & A_n
+		\end{tikzcd}
+	\end{center}
+	Each column $E_{i-1} \to E_i \to A_i$ of the diagram is part of a triangle $E_{i-1} \to E_i \to A_i \to E_{i-1}[1]$.
+	Until uniqueness of HN filtrations is proved in Proposition~\ref{prop:HN_unique_slicing}, the numbers $\varphi^{\pm}(E)$ refer to a chosen filtration.
+	A semistable object $E$ has the HN filtration $0 \to E$ of length $1$, and conversely an object with an HN filtration of length $1$ is isomorphic to $A_1$, hence is semistable.
+
+	For a subset $I \subset \RR$ we define
+	\[
+	\calP(I) := \big\langle \calP(\varphi) : \varphi \in I \big\rangle ,
+	\]
+	the extension closure of the union of the $\calP(\varphi)$ with $\varphi \in I$.
+	We write $\calP(\geqslant \varphi)$, $\calP(> \varphi)$, $\calP([a, b))$ and so on for the subsets $I = [\varphi, \infty)$, $(\varphi, \infty)$, $[a, b)$, and $\calP(\emptyset) = \{ 0 \}$.
+	By Proposition~\ref{prop:extension_closure}, $\calP(I)$ consists of the objects admitting a filtration whose factors lie in $\calP(\varphi)$ for various $\varphi \in I$, in no particular order of the phases.
+	Clearly $\calP(I) \subset \calP(J)$ for $I \subset J$, and \condref{cond:SL1} together with Proposition~\ref{prop:extension_closure} gives
+	\[
+	\calP(I)[n] = \calP(I + n) \qquad (n \in \ZZ) .
+	\]
+
+	\begin{lemma}
+		\label{lem:slicing_orthogonal}
+		Let $I, J \subset \RR$ be subsets such that $\varphi > \psi$ for all $\varphi \in I$ and $\psi \in J$.
+		Then $\Hom(X, Y) = 0$ for all $X \in \calP(I)$ and $Y \in \calP(J)$.
+	\end{lemma}
+
+	\begin{proof}
+		By \condref{cond:SL2}, $\Hom(A, B) = 0$ for all $A \in \bigcup_{\varphi \in I} \calP(\varphi)$ and $B \in \bigcup_{\psi \in J} \calP(\psi)$, and Lemma~\ref{lem:devissage} extends this to the extension closures.
+	\end{proof}
+
+	\begin{lemma}
+		\label{lem:HN_steps}
+		Let $0 = E_0 \to E_1 \to \ldots \to E_n = E$ be an HN filtration of $E \neq 0$ with factors $A_i \in \calP(\varphi_i)$, $\varphi_1 > \ldots > \varphi_n$, and for $0 \leqslant m \leqslant n$ let $Q_m$ be a cone of $E_m \to E$.
+		\begin{enumerate}
+			\item $E_m \in \calP([\varphi_m, \varphi_1])$ for $1 \leqslant m \leqslant n$, and $Q_m \in \calP([\varphi_n, \varphi_{m+1}])$ for $0 \leqslant m < n$; in particular $E \in \calP([\varphi_n, \varphi_1])$.
+			\item $E_m \neq 0$ for $1 \leqslant m \leqslant n$, and $Q_m \neq 0$ for $0 \leqslant m < n$.
+			\item The morphisms $E_1 = A_1 \to E$ and $E \to Q_{n-1} \cong A_n$ are nonzero.
+		\end{enumerate}
+	\end{lemma}
+
+	\begin{proof}
+		(1) By Lemma~\ref{lem:cone_of_filtration}, $E_m \in \langle A_1, \ldots, A_m \rangle$ and $Q_m \in \langle A_{m+1}, \ldots, A_n \rangle$, and these extension closures are contained in $\calP([\varphi_m, \varphi_1])$ and $\calP([\varphi_n, \varphi_{m+1}])$ respectively.
+
+		(2) Suppose $E_m = 0$ for some $m \geqslant 1$.
+		The triangle $E_{m-1} \to E_m \to A_m \to E_{m-1}[1]$ then gives $E_{m-1} \cong A_m[-1]$ by \condref{cond:TR-5}.
+		If $m = 1$ this says $A_1 = 0$, a contradiction.
+		If $m \geqslant 2$, then $E_{m-1} \in \calP([\varphi_{m-1}, \varphi_1])$ by (1) and $E_{m-1} \cong A_m[-1] \in \calP(\varphi_m - 1)$, where $\varphi_m - 1 < \varphi_{m-1}$;
+		so Lemma~\ref{lem:slicing_orthogonal} gives $\Hom(E_{m-1}, E_{m-1}) = 0$, hence $E_{m-1} = 0$ and $A_m = 0$, a contradiction.
+		Dually, suppose $Q_m = 0$ for some $m < n$.
+		Lemma~\ref{lem:cone_of_filtration} provides a triangle
+		\[
+		A_{m+1} \to Q_m \to Q_{m+1} \to A_{m+1}[1] ,
+		\]
+		so $Q_{m+1} \cong A_{m+1}[1] \in \calP(\varphi_{m+1} + 1)$.
+		If $m + 1 = n$, then $Q_n = 0$ gives $A_n = 0$, a contradiction.
+		If $m + 1 < n$, then $Q_{m+1} \in \calP([\varphi_n, \varphi_{m+2}])$ by (1), and $\varphi_{m+2} < \varphi_{m+1} + 1$, so $\Hom(Q_{m+1}, Q_{m+1}) = 0$ by Lemma~\ref{lem:slicing_orthogonal}, hence $Q_{m+1} = 0$ and $A_{m+1} = 0$, a contradiction.
+
+		(3) Suppose that $E_1 \to E$ is zero.
+		Applying \condref{cond:TR-coh} with $\Hom(E_1[1], -)$ to the triangle $E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]$ shows that $\Hom(E_1[1], Q_1) \to \Hom(E_1[1], E_1[1])$ is surjective, so the map $Q_1 \to E_1[1]$ has a section.
+		But $E_1[1] = A_1[1] \in \calP(\varphi_1 + 1)$ and $Q_1 \in \calP([\varphi_n, \varphi_2])$ with $\varphi_2 < \varphi_1 + 1$ (if $n = 1$, then $Q_1 = 0$), so $\Hom(E_1[1], Q_1) = 0$ by Lemma~\ref{lem:slicing_orthogonal}.
+		Hence the identity of $E_1[1]$ is zero and $A_1 = 0$, a contradiction.
+		Dually, the triangle $A_n \to Q_{n-1} \to Q_n = 0$ gives $Q_{n-1} \cong A_n$.
+		If $E \to Q_{n-1}$ were zero, then \condref{cond:TR-coh} with $\Hom(-, Q_{n-1})$ applied to the triangle $E_{n-1} \to E \xrightarrow{0} Q_{n-1} \to E_{n-1}[1]$ would show that $Q_{n-1} \to E_{n-1}[1]$ has a retraction, while $\Hom(E_{n-1}[1], Q_{n-1}) = 0$ by (1) and Lemma~\ref{lem:slicing_orthogonal}, because $E_{n-1}[1] \in \calP([\varphi_{n-1} + 1, \varphi_1 + 1])$ and $\varphi_n < \varphi_{n-1} + 1$;
+		so $Q_{n-1} = 0$, contradicting (2).
+	\end{proof}
+
+	\subsection{The t-structures associated with a slicing}
+
+	\begin{proposition}
+		\label{prop:slicing_t}
+		Let $\calP$ be a slicing of $\calD$ and $\psi \in \RR$.
+		\begin{enumerate}
+			\item The pair $(\calP(\geqslant \psi), \calP(< \psi + 1))$ is a bounded t-structure on $\calD$ with heart $\calP([\psi, \psi + 1))$.
+			\item The pair $(\calP(> \psi), \calP(\leqslant \psi + 1))$ is a bounded t-structure on $\calD$ with heart $\calP((\psi, \psi + 1])$.
+			\item Let $E \neq 0$ have an HN filtration $0 = E_0 \to \ldots \to E_n = E$ with phases $\varphi_1 > \ldots > \varphi_n$, let $Q_m$ be a cone of $E_m \to E$, and put $m := \# \{ i : \varphi_i \geqslant \psi \}$.
+			Then
+			\[
+			E_m \to E \to Q_m \to E_m[1]
+			\]
+			is a truncation triangle of $E$ with respect to the t-structure in (1), i.e.\ $\tau^{\leqslant 0} E \cong E_m$ and $\tau^{\geqslant 1} E \cong Q_m$ compatibly with the morphisms to and from $E$.
+			The same holds for the t-structure in (2) with $m := \# \{ i : \varphi_i > \psi \}$.
+		\end{enumerate}
+	\end{proposition}
+
+	We write $\tau_{\geqslant \psi} E \to E \to \tau_{< \psi} E$ for the truncation triangle of the t-structure in (1), so that $\tau_{\geqslant \psi} E \in \calP(\geqslant \psi)$ and $\tau_{< \psi} E \in \calP(< \psi)$, and likewise $\tau_{> \psi} E \to E \to \tau_{\leqslant \psi} E$ for the t-structure in (2).
+	Beware that the aisle of these t-structures consists of the objects of \emph{large} phase, whereas in the notation $\Dle{0}$ for a t-structure the aisle is suggested to consist of objects of small degree;
+	this is the unavoidable clash of conventions noted in \cite[footnote in \S 3]{Bri07}, and it is the reason for the reversal of inequalities already observed in Example~\ref{ex:SH}.
+
+	\begin{proof}
+		We prove (1) and the first half of (3); the proofs of (2) and of the second half of (3) are obtained by replacing $\geqslant$ with $>$ and $<$ with $\leqslant$ throughout.
+		Put $\Dle{0} := \calP(\geqslant \psi)$ and $\Dge{0} := \calP(< \psi + 1)$, so that
+		\[
+		\Dle{n} = \calP(\geqslant \psi - n), \qquad \Dge{n} = \calP(< \psi + 1 - n)
+		\]
+		by $\calP(I)[n] = \calP(I + n)$.
+
+		\step{the axioms}
+		Condition \condref{cond:T1} holds because $\calP(\geqslant \psi + 1) \subset \calP(\geqslant \psi)$ and $\calP(< \psi) \subset \calP(< \psi + 1)$.
+		Condition \condref{cond:T2}, i.e.\ $\Hom(\calP(\geqslant \psi), \calP(< \psi)) = 0$, is Lemma~\ref{lem:slicing_orthogonal}.
+		For \condref{cond:T3} let $E \neq 0$ (for $E = 0$ take the zero triangle), choose an HN filtration of $E$ and let $m$ be as in (3), so that $\varphi_1 > \ldots > \varphi_m \geqslant \psi > \varphi_{m+1} > \ldots > \varphi_n$.
+		By Lemma~\ref{lem:HN_steps}(1), $E_m \in \calP([\varphi_m, \varphi_1]) \subset \calP(\geqslant \psi)$ if $m \geqslant 1$, and $E_0 = 0$;
+		similarly $Q_m \in \calP([\varphi_n, \varphi_{m+1}]) \subset \calP(< \psi)$ if $m < n$, and $Q_n = 0$.
+		Hence $E_m \to E \to Q_m \to E_m[1]$ is a triangle as required in \condref{cond:T3}, and $(\Dle{0}, \Dge{0})$ is a t-structure.
+		By Lemma~\ref{lem:truncation_unique}(2) this triangle is isomorphic to the truncation triangle, which proves (3).
+
+		\step{boundedness}
+		With $E$ as above, $E \in \calP([\varphi_n, \varphi_1])$ by Lemma~\ref{lem:HN_steps}(1).
+		Choose integers $a, b \geqslant 0$ with $\psi - a \leqslant \varphi_n$ and $\varphi_1 < \psi + 1 + b$;
+		then $E \in \calP(\geqslant \psi - a) \cap \calP(< \psi + 1 + b) = \Dle{a} \cap \Dge{-b}$.
+
+		\step{the heart}
+		The inclusion $\calP([\psi, \psi + 1)) \subset \calP(\geqslant \psi) \cap \calP(< \psi + 1)$ is clear.
+		Conversely let $0 \neq E \in \Dle{0} \cap \Dge{0}$, with HN filtration and notation as above.
+		Since $E \in \Dle{0}$, Lemma~\ref{lem:t_orthogonal}(2) gives $\tau^{\geqslant 1} E = 0$, i.e.\ $Q_m = 0$ by (3), so $m = n$ by Lemma~\ref{lem:HN_steps}(2), i.e.\ $\varphi_n \geqslant \psi$.
+		Since $E \in \Dge{0}$, Lemma~\ref{lem:t_orthogonal}(2) gives $\tau^{\leqslant -1} E = 0$;
+		now $\Dle{-1} = \calP(\geqslant \psi + 1)$, so applying (3) to the t-structure of (1) for $\psi + 1$ in place of $\psi$ (and the uniqueness of truncation triangles) we get $E_{m'} = 0$ for $m' := \# \{ i : \varphi_i \geqslant \psi + 1 \}$, hence $m' = 0$ by Lemma~\ref{lem:HN_steps}(2), i.e.\ $\varphi_1 < \psi + 1$.
+		Thus all HN factors of $E$ lie in $\calP([\psi, \psi + 1))$, and so does $E$.
+	\end{proof}
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1.1, >=stealth]
+			\draw[->, gray] (-4.6,0) -- (4.6,0) node[right] {phases};
+			\foreach \x/\l in {-3.4/{\varphi_n}, -2.2/{\varphi_{n-1}}, -0.4/{\varphi_{m+1}}, 1.0/{\varphi_m}, 2.6/{\varphi_2}, 3.6/{\varphi_1}}
+				{\fill (\x,0) circle (1.6pt); \node[below, font=\footnotesize] at (\x,0) {$\l$};}
+			\node[font=\footnotesize] at (-1.3,-0.3) {$\cdots$};
+			\node[font=\footnotesize] at (1.8,-0.3) {$\cdots$};
+			\draw[dashed] (0.3,-0.7) -- (0.3,1.1) node[above, font=\footnotesize] {$\psi$};
+			\draw[decorate, decoration={brace, amplitude=4pt}] (0.5,0.35) -- (3.8,0.35) node[midway, above=3pt, font=\footnotesize] {factors of $\tau_{\geqslant \psi} E = E_m$};
+			\draw[decorate, decoration={brace, amplitude=4pt}] (-3.6,0.35) -- (0.1,0.35) node[midway, above=3pt, font=\footnotesize] {factors of $\tau_{< \psi} E = Q_m$};
+		\end{tikzpicture}
+	\end{center}
+	The picture shows the phases of the HN factors of $E$ on the real line;
+	the truncation at $\psi$ cuts the HN filtration between the factors of phase $\geqslant \psi$, which build $\tau_{\geqslant \psi} E$, and those of phase $< \psi$, which build $\tau_{< \psi} E$.
+
+	\subsection{Uniqueness of Harder--Narasimhan filtrations}
+
+	\begin{proposition}
+		\label{prop:HN_unique_slicing}
+		Let $\calP$ be a slicing of $\calD$ and $E \neq 0$.
+		If
+		\[
+		0 = E_0 \to E_1 \to \ldots \to E_n = E
+		\qquad\text{and}\qquad
+		0 = E'_0 \to E'_1 \to \ldots \to E'_m = E
+		\]
+		are HN filtrations of $E$ with phases $\varphi_1 > \ldots > \varphi_n$ and $\varphi'_1 > \ldots > \varphi'_m$, then $n = m$, $\varphi_i = \varphi'_i$ for all $i$, and for every $i$ there is a unique isomorphism $\varepsilon_i \colon E_i \to E'_i$ compatible with the morphisms to $E$.
+		The $\varepsilon_i$ are compatible with the morphisms $E_{i-1} \to E_i$ and $E'_{i-1} \to E'_i$, and they induce isomorphisms $A_i \cong A'_i$ of the HN factors.
+		In particular the phases $\varphi^{\pm}(E)$, the set of phases of the HN factors and the isomorphism classes of the HN factors depend only on $E$.
+	\end{proposition}
+
+	\begin{proof}
+		Put $\Phi := \{ \varphi_1, \ldots, \varphi_n \}$ and $\Phi' := \{ \varphi'_1, \ldots, \varphi'_m \}$.
+
+		\step{the set of phases is determined by $E$}
+		Fix $\psi \in \RR$.
+		Since $\calP(> \psi) \subset \calP(\geqslant \psi)$, Lemma~\ref{lem:truncation_unique}(1) applied to the t-structure of Proposition~\ref{prop:slicing_t}(1) gives a unique morphism
+		\[
+		c_\psi \colon \tau_{> \psi} E \longrightarrow \tau_{\geqslant \psi} E
+		\]
+		compatible with the morphisms to $E$.
+		We claim that $\psi \in \Phi$ if and only if $c_\psi$ is not an isomorphism.
+		Put $k := \# \{ i : \varphi_i \geqslant \psi \}$ and $k' := \# \{ i : \varphi_i > \psi \}$.
+		By Proposition~\ref{prop:slicing_t}(3) and Lemma~\ref{lem:truncation_unique}(2) there are isomorphisms $\tau_{\geqslant \psi} E \cong E_k$ and $\tau_{> \psi} E \cong E_{k'}$ compatible with the morphisms to $E$, and under them $c_\psi$ corresponds to a morphism $E_{k'} \to E_k$ compatible with the morphisms to $E$.
+		Such a morphism is unique, by Lemma~\ref{lem:truncation_unique}(1) applied to $E_{k'} \in \calP(\geqslant \psi)$ and the truncation triangle $E_k \to E \to Q_k \to E_k[1]$, so it is the composite $E_{k'} \to E_{k'+1} \to \ldots \to E_k$ of the morphisms of the filtration.
+		If $\psi \notin \Phi$, then $k = k'$ and this composite is the identity.
+		If $\psi \in \Phi$, say $\psi = \varphi_k$, then $k = k' + 1$ and the composite is the morphism $E_{k-1} \to E_k$, whose cone $A_k$ is nonzero;
+		it is not an isomorphism, since the cone of an isomorphism is zero by \condref{cond:TR-5}.
+		This proves the claim.
+		The morphism $c_\psi$ does not depend on the filtration, so the same claim for the second filtration gives $\Phi = \Phi'$.
+		Hence $n = m$ and $\varphi_i = \varphi'_i$ for all $i$.
+
+		\step{the isomorphisms $\varepsilon_i$}
+		Fix $i$ and put $\psi := \varphi_i = \varphi'_i$.
+		Then $i = \# \{ j : \varphi_j \geqslant \psi \}$, so by Proposition~\ref{prop:slicing_t}(3) both $E_i \to E \to Q_i$ and $E'_i \to E \to Q'_i$ are truncation triangles of $E$ for the t-structure $(\calP(\geqslant \psi), \calP(< \psi + 1))$.
+		Lemma~\ref{lem:truncation_unique}(2) gives a unique isomorphism $\varepsilon_i \colon E_i \to E'_i$ compatible with the morphisms to $E$.
+		For the compatibility with the filtrations, note that both composites
+		\[
+		E_{i-1} \to E_i \xrightarrow{\varepsilon_i} E'_i
+		\qquad\text{and}\qquad
+		E_{i-1} \xrightarrow{\varepsilon_{i-1}} E'_{i-1} \to E'_i
+		\]
+		are morphisms from $E_{i-1} \in \calP(\geqslant \varphi_{i-1}) \subset \calP(\geqslant \psi)$ to $E'_i = \tau_{\geqslant \psi} E$ compatible with the morphisms to $E$, hence they coincide by Lemma~\ref{lem:truncation_unique}(1).
+		Finally, the commutative square formed by $E_{i-1} \to E_i$, $E'_{i-1} \to E'_i$, $\varepsilon_{i-1}$ and $\varepsilon_i$ extends to a morphism of triangles $(\varepsilon_{i-1}, \varepsilon_i, \alpha_i)$ by the axioms of a triangulated category, and $\alpha_i \colon A_i \to A'_i$ is an isomorphism by \condref{cond:TR-5}.
+	\end{proof}
+
+	From now on $\varphi^{\pm}(E)$ and the HN factors of a nonzero object $E$ are defined using any HN filtration.
+
+	\begin{corollary}
+		\label{cor:slicing_phases}
+		Let $\calP$ be a slicing of $\calD$, let $E, F$ be nonzero objects and $\psi \in \RR$.
+		\begin{enumerate}
+			\item $E \in \calP(\geqslant \psi)$ if and only if $\varphi^-(E) \geqslant \psi$, and $E \in \calP(> \psi)$ if and only if $\varphi^-(E) > \psi$;
+			dually $E \in \calP(\leqslant \psi)$ if and only if $\varphi^+(E) \leqslant \psi$, and $E \in \calP(< \psi)$ if and only if $\varphi^+(E) < \psi$.
+			\item For every interval $I \subset \RR$ one has $E \in \calP(I)$ if and only if $\varphi^-(E) \in I$ and $\varphi^+(E) \in I$.
+			In particular $E$ is semistable if and only if $\varphi^+(E) = \varphi^-(E)$, and $\calP(\varphi) = \calP(\{ \varphi \})$ for every $\varphi \in \RR$.
+			\item If $\Hom(E, F) \neq 0$, then $\varphi^-(E) \leqslant \varphi^+(F)$.
+			\item For every interval $I \subset \RR$ the subcategory $\calP(I)$ is closed under extensions, finite direct sums and direct summands.
+			In particular this applies to $\calP(\varphi) = \calP(\{ \varphi \})$.
+		\end{enumerate}
+	\end{corollary}
+
+	\begin{proof}
+		(1) Let $0 = E_0 \to \ldots \to E_n = E$ be an HN filtration with phases $\varphi_1 > \ldots > \varphi_n$, let $Q_k$ be a cone of $E_k \to E$ and $k := \# \{ i : \varphi_i \geqslant \psi \}$.
+		For the t-structure $(\Dle{0}, \Dge{0}) = (\calP(\geqslant \psi), \calP(< \psi + 1))$ of Proposition~\ref{prop:slicing_t}, Lemma~\ref{lem:t_orthogonal}(2) says that $E \in \Dle{0}$ if and only if $\tau^{\geqslant 1} E = 0$, i.e.\ $Q_k = 0$ by Proposition~\ref{prop:slicing_t}(3), which by Lemma~\ref{lem:HN_steps}(2) means $k = n$, i.e.\ $\varphi_n \geqslant \psi$.
+		Likewise $E \in \Dge{1} = \calP(< \psi)$ if and only if $\tau^{\leqslant 0} E = 0$, i.e.\ $E_k = 0$, i.e.\ $k = 0$, i.e.\ $\varphi_1 < \psi$.
+		The statements for $\calP(> \psi)$ and $\calP(\leqslant \psi)$ follow in the same way from the t-structure of Proposition~\ref{prop:slicing_t}(2).
+
+		(2) If $\varphi^{\pm}(E) \in I$, then all HN factors of $E$ lie in $\calP(\varphi_i)$ with $\varphi_i \in I$, so $E \in \calP(I)$ by Lemma~\ref{lem:HN_steps}(1).
+		Conversely let $E \in \calP(I)$.
+		If $I$ is bounded below with infimum $a$, then $I \subset [a, \infty)$ or $I \subset (a, \infty)$ according to whether $a \in I$ or not, so $E \in \calP(\geqslant a)$ or $E \in \calP(> a)$, and (1) gives $\varphi^-(E) \geqslant a$ or $\varphi^-(E) > a$ accordingly.
+		In the same way, if $I$ is bounded above with supremum $b$, then $\varphi^+(E) \leqslant b$ or $\varphi^+(E) < b$ according to whether $b \in I$ or not.
+		Since $\varphi^-(E) \leqslant \varphi^+(E)$, both numbers satisfy the bounds defining $I$, so they lie in $I$.
+		For the second assertion, if $E \in \calP(\varphi)$ then $0 \to E$ is an HN filtration and $\varphi^{\pm}(E) = \varphi$;
+		conversely if $\varphi^+(E) = \varphi^-(E) = \varphi$, then $n = 1$ and $E \cong A_1 \in \calP(\varphi)$.
+		Finally $\calP(\varphi) \subset \calP(\{ \varphi \})$ by definition, and a nonzero $E \in \calP(\{ \varphi \})$ has $\varphi^{\pm}(E) = \varphi$ by what was just proved, so $E \in \calP(\varphi)$.
+
+		(3) By Lemma~\ref{lem:HN_steps}(1), $E \in \calP([\varphi^-(E), \varphi^+(E)])$ and $F \in \calP([\varphi^-(F), \varphi^+(F)])$.
+		If $\varphi^-(E) > \varphi^+(F)$, Lemma~\ref{lem:slicing_orthogonal} gives $\Hom(E, F) = 0$.
+
+		(4) Closure under extensions and finite direct sums holds for every extension closure.
+		By (1) and (2), $\calP(I)$ is the intersection of at most two of the subcategories $\calP(\geqslant a)$, $\calP(> a)$, $\calP(\leqslant b)$, $\calP(< b)$, where $a$ and $b$ are the finite endpoints of $I$ (or $\calP(I) = \calD$ if $I = \RR$, or $\calP(I) = 0$ if $I = \emptyset$).
+		Each of these is the aisle or the coaisle of one of the t-structures of Proposition~\ref{prop:slicing_t}, namely $\calP(\geqslant a) = \Dle{0}$ and $\calP(< b) = \Dge{0}$ for the t-structures of type (1) with $\psi = a$ and $\psi = b - 1$, and $\calP(> a) = \Dle{0}$ and $\calP(\leqslant b) = \Dge{0}$ for those of type (2);
+		so each is closed under direct summands by Lemma~\ref{lem:t_orthogonal}(3), and so is their intersection.
+	\end{proof}
+
+	\begin{lemma}[{\cite[Lemma~3.4]{Bri07}}]
+		\label{lem:slicing_seesaw}
+		Let $\calP$ be a slicing of $\calD$, let $I \subset \RR$ be an interval of length at most $1$, and let
+		\[
+		A \to E \to B \to A[1]
+		\]
+		be a triangle whose vertices $A, E, B$ are nonzero objects of $\calP(I)$.
+		Then $\varphi^+(A) \leqslant \varphi^+(E)$ and $\varphi^-(E) \leqslant \varphi^-(B)$.
+	\end{lemma}
+
+	\begin{proof}
+		Choose $t \in \RR$ with $I \subset [t, t + 1]$;
+		then $A, E, B \in \calP([t, t + 1])$, so $\varphi^{\pm}$ of each of them lies in $[t, t + 1]$ by Corollary~\ref{cor:slicing_phases}(2).
+
+		For the first inequality put $\varphi := \varphi^+(A)$ and let $A_1 \to A$ be the first step of an HN filtration of $A$, so that $A_1 \in \calP(\varphi)$ and $A_1 \to A$ is nonzero by Lemma~\ref{lem:HN_steps}(3).
+		Suppose $\varphi > \varphi^+(E)$.
+		Then $\Hom(A_1, E) = 0$ by Corollary~\ref{cor:slicing_phases}(3), so the composite $A_1 \to A \to E$ vanishes, and the exact sequence
+		\[
+		\Hom(A_1, B[-1]) \to \Hom(A_1, A) \to \Hom(A_1, E)
+		\]
+		of \condref{cond:TR-coh}, obtained from the rotated triangle $B[-1] \to A \to E \to B$, shows that the nonzero morphism $A_1 \to A$ factors through $B[-1]$.
+		Hence $\Hom(A_1, B[-1]) \neq 0$.
+		Since $B[-1] \in \calP([t - 1, t])$, Lemma~\ref{lem:slicing_orthogonal} forces $\varphi \leqslant t$.
+		But $\varphi^+(E) \geqslant t$, so $\varphi \leqslant t \leqslant \varphi^+(E) < \varphi$, a contradiction.
+
+		For the second inequality put $\psi := \varphi^-(B)$ and let $B \to B_n$ be the nonzero morphism onto the last HN factor $B_n \in \calP(\psi)$ of $B$ (Lemma~\ref{lem:HN_steps}(3)).
+		Suppose $\psi < \varphi^-(E)$.
+		Then $\Hom(E, B_n) = 0$ by Corollary~\ref{cor:slicing_phases}(3), so the composite $E \to B \to B_n$ vanishes, and the exact sequence
+		\[
+		\Hom(A[1], B_n) \to \Hom(B, B_n) \to \Hom(E, B_n)
+		\]
+		shows that $B \to B_n$ factors through $B \to A[1]$, whence $\Hom(A[1], B_n) \neq 0$.
+		Since $A[1] \in \calP([t + 1, t + 2])$, Lemma~\ref{lem:slicing_orthogonal} forces $\psi \geqslant t + 1$.
+		But $\varphi^-(E) \leqslant t + 1$, so $\psi \geqslant t + 1 \geqslant \varphi^-(E) > \psi$, a contradiction.
+	\end{proof}
+
+	\subsection{Slicings and bounded hearts}
+
+	\begin{proposition}
+		\label{prop:discrete_slicing}
+		\begin{enumerate}
+			\item Let $\calA$ be the heart of a bounded t-structure on $\calD$.
+			Then
+			\[
+			\calP_{\calA}(n) := \calA[n] \quad (n \in \ZZ), \qquad \calP_{\calA}(\varphi) := 0 \quad (\varphi \notin \ZZ)
+			\]
+			is a slicing of $\calD$.
+			Its HN filtrations are the cohomology filtrations of Lemma~\ref{lem:cohomology_filtration} with the trivial steps discarded, and for $E \neq 0$
+			\[
+			\varphi^+(E) = - \min \{ i : H^i(E) \neq 0 \}, \qquad \varphi^-(E) = - \max \{ i : H^i(E) \neq 0 \} .
+			\]
+			\item Conversely, let $\calP$ be a slicing of $\calD$ with $\calP(\varphi) = 0$ for all $\varphi \notin \ZZ$.
+			Then $\calP(0)$ is the heart of a bounded t-structure and $\calP = \calP_{\calP(0)}$.
+			\item For every slicing $\calP$ and every $\psi \in \RR$ the subcategories $\calP((\psi, \psi + 1])$ and $\calP([\psi, \psi + 1))$ are hearts of bounded t-structures on $\calD$;
+			in particular they are abelian.
+		\end{enumerate}
+	\end{proposition}
+
+	The abelian category $\calP((0, 1])$ is called the \emph{heart} of the slicing $\calP$.
+	By Proposition~\ref{prop:K0_heart} we have $\Kgroup(\calD) \cong \Kgroup(\calP((0, 1]))$;
+	this is how a central charge on $\Kgroup(\calD)$ will be compared with a stability function on the heart in the next section.
+
+	\begin{proof}
+		(1) Condition \condref{cond:SL1} holds by construction.
+		For \condref{cond:SL2} let $A \in \calP_{\calA}(\varphi_1)$ and $B \in \calP_{\calA}(\varphi_2)$ be nonzero with $\varphi_1 > \varphi_2$;
+		then $\varphi_1 = n$ and $\varphi_2 = m$ are integers with $n > m$, $A = A_0[n]$ and $B = B_0[m]$ with $A_0, B_0 \in \calA$, and $\Hom(A, B) = \Hom(A_0, B_0[m - n]) = 0$ by \eqref{eq:heart_negative_ext}.
+		Condition \condref{cond:SL3} is \condref{cond:BH2} of Proposition~\ref{prop:bounded_heart}, whose factors $B_i[k_i]$ are nonzero objects of $\calP_{\calA}(k_i)$ with $k_1 > \ldots > k_n$;
+		by the last assertion of Proposition~\ref{prop:bounded_heart} this sequence is the cohomology filtration with the trivial steps discarded, and $B_i = H^{-k_i}(E)$.
+		Hence the HN factors of $E$ are the nonzero objects $H^i(E)[-i]$, which have phase $-i$, and the formulas for $\varphi^{\pm}(E)$ follow.
+
+		(2) The subcategory $\calA := \calP(0)$ is additive by Corollary~\ref{cor:slicing_phases}(4).
+		It satisfies \condref{cond:BH1}, because for $A, B \in \calA$ and $k < 0$ we have $B[k] \in \calP(k)$ and $\Hom(A, B[k]) = 0$ by \condref{cond:SL2}.
+		It satisfies \condref{cond:BH2}, because in an HN filtration of a nonzero object the factors $A_i$ are nonzero objects of $\calP(\varphi_i)$, which forces $\varphi_i \in \ZZ$, so that $A_i = B_i[\varphi_i]$ with $0 \neq B_i := A_i[-\varphi_i] \in \calP(0)$ and strictly decreasing integers $\varphi_i$.
+		By Proposition~\ref{prop:bounded_heart}, $\calA$ is the heart of a bounded t-structure.
+		Finally $\calP(n) = \calP(0)[n] = \calP_{\calA}(n)$ for $n \in \ZZ$ by \condref{cond:SL1}, and $\calP(\varphi) = 0 = \calP_{\calA}(\varphi)$ for $\varphi \notin \ZZ$.
+
+		(3) This is Proposition~\ref{prop:slicing_t} together with Theorem~\ref{thm:heart_abelian}.
+	\end{proof}
+
+	\begin{proposition}[{\cite[Exercise~5.6]{MS17}}]
+		\label{prop:slicing_inclusion}
+		Let $\calP$ and $\calP'$ be slicings of $\calD$ with $\calP'(\varphi) \subset \calP(\varphi)$ for all $\varphi \in \RR$.
+		Then $\calP' = \calP$.
+	\end{proposition}
+
+	\begin{proof}
+		Let $E$ be a nonzero object of $\calP(\varphi)$ and let $0 = E_0 \to \ldots \to E_n = E$ be an HN filtration of $E$ with respect to $\calP'$, with factors $A_i \in \calP'(\varphi_i) \subset \calP(\varphi_i)$.
+		Then it is also an HN filtration of $E$ with respect to $\calP$.
+		Since $0 \to E$ is an HN filtration of $E$ with respect to $\calP$ as well, Proposition~\ref{prop:HN_unique_slicing} gives $n = 1$ and $\varphi_1 = \varphi$, so $E \cong A_1 \in \calP'(\varphi)$.
+	\end{proof}
+
+	Proposition~\ref{prop:discrete_slicing}(3) says that $\calP(I)$ is abelian for every half-open interval $I$ of length $1$.
+	For intervals of length $< 1$ the subcategory $\calP(I)$ is in general not abelian, not even for $I = \{ \varphi \}$.
+	In the next section we shall see that $\calP(\varphi)$ is abelian as soon as the slicing underlies a stability condition (\cite[Lemma~5.2]{Bri07});
+	the following example shows that this is a genuine restriction.
+
+	\begin{example}[a slicing whose slices are not abelian]
+		\label{ex:P1_slicing}
+		Let $\kk$ be a field, $X := \projective^1_{\kk}$ and $\calD := \D^{\mathrm{b}}(\mathrm{Coh}(X))$, with $\mathrm{Coh}(X)$ regarded as the heart of the standard t-structure (Example~\ref{ex:standard_t}).
+		We use the following facts.
+		\begin{itemize}
+			\item[] \condlabel{P1}{cond:P1} Every coherent sheaf $F$ on $X$ is isomorphic to $T \oplus \bigoplus_{j=1}^{r} \oo(n_j)$, where $T$ is a sheaf of finite length (a \emph{torsion sheaf}) and $n_1, \ldots, n_r \in \ZZ$.
+			The decomposition of the locally free part is Grothendieck's theorem \cite{HM82};
+			the splitting $F \cong T \oplus F / T$ of the maximal torsion subsheaf holds because $F / T$ is torsion-free, hence locally free on the smooth curve $X$, and $\Ext^1(F / T, T) = H^1(X, (F / T)^{\vee} \otimes T) = 0$ for a sheaf of finite length \cite[Thm~III.2.7]{Har77}.
+			\item[] \condlabel{P2}{cond:P2} $\Hom(\oo(n), \oo(m)) = H^0(X, \oo(m - n))$ is zero for $n > m$ and nonzero for $n \leqslant m$ \cite[Thm~III.5.1]{Har77}; in particular $\Hom(\oo(n), \oo(n)) = \kk$.
+			\item[] \condlabel{P3}{cond:P3} $\Hom(T, L) = 0$ for a torsion sheaf $T$ and a locally free sheaf $L$, since the local sections of $L$ have no torsion.
+		\end{itemize}
+		Choose real numbers $\psi_n \in (0, 1)$, $n \in \ZZ$, with $\psi_0 = \psi_1 = \tfrac12$, $\psi_n < \psi_{n+1}$ for $n \neq 0$, for instance
+		\[
+		\psi_n := 1 - \frac{1}{n + 1} \quad (n \geqslant 2), \qquad \psi_0 = \psi_1 := \frac12, \qquad \psi_n := \frac{1}{2 (1 - n)} \quad (n \leqslant -1) ,
+		\]
+		so that $\psi_n \leqslant \psi_m$ if and only if $n \leqslant m$ or $\{ n, m \} = \{ 0, 1 \}$.
+		Define subcategories of $\mathrm{Coh}(X) \subset \calD$ by
+		\begin{align*}
+			\calP(1) &:= \{ \text{torsion sheaves} \}, \\
+			\calP(\psi) &:= \operatorname{add} \{ \oo(n) : \psi_n = \psi \} \quad \text{for } \psi \in \{ \psi_n : n \in \ZZ \}, \\
+			\calP(\varphi) &:= 0 \quad \text{for all other } \varphi \in (0, 1] ,
+		\end{align*}
+		where $\operatorname{add}$ denotes the objects isomorphic to finite direct sums of the listed ones, and extend by $\calP(\varphi + k) := \calP(\varphi)[k]$ for $\varphi \in (0, 1]$ and $k \in \ZZ$.
+		Thus $\calP(\psi_n) = \operatorname{add} \{ \oo(n) \}$ for $n \neq 0, 1$ and $\calP(\tfrac12) = \operatorname{add} \{ \oo, \oo(1) \}$.
+
+		\step{the axioms \condref{cond:SL1} and \condref{cond:SL2}}
+		Condition \condref{cond:SL1} holds by construction.
+		For \condref{cond:SL2} first let $A, B \in \mathrm{Coh}(X)$ be nonzero with $A \in \calP(\varphi_1)$, $B \in \calP(\varphi_2)$ and $1 \geqslant \varphi_1 > \varphi_2 > 0$.
+		Then $B$ is a direct sum of line bundles $\oo(m)$ with $\psi_m = \varphi_2$, and $A$ is either a torsion sheaf, in which case $\Hom(A, B) = 0$ by \condref{cond:P3}, or a direct sum of line bundles $\oo(n)$ with $\psi_n = \varphi_1 > \psi_m$, in which case $n > m$ and $\Hom(A, B) = 0$ by \condref{cond:P2}.
+		In general, $A \in \calP(\varphi_1)$ and $B \in \calP(\varphi_2)$ with $\varphi_1 > \varphi_2$ can be written as $A = A_0[a]$ and $B = B_0[b]$ with $a, b \in \ZZ$, $A_0 \in \calP(\varphi_1 - a)$, $B_0 \in \calP(\varphi_2 - b)$ and $\varphi_1 - a, \varphi_2 - b \in (0, 1]$.
+		If $b > a$, then $\varphi_1 - a > \varphi_2 - a \geqslant \varphi_2 - b + 1 > 1$, which is impossible since $\varphi_1 - a \leqslant 1$;
+		if $b < a$, then $\Hom(A, B) = \Hom(A_0, B_0[b - a]) = 0$ by \eqref{eq:heart_negative_ext};
+		if $b = a$, then $\Hom(A, B) = \Hom(A_0, B_0)$ vanishes by the first case.
+
+		\step{HN filtrations of sheaves}
+		Let $0 \neq F \in \mathrm{Coh}(X)$ and decompose it as in \condref{cond:P1}.
+		Grouping the line bundle summands according to their phases we obtain
+		\[
+		F \cong T \oplus F_1 \oplus \ldots \oplus F_r
+		\]
+		with $0 \neq F_l \in \calP(\psi^{(l)})$ and $1 > \psi^{(1)} > \ldots > \psi^{(r)}$.
+		The sequence of partial sums
+		\[
+		0 \to T \to T \oplus F_1 \to T \oplus F_1 \oplus F_2 \to \ldots \to F
+		\]
+		(with the first step omitted if $T = 0$) is an HN filtration of $F$ with respect to $\calP$, since the cone of the inclusion of a direct summand $Y \to Y \oplus Z$ is $Z$.
+
+		\step{HN filtrations of complexes}
+		Let $0 \neq E \in \calD$.
+		By Lemma~\ref{lem:cohomology_filtration}(1) applied to the standard t-structure, $E$ has a filtration by the truncations $\tau^{\leqslant i} E$ with cones $H^i(E)[-i]$, and we discard the steps with $H^i(E) = 0$.
+		For each remaining $i$, Step~2 gives an HN filtration of the sheaf $H^i(E)$, and shifting it by $[-i]$ gives an HN filtration of $H^i(E)[-i]$ with phases in $(-i, -i + 1]$, by \condref{cond:SL1}.
+		Lemma~\ref{lem:refinement}, applied to the triangle $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E \to H^i(E)[-i] \to (\tau^{\leqslant i - 1} E)[1]$ and this filtration, replaces the step $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E$ by a sequence of morphisms whose cones are the HN factors of $H^i(E)[-i]$.
+		Doing this for every $i$ we obtain a filtration of $E$ whose factors are semistable, with phases in $(-i, -i + 1]$ strictly decreasing within each block and the blocks ordered by increasing $i$;
+		hence the phases are strictly decreasing overall, and this is an HN filtration of $E$.
+		So $\calP$ is a slicing of $\calD$.
+
+		\step{the slice $\calP(\frac12)$ is not abelian}
+		Put $\calC := \calP(\tfrac12) = \operatorname{add} \{ \oo, \oo(1) \}$, an additive category whose objects are the sheaves $\oo^{\oplus a} \oplus \oo(1)^{\oplus b}$, and let $s \colon \oo \to \oo(1)$ be a nonzero morphism, which exists by \condref{cond:P2}.
+		By \condref{cond:P2} a morphism $\oo^{\oplus a} \oplus \oo(1)^{\oplus b} \to \oo$ is given by $a$ scalars (its components $\oo(1) \to \oo$ vanish), and $s$ composed with a nonzero scalar multiple of $\id_{\oo}$ is nonzero;
+		hence every morphism $g \colon Y \to \oo$ in $\calC$ with $s g = 0$ is zero, which says that $0 \to \oo$ is a kernel of $s$ in $\calC$.
+		Dually, a morphism $\oo(1) \to \oo^{\oplus a} \oplus \oo(1)^{\oplus b}$ is given by $b$ scalars, and every morphism $h \colon \oo(1) \to Y$ in $\calC$ with $h s = 0$ is zero, so $\oo(1) \to 0$ is a cokernel of $s$ in $\calC$.
+		Thus $s$ is a monomorphism and an epimorphism in $\calC$, but it is not an isomorphism, since $\Hom(\oo(1), \oo) = 0$.
+		In an abelian category a morphism which is both a monomorphism and an epimorphism is an isomorphism, so $\calC$ is not abelian.
+	\end{example}
+
 	\begin{thebibliography}{GKR04}
 		
 		\bibitem[Ada74]{Ada74}
@@ -1948,6 +2365,16 @@
 		A.~L. Gorodentsev, S.~A. Kuleshov, A.~N. Rudakov,
 		\emph{$t$-stabilities and $t$-structures on triangulated categories},
 		Izv.\ Math. \textbf{68} (2004), no.~4, 749--781.
+		
+		\bibitem[Har77]{Har77}
+		R.~Hartshorne,
+		\emph{Algebraic geometry},
+		Graduate Texts in Mathematics \textbf{52}, Springer, New York, 1977.
+		
+		\bibitem[HM82]{HM82}
+		M.~Hazewinkel, C.~F. Martin,
+		\emph{A short elementary proof of Grothendieck's theorem on algebraic vectorbundles over the projective line},
+		J.\ Pure Appl.\ Algebra \textbf{25} (1982), no.~2, 207--211.
 		
 		\bibitem[HN75]{HN75}
 		G.~Harder, M.~S. Narasimhan,

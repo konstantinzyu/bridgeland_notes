@@ -18,4 +18,9 @@
 \contentsline {subsection}{\tocsubsection {}{2.8}{Hearts of bounded t-structures}}{25}{subsection.2.8}%
 \contentsline {subsection}{\tocsubsection {}{2.9}{The Grothendieck group}}{27}{subsection.2.9}%
 \contentsline {subsection}{\tocsubsection {}{2.10}{Examples}}{28}{subsection.2.10}%
-\contentsline {section}{\tocsection {}{}{References}}{33}{section*.24}%
+\contentsline {section}{\tocsection {}{3}{Slicings}}{33}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Definition}}{33}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{The t-structures associated with a slicing}}{34}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Uniqueness of Harder--Narasimhan filtrations}}{36}{subsection.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Slicings and bounded hearts}}{38}{subsection.3.4}%
+\contentsline {section}{\tocsection {}{}{References}}{41}{section*.30}%
