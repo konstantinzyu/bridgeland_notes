@@ -2126,7 +2126,11 @@
 		We claim that $\psi \in \Phi$ if and only if $c_\psi$ is not an isomorphism.
 		Put $k := \# \{ i : \varphi_i \geqslant \psi \}$ and $k' := \# \{ i : \varphi_i > \psi \}$.
 		By Proposition~\ref{prop:slicing_t}(3) and Lemma~\ref{lem:truncation_unique}(2) there are isomorphisms $E_{\geqslant \psi} \cong E_k$ and $E_{> \psi} \cong E_{k'}$ compatible with the morphisms to $E$, and under them $c_\psi$ corresponds to a morphism $E_{k'} \to E_k$ compatible with the morphisms to $E$.
-		Such a morphism is unique, by Lemma~\ref{lem:truncation_unique}(1) applied to $E_{k'} \in \calP(\geqslant \psi)$ and the truncation triangle $E_k \to E \to Q_k \to E_k[1]$, so it is the composite $E_{k'} \to E_{k'+1} \to \ldots \to E_k$ of the morphisms of the filtration.
+		Such a morphism is unique, by Lemma~\ref{lem:truncation_unique}(1) applied to $E_{k'} \in \calP(\geqslant \psi)$ and the truncation triangle 
+		\[
+		E_k \to E \to Q_k \to E_k[1],
+		\]
+		so it is the composite $E_{k'} \to E_{k'+1} \to \ldots \to E_k$ of the morphisms of the filtration.
 		If $\psi \notin \Phi$, then $k = k'$ and this composite is the identity.
 		If $\psi \in \Phi$, say $\psi = \varphi_k$, then $k = k' + 1$ and the composite is the morphism $E_{k-1} \to E_k$, whose cone $A_k$ is nonzero;
 		it is not an isomorphism, since the cone of an isomorphism is zero by \condref{cond:TR-5}.
