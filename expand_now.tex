@@ -1987,7 +1987,11 @@
 		(1) By Lemma~\ref{lem:cone_of_filtration}, $E_m \in \langle A_1, \ldots, A_m \rangle$ and $Q_m \in \langle A_{m+1}, \ldots, A_n \rangle$, and these extension closures are contained in $\calP([\varphi_m, \varphi_1])$ and $\calP([\varphi_n, \varphi_{m+1}])$ respectively.
 
 		(2) Suppose $E_m = 0$ for some $m \geqslant 1$.
-		The triangle $E_{m-1} \to E_m \to A_m \to E_{m-1}[1]$ then gives $E_{m-1} \cong A_m[-1]$ by \condref{cond:TR-5}.
+		The triangle 
+		\[
+		E_{m-1} \to E_m \to A_m \to E_{m-1}[1]
+		\] 
+		then gives $E_{m-1} \cong A_m[-1]$ by \condref{cond:TR-5}.
 		If $m = 1$ this says $A_1 = 0$, a contradiction.
 		If $m \geqslant 2$, then $E_{m-1} \in \calP([\varphi_{m-1}, \varphi_1])$ by (1) and $E_{m-1} \cong A_m[-1] \in \calP(\varphi_m - 1)$, where $\varphi_m - 1 < \varphi_{m-1}$;
 		so Lemma~\ref{lem:slicing_orthogonal} gives $\Hom(E_{m-1}, E_{m-1}) = 0$, hence $E_{m-1} = 0$ and $A_m = 0$, a contradiction.
@@ -2001,11 +2005,23 @@
 		If $m + 1 < n$, then $Q_{m+1} \in \calP([\varphi_n, \varphi_{m+2}])$ by (1), and $\varphi_{m+2} < \varphi_{m+1} + 1$, so $\Hom(Q_{m+1}, Q_{m+1}) = 0$ by Lemma~\ref{lem:slicing_orthogonal}, hence $Q_{m+1} = 0$ and $A_{m+1} = 0$, a contradiction.
 
 		(3) Suppose that $E_1 \to E$ is zero.
-		Applying \condref{cond:TR-coh} with $\Hom(E_1[1], -)$ to the triangle $E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]$ shows that $\Hom(E_1[1], Q_1) \to \Hom(E_1[1], E_1[1])$ is surjective, so the map $Q_1 \to E_1[1]$ has a section.
+		Applying \condref{cond:TR-coh} with $\Hom(E_1[1], -)$ to the triangle
+		\[
+		E_1 \xrightarrow{0} E \to Q_1 \to E_1[1]
+		\] 
+		shows that $\Hom(E_1[1], Q_1) \to \Hom(E_1[1], E_1[1])$ is surjective, so the map $Q_1 \to E_1[1]$ has a section.
 		But $E_1[1] = A_1[1] \in \calP(\varphi_1 + 1)$ and $Q_1 \in \calP([\varphi_n, \varphi_2])$ with $\varphi_2 < \varphi_1 + 1$ (if $n = 1$, then $Q_1 = 0$), so $\Hom(E_1[1], Q_1) = 0$ by Lemma~\ref{lem:slicing_orthogonal}.
 		Hence the identity of $E_1[1]$ is zero and $A_1 = 0$, a contradiction.
-		Dually, the triangle $A_n \to Q_{n-1} \to Q_n = 0$ gives $Q_{n-1} \cong A_n$.
-		If $E \to Q_{n-1}$ were zero, then \condref{cond:TR-coh} with $\Hom(-, Q_{n-1})$ applied to the triangle $E_{n-1} \to E \xrightarrow{0} Q_{n-1} \to E_{n-1}[1]$ would show that $Q_{n-1} \to E_{n-1}[1]$ has a retraction, while $\Hom(E_{n-1}[1], Q_{n-1}) = 0$ by (1) and Lemma~\ref{lem:slicing_orthogonal}, because $E_{n-1}[1] \in \calP([\varphi_{n-1} + 1, \varphi_1 + 1])$ and $\varphi_n < \varphi_{n-1} + 1$;
+		Dually, the triangle 
+		\[
+		A_n \to Q_{n-1} \to Q_n = 0
+		\] 
+		gives $Q_{n-1} \cong A_n$.
+		If $E \to Q_{n-1}$ were zero, then \condref{cond:TR-coh} with $\Hom(-, Q_{n-1})$ applied to the triangle 
+		\[
+		E_{n-1} \to E \xrightarrow{0} Q_{n-1} \to E_{n-1}[1]
+		\] 
+		would show that $Q_{n-1} \to E_{n-1}[1]$ has a retraction, while $\Hom(E_{n-1}[1], Q_{n-1}) = 0$ by (1) and Lemma~\ref{lem:slicing_orthogonal}, because $E_{n-1}[1] \in \calP([\varphi_{n-1} + 1, \varphi_1 + 1])$ and $\varphi_n < \varphi_{n-1} + 1$;
 		so $Q_{n-1} = 0$, contradicting (2).
 	\end{proof}
 
@@ -2042,7 +2058,10 @@
 		\step{the axioms}
 		Condition \condref{cond:T1} holds because $\calP(\geqslant \psi + 1) \subset \calP(\geqslant \psi)$ and $\calP(< \psi) \subset \calP(< \psi + 1)$.
 		Condition \condref{cond:T2}, i.e.\ $\Hom(\calP(\geqslant \psi), \calP(< \psi)) = 0$, is Lemma~\ref{lem:slicing_orthogonal}.
-		For \condref{cond:T3} let $E \neq 0$ (for $E = 0$ take the zero triangle), choose an HN filtration of $E$ and let $m$ be as in (3), so that $\varphi_1 > \ldots > \varphi_m \geqslant \psi > \varphi_{m+1} > \ldots > \varphi_n$.
+		For \condref{cond:T3} let $E \neq 0$ (for $E = 0$ take the zero triangle), choose an HN filtration of $E$ and let $m$ be as in (3), so that 
+		\[
+		\varphi_1 > \ldots > \varphi_m \geqslant \psi > \varphi_{m+1} > \ldots > \varphi_n.
+		\]
 		By Lemma~\ref{lem:HN_steps}(1), $E_m \in \calP([\varphi_m, \varphi_1]) \subset \calP(\geqslant \psi)$ if $m \geqslant 1$, and $E_0 = 0$;
 		similarly $Q_m \in \calP([\varphi_n, \varphi_{m+1}]) \subset \calP(< \psi)$ if $m < n$, and $Q_n = 0$.
 		Hence $E_m \to E \to Q_m \to E_m[1]$ is a triangle as required in \condref{cond:T3}, and $(\Dle{0}, \Dge{0})$ is a t-structure.
@@ -2315,7 +2334,11 @@
 		Let $0 \neq E \in \calD$.
 		By Lemma~\ref{lem:cohomology_filtration}(1) applied to the standard t-structure, $E$ has a filtration by the truncations $\tau^{\leqslant i} E$ with cones $H^i(E)[-i]$, and we discard the steps with $H^i(E) = 0$.
 		For each remaining $i$, Step~2 gives an HN filtration of the sheaf $H^i(E)$, and shifting it by $[-i]$ gives an HN filtration of $H^i(E)[-i]$ with phases in $(-i, -i + 1]$, by \condref{cond:SL1}.
-		Lemma~\ref{lem:refinement}, applied to the triangle $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E \to H^i(E)[-i] \to (\tau^{\leqslant i - 1} E)[1]$ and this filtration, replaces the step $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E$ by a sequence of morphisms whose cones are the HN factors of $H^i(E)[-i]$.
+		Lemma~\ref{lem:refinement}, applied to the triangle 
+		\[
+		\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E \to H^i(E)[-i] \to (\tau^{\leqslant i - 1} E)[1]
+		\] 
+		and this filtration, replaces the step $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E$ by a sequence of morphisms whose cones are the HN factors of $H^i(E)[-i]$.
 		Doing this for every $i$ we obtain a filtration of $E$ whose factors are semistable, with phases in $(-i, -i + 1]$ strictly decreasing within each block and the blocks ordered by increasing $i$;
 		hence the phases are strictly decreasing overall, and this is an HN filtration of $E$.
 		So $\calP$ is a slicing of $\calD$.
