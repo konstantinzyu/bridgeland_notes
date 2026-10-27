@@ -437,6 +437,57 @@
 		\[ Z(E \oplus F) = Z(E) + Z(F) \] 
 		is a sum of two vectors on the ray $\RR_{>0} e^{i \pi \varphi}$, so $\varphi(E \oplus F) = \varphi$. Let $G \subset E \oplus F$ be nontrivial, and put $G' := \ker(G \to F) = G \cap E \subset E$ and $G'' := \image(G \to F) \subset F$, so that $0 \to G' \to G \to G'' \to 0$ is exact. If both $G'$ and $G''$ are nonzero, they have phases $\leqslant \varphi$ by semistability of $E$ and $F$, and Lemma~\ref{lem:seesaw} gives $\varphi(G) \leqslant \varphi$; if one of them vanishes, $G$ is isomorphic to the other and the same conclusion holds.
 	\end{proof}
+
+	\begin{lemma}
+		\label{lem:semistable_abelian}
+		Let $\varphi \in (0, 1]$ and let $\calP_Z(\varphi) \subset \calA$ be the full subcategory consisting of the zero object and the $(\calA, Z)$-semistable objects of phase $\varphi$.
+		\begin{enumerate}
+			\item If $f \colon E \to F$ is a morphism in $\calP_Z(\varphi)$, then its kernel, image and cokernel in $\calA$ lie in $\calP_Z(\varphi)$.
+			\item $\calP_Z(\varphi)$ is closed under extensions in $\calA$.
+			\item Consequently $\calP_Z(\varphi)$ is an abelian category, and the inclusion $\calP_Z(\varphi) \subset \calA$ is exact.
+			\item A nonzero object $E \in \calP_Z(\varphi)$ is a simple object of $\calP_Z(\varphi)$ if and only if it is $(\calA, Z)$-stable.
+		\end{enumerate}
+	\end{lemma}
+
+	\begin{proof}
+		(1) We may assume $f \neq 0$.
+		Let $K$, $I$ and $C$ be the kernel, image and cokernel of $f$ in $\calA$.
+		As in the proof of Lemma~\ref{lem:schur}, $\varphi(E) \leqslant \varphi(I) \leqslant \varphi(F)$, so $\varphi(I) = \varphi$, and $I$ is semistable because its subobjects are subobjects of $F$ and hence have phase $\leqslant \varphi$.
+		If $K \neq 0$, Lemma~\ref{lem:seesaw} applied to
+		\[
+		0 \to K \to E \to I \to 0
+		\]
+		and $\varphi(E) = \varphi(I)$ give $\varphi(K) = \varphi$, and $K \subset E$ is semistable for the same reason as $I$.
+		If $C \neq 0$, Lemma~\ref{lem:seesaw} applied to
+		\[
+		0 \to I \to F \to C \to 0
+		\]
+		gives $\varphi(C) = \varphi$, and $C$ is semistable by Lemma~\ref{lem:quotients}, because its nonzero quotients are quotients of $F$ and hence have phase $\geqslant \varphi$.
+
+		(2) Let $0 \to E' \to E \to E'' \to 0$ be exact in $\calA$ with $E', E'' \in \calP_Z(\varphi)$; we may assume both nonzero.
+		Then $\varphi(E) = \varphi$ by Lemma~\ref{lem:seesaw}.
+		For a nontrivial subobject $G \subset E$ put $G' := G \cap E' \subset E'$ and let $G'' \subset E''$ be the image of $G$, so that $0 \to G' \to G \to G'' \to 0$ is exact.
+		If both $G'$ and $G''$ are nonzero, they have phases $\leqslant \varphi$, and Lemma~\ref{lem:seesaw} gives $\varphi(G) \leqslant \varphi$;
+		if one of them vanishes, $G$ is isomorphic to the other and $\varphi(G) \leqslant \varphi$ as well.
+		Hence $E$ is semistable.
+		(Lemma~\ref{lem:direct_sums} is the special case of a split extension.)
+
+		(3) $\calP_Z(\varphi)$ is a full additive subcategory of $\calA$ containing $0$ and closed under finite direct sums by (2).
+		By (1) every morphism of $\calP_Z(\varphi)$ has a kernel and a cokernel in $\calA$ which lie in $\calP_Z(\varphi)$;
+		these satisfy the universal properties of a kernel and a cokernel in $\calP_Z(\varphi)$, since $\calP_Z(\varphi)$ is a full subcategory.
+		The canonical morphism from the coimage to the image is computed in $\calA$, where it is an isomorphism.
+		Hence $\calP_Z(\varphi)$ is abelian, and the inclusion preserves kernels and cokernels, i.e.\ it is exact.
+
+		(4) Let $E \in \calP_Z(\varphi)$ be nonzero.
+		If $E$ is stable and $0 \neq F \subsetneq E$ is a subobject lying in $\calP_Z(\varphi)$, then $\varphi(F) = \varphi$ contradicts \condref{cond:AZ-S}; so $E$ is simple in $\calP_Z(\varphi)$.
+		Conversely, if $E$ is not stable, there is a nontrivial proper subobject $F \subset E$ with $\varphi(F) = \varphi$.
+		Then $F$ is semistable, since its subobjects are subobjects of $E$, and $\varphi(E / F) = \varphi$ by Lemma~\ref{lem:seesaw}, so $E / F$ is semistable by Lemma~\ref{lem:quotients}.
+		Thus $F \subset E$ is a nontrivial proper subobject in $\calP_Z(\varphi)$ with quotient in $\calP_Z(\varphi)$, and $E$ is not simple in $\calP_Z(\varphi)$.
+	\end{proof}
+
+	If the abelian category $\calP_Z(\varphi)$ has finite length, then every nonzero object $E \in \calP_Z(\varphi)$ has a finite filtration $0 = E_0 \subset E_1 \subset \ldots \subset E_r = E$ by subobjects in $\calP_Z(\varphi)$ whose quotients $E_i / E_{i-1}$ are simple in $\calP_Z(\varphi)$, i.e.\ $(\calA, Z)$-stable of phase $\varphi$.
+	Such a filtration is called a \emph{Jordan--H\"older filtration} of $E$, and by the Jordan--H\"older theorem in $\calP_Z(\varphi)$ its factors are unique up to permutation and isomorphism.
+
 	
 	\begin{lemma}
 		\label{lem:hom_HN}
@@ -849,6 +900,7 @@
 	\end{example}
 	
 	\begin{example}
+		\label{ex:surfaces}
 		Let $X$ be a smooth projective variety of dimension $n \geqslant 2$ and $\omega$ an ample divisor class. The homomorphism $Z(E) := -\omega^{n-1} \cdot c_1(E) + i \, \omega^n \cdot \operatorname{rk} E$ on $\Kgroup(\mathrm{Coh}(X))$ is not a stability function: for a nonzero sheaf $T$ supported in codimension $\geqslant 2$ both $\operatorname{rk} T$ and $c_1(T)$ vanish, so $Z(T) = 0 \notin \HH$. One can show that no homomorphism factoring through the Chern character is a stability function on $\mathrm{Coh}(X)$ (see \cite[Example~4.3]{MS17}, where this is deduced from \cite[Lemma~2.7]{Tod09}); this is the reason for passing to other hearts in the derived category.
 	\end{example}
 	
@@ -2295,7 +2347,7 @@
 		\begin{itemize}
 			\item[] \condlabel{P1}{cond:P1} Every coherent sheaf $F$ on $X$ is isomorphic to $T \oplus \bigoplus_{j=1}^{r} \oo(n_j)$, where $T$ is a sheaf of finite length (a \emph{torsion sheaf}) and $n_1, \ldots, n_r \in \ZZ$.
 			The decomposition of the locally free part is Grothendieck's theorem \cite{HM82};
-			the splitting $F \cong T \oplus F / T$ of the maximal torsion subsheaf holds because $F / T$ is torsion-free, hence locally free on the smooth curve $X$, and $\Ext^1(F / T, T) = H^1(X, (F / T)^{\vee} \otimes T) = 0$ for a sheaf of finite length \cite[Thm~III.2.7]{Har77}.
+			the splitting $F \cong T \oplus F / T$ of the maximal torsion subsheaf holds because $F / T$ is torsion-free, hence locally free on the smooth curve $X$, and $\Ext^1(F / T, T) \cong H^1(X, (F / T)^{\vee} \otimes T)$ (\cite[Props.~III.6.3 and III.6.7]{Har77}) vanishes because $(F / T)^{\vee} \otimes T$ has zero-dimensional support \cite[Thm~III.2.7]{Har77}.
 			\item[] \condlabel{P2}{cond:P2} $\Hom(\oo(n), \oo(m)) = H^0(X, \oo(m - n))$ is zero for $n > m$ and nonzero for $n \leqslant m$ \cite[Thm~III.5.1]{Har77}; in particular $\Hom(\oo(n), \oo(n)) = \kk$.
 			\item[] \condlabel{P3}{cond:P3} $\Hom(T, L) = 0$ for a torsion sheaf $T$ and a locally free sheaf $L$, since the local sections of $L$ have no torsion.
 		\end{itemize}
@@ -2356,6 +2408,322 @@
 		Thus $s$ is a monomorphism and an epimorphism in $\calC$, but it is not an isomorphism, since $\Hom(\oo(1), \oo) = 0$.
 		In an abelian category a morphism which is both a monomorphism and an epimorphism is an isomorphism, so $\calC$ is not abelian.
 	\end{example}
+
+	\section{Bridgeland stability conditions}
+
+	\subsection{Definition}
+
+	Throughout this section $\calD$ is an essentially small triangulated category with Grothendieck group $\Kgroup(\calD)$ as in Section~2.9.
+	Following \cite[\S 5.2]{MS17} we fix once and for all a free abelian group $\Lambda$ of finite rank, a surjective group homomorphism
+	\[
+	v \colon \Kgroup(\calD) \twoheadrightarrow \Lambda ,
+	\]
+	and a norm $\| \cdot \|$ on the real vector space $\Lambda_{\RR} := \Lambda \otimes_{\ZZ} \RR$.
+	All norms on $\Lambda_{\RR}$ are equivalent, and nothing below depends on the choice of $\| \cdot \|$.
+	For an object $E$ we write $v(E) := v([E])$, and for a homomorphism $Z \colon \Lambda \to \CC$ we write $Z(E) := Z(v(E))$;
+	thus $E \mapsto Z(E)$ is additive on triangles and satisfies $Z(E[1]) = -Z(E)$.
+
+	A \emph{Bridgeland stability condition} on $\calD$ (with respect to $v$) is a pair $\sigma = (Z, \calP)$, where $Z \colon \Lambda \to \CC$ is a group homomorphism, the \emph{central charge}, and $\calP$ is a slicing of $\calD$, such that
+	\begin{itemize}
+		\item[] \condlabel{ST}{cond:ST} for every $\varphi \in \RR$ and every nonzero $E \in \calP(\varphi)$ there is a real number $m(E) > 0$ with
+		\[
+		Z(E) = m(E) \, e^{i \pi \varphi} ;
+		\]
+		\item[] \condlabel{SP}{cond:SP} (\emph{support property}) there is a constant $C > 0$ such that
+		\[
+		\| v(E) \| \leqslant C \, |Z(E)| \qquad \text{for every } \varphi \in \RR \text{ and every nonzero } E \in \calP(\varphi) .
+		\]
+	\end{itemize}
+	This is \cite[Def.~5.8]{MS17}; the support property goes back to \cite{KS08}.
+	We denote by $\operatorname{Stab}_v(\calD)$ the set of Bridgeland stability conditions on $\calD$ with respect to $v$.
+
+	\begin{remark}
+		Bridgeland's original definition \cite[Def.~1.1 and Def.~5.1]{Bri07} has $\Lambda = \Kgroup(\calD)$, $v = \id$ and no support property.
+		Everything in this section except Proposition~\ref{prop:slice_abelian}(2) holds verbatim for pairs $(Z, \calP)$ satisfying only \condref{cond:ST}, for an arbitrary abelian group $\Lambda$;
+		the support property is what makes the set $\operatorname{Stab}_v(\calD)$ a well-behaved space, and it is the subject of the next section, where we also prove the equivalent formulation of \condref{cond:SP} by means of a quadratic form on $\Lambda_{\RR}$ (\cite[Exercise~5.10]{MS17}).
+		Note that \condref{cond:SP} is a condition on the set of semistable objects only, and that it implies in particular $v(E) \neq 0$, hence $Z(E) \neq 0$, for every semistable $E$ (which also follows from \condref{cond:ST}).
+	\end{remark}
+
+	We transfer the terminology of Section~3 from $\calP$ to $\sigma$:
+	the nonzero objects of $\calP(\varphi)$ are called \emph{$\sigma$-semistable of phase $\varphi$}, the HN filtration of an object with respect to $\calP$ is its HN filtration with respect to $\sigma$, and $\varphi^{\pm}_{\sigma}(E) := \varphi^{\pm}(E)$.
+	The number $m_{\sigma}(E) := m(E) = |Z(E)|$ is the \emph{mass} of a semistable object $E$; more generally, for an arbitrary nonzero object $E$ with HN factors $A_1, \ldots, A_n$ one puts $m_{\sigma}(E) := \sum_i |Z(A_i)|$, which is well defined by Proposition~\ref{prop:HN_unique_slicing}.
+
+	Condition \condref{cond:ST} determines the phase of a semistable object $E$ in terms of $Z(E)$ up to an integer:
+	$Z(E)$ is nonzero, and $\varphi(E)$ is one of the arguments of $Z(E)$ divided by $\pi$.
+	Conversely the central charge is determined by the slicing and the masses of the semistable objects, by additivity.
+	The analogy with Section~1 is as follows: if $(\calA, Z)$ is a stability condition on an abelian category in the sense of Section~1.3, then the semistable objects of phase $\varphi \in (0, 1]$ are the nonzero $E$ with $Z(E) \in \RR_{>0} e^{i \pi \varphi}$, and condition \condref{cond:Z} says that all phases lie in $(0, 1]$;
+	a Bridgeland stability condition allows all real phases, the shift $[1]$ increasing the phase by $1$ and multiplying $Z$ by $-1$.
+	The precise relation between the two notions is the content of the next subsection.
+
+	\subsection{The bijection theorem}
+
+	For a heart $\calA$ of a bounded t-structure on $\calD$ we denote by
+	\[
+	\iota_{\calA} \colon \Kgroup(\calA) \xrightarrow{\ \sim\ } \Kgroup(\calD)
+	\]
+	the isomorphism of Proposition~\ref{prop:K0_heart}, which sends $[E]$ to $[E]$.
+	A homomorphism $Z \colon \Lambda \to \CC$ defines the homomorphism
+	\[
+	Z_{\calA} := Z \circ v \circ \iota_{\calA} \colon \Kgroup(\calA) \longrightarrow \CC ,
+	\]
+	so that $Z_{\calA}(E) = Z(E)$ for every $E \in \calA$.
+	We say that a stability condition $(\calA, Z_{\calA})$ on the abelian category $\calA$ in the sense of Section~1.3 \emph{satisfies the support property} if
+	\begin{itemize}
+		\item[] \condlabel{SP-ab}{cond:SP-ab} there is a constant $C > 0$ with $\| v(E) \| \leqslant C \, |Z(E)|$ for every $(\calA, Z_{\calA})$-semistable object $E$.
+	\end{itemize}
+	Besides the set $\operatorname{Stab}_v(\calD)$ of Bridgeland stability conditions we consider the set $\operatorname{Stab}^{\mathrm{ab}}_v(\calD)$ of all pairs $(\calA, Z)$, where $\calA \subset \calD$ is the heart of a bounded t-structure and $Z \colon \Lambda \to \CC$ is a homomorphism such that $(\calA, Z_{\calA})$ is a stability condition on the abelian category $\calA$ satisfying \condref{cond:SP-ab}.
+	Between these two sets we define two maps.
+	The \emph{heart map}
+	\[
+	\Phi \colon \operatorname{Stab}_v(\calD) \longrightarrow \operatorname{Stab}^{\mathrm{ab}}_v(\calD) , \qquad \Phi(Z, \calP) := \big( \calP((0, 1]), Z \big) ,
+	\]
+	sends a stability condition to its heart together with the central charge.
+	The \emph{slicing map}
+	\[
+	\Psi \colon \operatorname{Stab}^{\mathrm{ab}}_v(\calD) \longrightarrow \operatorname{Stab}_v(\calD) , \qquad \Psi(\calA, Z) := (Z, \calP_{\calA, Z}) ,
+	\]
+	is defined as follows: for $\varphi \in (0, 1]$ the subcategory $\calP_{\calA, Z}(\varphi) \subset \calD$ consists of the zero object and the $(\calA, Z_{\calA})$-semistable objects of phase $\varphi$, and $\calP_{\calA, Z}(\varphi + n) := \calP_{\calA, Z}(\varphi)[n]$ for $n \in \ZZ$.
+	That $\Phi$ and $\Psi$ indeed take values in the indicated sets is part of the following theorem.
+
+	\begin{theorem}[{\cite[Prop.~5.3]{Bri07}}, {\cite[Lemma~5.11]{MS17}}]
+		\label{thm:bijection}
+		The maps $\Phi$ and $\Psi$ are well defined and are mutually inverse bijections
+		\[
+		\Phi \colon \operatorname{Stab}_v(\calD) \xrightarrow{\ \sim\ } \operatorname{Stab}^{\mathrm{ab}}_v(\calD) , \qquad
+		\Psi \colon \operatorname{Stab}^{\mathrm{ab}}_v(\calD) \xrightarrow{\ \sim\ } \operatorname{Stab}_v(\calD) .
+		\]
+		Moreover, if $\sigma = (Z, \calP) \in \operatorname{Stab}_v(\calD)$ and $(\calA, Z) = \Phi(\sigma)$, then for every $E \in \calA$ and $\varphi \in (0, 1]$:
+		\begin{enumerate}
+			\item $E$ is $\sigma$-semistable of phase $\varphi$ if and only if $E$ is $(\calA, Z_{\calA})$-semistable of phase $\varphi$;
+			\item the HN filtration of $E$ with respect to $\sigma$ is a chain of subobjects of $E$ in $\calA$, and it is the HN filtration of $E$ with respect to $(\calA, Z_{\calA})$; in particular $\varphi^{\pm}_{\sigma}(E) = \varphi^{\pm}_{Z_{\calA}}(E)$;
+			\item the constants $C$ in \condref{cond:SP} for $\sigma$ and in \condref{cond:SP-ab} for $(\calA, Z_{\calA})$ can be taken to be equal.
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{proof}
+		\step{$\Phi$ is well defined: the stability function}
+		Let $\sigma = (Z, \calP) \in \operatorname{Stab}_v(\calD)$ and $\calA := \calP((0, 1])$.
+		By Proposition~\ref{prop:discrete_slicing}(3), $\calA$ is the heart of a bounded t-structure, so $Z_{\calA}$ is defined.
+		Let $0 \neq E \in \calA$, with HN filtration $0 = E_0 \to E_1 \to \ldots \to E_n = E$ with respect to $\calP$ and factors $A_i \in \calP(\varphi_i)$.
+		By Corollary~\ref{cor:slicing_phases}(2), all $\varphi_i$ lie in $(0, 1]$.
+		In $\Kgroup(\calD)$ we have $[E] = \sum_i [A_i]$ (Section~2.9), hence
+		\[
+		Z_{\calA}(E) = Z(E) = \sum_{i=1}^{n} Z(A_i) = \sum_{i=1}^{n} m(A_i) \, e^{i \pi \varphi_i} \in \HH ,
+		\]
+		because each summand lies in $\HH$ by \condref{cond:ST} and $\HH$ is closed under addition.
+		So $Z_{\calA}$ satisfies \condref{cond:Z}, i.e.\ it is a stability function on $\calA$.
+
+		\step{the HN filtration of an object of the heart consists of subobjects}
+		Keep $E$ and its HN filtration as in Step~1.
+		By Lemma~\ref{lem:HN_steps}(1), $E_i \in \calP([\varphi_i, \varphi_1]) \subset \calP((0, 1]) = \calA$ for $i \geqslant 1$, and $A_i \in \calA$.
+		Hence each triangle $E_{i-1} \to E_i \to A_i \to E_{i-1}[1]$ has all its vertices in $\calA$, and Lemma~\ref{lem:triangles_vs_ses}(1) shows that
+		\[
+		0 \to E_{i-1} \to E_i \to A_i \to 0
+		\]
+		is a short exact sequence in $\calA$.
+		Thus $0 = E_0 \subset E_1 \subset \ldots \subset E_n = E$ is a chain of subobjects of $E$ in $\calA$ with factors $A_i$.
+		Applying Lemma~\ref{lem:seesaw} to this chain, and noting that the $Z_{\calA}$-phase of $A_i$ is $\varphi_i$ by \condref{cond:ST} and $\varphi_i \in (0, 1]$, we obtain
+		\begin{equation}
+			\label{eq:phase_between}
+			\varphi_n = \varphi^-_{\sigma}(E) \leqslant \varphi_{Z_{\calA}}(E) \leqslant \varphi^+_{\sigma}(E) = \varphi_1 .
+		\end{equation}
+
+		\step{semistable objects, i.e.\ assertion (1)}
+		Let $E \in \calA$ be nonzero and $\varphi \in (0, 1]$.
+
+		Suppose first that $E \in \calP(\varphi)$.
+		Then $\varphi_{Z_{\calA}}(E) = \varphi$ by \condref{cond:ST}.
+		Let $F \subset E$ be a nontrivial subobject in $\calA$ and $G := E / F$.
+		If $G = 0$ there is nothing to prove, so let $G \neq 0$.
+		By Lemma~\ref{lem:triangles_vs_ses}(2) the short exact sequence $0 \to F \to E \to G \to 0$ is a triangle
+		\[
+		F \to E \to G \to F[1]
+		\]
+		with nonzero vertices in $\calA = \calP((0, 1])$, an interval of length $1$, so Lemma~\ref{lem:slicing_seesaw} gives $\varphi^+_{\sigma}(F) \leqslant \varphi^+_{\sigma}(E) = \varphi$.
+		By \eqref{eq:phase_between} applied to $F$, $\varphi_{Z_{\calA}}(F) \leqslant \varphi^+_{\sigma}(F) \leqslant \varphi$.
+		Hence $E$ is $(\calA, Z_{\calA})$-semistable of phase $\varphi$.
+
+		Conversely, suppose that $E$ is $(\calA, Z_{\calA})$-semistable of phase $\varphi$, and let $0 = E_0 \subset E_1 \subset \ldots \subset E_n = E$ be its HN filtration with respect to $\calP$, a chain of subobjects with factors $A_i \in \calP(\varphi_i)$ by Step~2.
+		The subobject $E_1 = A_1$ of $E$ is nontrivial and has $Z_{\calA}$-phase $\varphi_1$, so \condref{cond:AZ-SS} gives $\varphi_1 \leqslant \varphi$.
+		The quotient $A_n = E / E_{n-1}$ of $E$ is nonzero and has $Z_{\calA}$-phase $\varphi_n$, so Lemma~\ref{lem:quotients} gives $\varphi \leqslant \varphi_n$.
+		Hence $\varphi_1 \leqslant \varphi \leqslant \varphi_n \leqslant \varphi_1$, so $n = 1$ and $E \cong A_1 \in \calP(\varphi)$.
+
+		\step{$\Phi$ is well defined: the Harder--Narasimhan and support properties, and assertions (2), (3)}
+		Let $0 \neq E \in \calA$.
+		By Steps~2 and~3 its HN filtration with respect to $\calP$ is a chain of subobjects $0 = E_0 \subset \ldots \subset E_n = E$ in $\calA$ whose factors $A_i$ are $(\calA, Z_{\calA})$-semistable of phases $\varphi_1 > \ldots > \varphi_n$, i.e.\ an HN filtration of $E$ with respect to $(\calA, Z_{\calA})$.
+		Thus $(\calA, Z_{\calA})$ satisfies \condref{cond:AZ-SC2} and is a stability condition on $\calA$, and by the uniqueness of HN filtrations in $\calA$ (Proposition~\ref{prop:HN_unique}) the two HN filtrations of $E$ coincide, which is (2).
+		For the support property, let $E$ be $(\calA, Z_{\calA})$-semistable;
+		by Step~3 it is $\sigma$-semistable, so $\| v(E) \| \leqslant C \, |Z(E)|$ with the constant $C$ of \condref{cond:SP}.
+		Hence $(\calA, Z_{\calA})$ satisfies \condref{cond:SP-ab} with the same constant, $(\calA, Z) \in \operatorname{Stab}^{\mathrm{ab}}_v(\calD)$, and $\Phi$ is well defined.
+		Conversely, every $\sigma$-semistable object is of the form $E[n]$ with $E \in \calA$ semistable (Corollary~\ref{cor:slicing_phases}(2) and \condref{cond:SL1}), and $\| v(E[n]) \| = \| v(E) \|$, $|Z(E[n])| = |Z(E)|$, so a constant for \condref{cond:SP-ab} also works for \condref{cond:SP}; this is (3).
+
+		\step{$\Psi$ is well defined: the slicing}
+		Let $(\calA, Z) \in \operatorname{Stab}^{\mathrm{ab}}_v(\calD)$ and write $\calP := \calP_{\calA, Z}$.
+		Every real number $\psi$ can be written uniquely as $\psi = \varphi + n$ with $\varphi \in (0, 1]$ and $n \in \ZZ$, so the subcategories $\calP(\psi)$ are well defined, closed under isomorphisms, and contain $0$.
+		By Lemma~\ref{lem:triangles_vs_ses}(2), a chain of subobjects $0 = F_0 \subset F_1 \subset \ldots \subset F_r = F$ in $\calA$ is the same as a filtration of $F$ in the sense of Section~2.6 with all $F_j$ in $\calA$, the factors $F_j / F_{j-1}$ being the cones;
+		we use this identification in the rest of the proof.
+
+		Condition \condref{cond:SL1} holds by construction.
+		For \condref{cond:SL2} let $A \in \calP(\psi_1)$ and $B \in \calP(\psi_2)$ be nonzero with $\psi_1 > \psi_2$, and write $A = A_0[a]$, $B = B_0[b]$ with $a, b \in \ZZ$, $A_0 \in \calP(\psi_1 - a)$, $B_0 \in \calP(\psi_2 - b)$ and $\psi_1 - a, \psi_2 - b \in (0, 1]$;
+		thus $A_0, B_0 \in \calA$ are $(\calA, Z_{\calA})$-semistable of phases $\psi_1 - a$ and $\psi_2 - b$.
+		If $b > a$, then $\psi_1 - a > \psi_2 - a \geqslant \psi_2 - b + 1 > 1$, which is impossible since $\psi_1 - a \leqslant 1$.
+		If $b < a$, then $\Hom(A, B) = \Hom(A_0, B_0[b - a]) = 0$ by \eqref{eq:heart_negative_ext}.
+		If $b = a$, then $\psi_1 - a > \psi_2 - a$, and $\Hom(A, B) = \Hom(A_0, B_0) = 0$ by Schur's Lemma~\ref{lem:schur}(1).
+
+		For \condref{cond:SL3} let $0 \neq E \in \calD$.
+		By Lemma~\ref{lem:cohomology_filtration}(1) for the bounded t-structure with heart $\calA$, $E$ has a filtration by the truncations $\tau^{\leqslant i} E$ with cones $H^i(E)[-i]$, and we discard the steps with $H^i(E) = 0$.
+		For each remaining $i$ let $0 = F_0 \subset F_1 \subset \ldots \subset F_r = H^i(E)$ be the HN filtration of $H^i(E) \in \calA$ with respect to $(\calA, Z_{\calA})$, with factors semistable of phases $\psi_1 > \ldots > \psi_r$ in $(0, 1]$, i.e.\ lying in $\calP(\psi_1), \ldots, \calP(\psi_r)$;
+		shifting by $[-i]$ gives a filtration of $H^i(E)[-i]$ with factors in $\calP(\psi_j - i)$, whose phases $\psi_j - i$ lie in $(-i, -i + 1]$ and strictly decrease.
+		Lemma~\ref{lem:refinement}, applied to the triangle $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E \to H^i(E)[-i] \to (\tau^{\leqslant i - 1} E)[1]$ and this filtration, replaces the step $\tau^{\leqslant i - 1} E \to \tau^{\leqslant i} E$ by a sequence of morphisms whose cones are these factors.
+		Doing this for every $i$ we obtain a filtration of $E$ whose factors are nonzero objects of the $\calP(\psi)$, with phases in $(-i, -i + 1]$ strictly decreasing within each block and the blocks ordered by increasing $i$;
+		hence the phases strictly decrease overall, and we have an HN filtration of $E$ with respect to $\calP$.
+		So $\calP$ is a slicing of $\calD$.
+
+		\step{$\Psi$ is well defined: the central charge and the support property}
+		Let $E \in \calP(\psi)$ be nonzero, $\psi = \varphi + n$ with $\varphi \in (0, 1]$ and $n \in \ZZ$, so that $E = E_0[n]$ with $E_0 \in \calA$ semistable of phase $\varphi$ with respect to $(\calA, Z_{\calA})$.
+		Since $[E] = (-1)^n [E_0]$ in $\Kgroup(\calD)$ (Section~2.9), we get
+		\[
+		Z(E) = (-1)^n Z(E_0) = (-1)^n Z_{\calA}(E_0) = (-1)^n m \, e^{i \pi \varphi} = m \, e^{i \pi (\varphi + n)} = m \, e^{i \pi \psi}
+		\]
+		with $m = |Z_{\calA}(E_0)| > 0$, which is \condref{cond:ST}.
+		Moreover $\| v(E) \| = \| v(E_0) \| \leqslant C \, |Z(E_0)| = C \, |Z(E)|$ with the constant $C$ of \condref{cond:SP-ab}, which is \condref{cond:SP}.
+		So $\Psi(\calA, Z) = (Z, \calP) \in \operatorname{Stab}_v(\calD)$, and $\Psi$ is well defined.
+
+		\step{the heart of $\Psi(\calA, Z)$ is $\calA$}
+		Keep the notation of Steps~5 and~6.
+		By Proposition~\ref{prop:discrete_slicing}(3), $\calP((0, 1])$ is the heart of a bounded t-structure.
+		Every nonzero $E \in \calA$ has an HN filtration with respect to $(\calA, Z_{\calA})$, which is a filtration of $E$ with factors in $\calP(\psi_j)$, $\psi_j \in (0, 1]$;
+		so $\calA \subset \calP((0, 1])$ by Proposition~\ref{prop:extension_closure}, and Corollary~\ref{cor:hearts_inclusion} gives $\calA = \calP((0, 1])$.
+
+		\step{$\Phi$ and $\Psi$ are inverse to each other}
+		Let $\sigma = (Z, \calP) \in \operatorname{Stab}_v(\calD)$, $(\calA, Z) = \Phi(\sigma)$ with $\calA = \calP((0, 1])$, and $\calP' := \calP_{\calA, Z}$, so that $\Psi(\Phi(\sigma)) = (Z, \calP')$.
+		For $\varphi \in (0, 1]$ we have $\calP(\varphi) \subset \calP((0, 1]) = \calA$, so by assertion (1) the nonzero objects of $\calP'(\varphi)$, i.e.\ the $(\calA, Z_{\calA})$-semistable objects of phase $\varphi$, are exactly the nonzero objects of $\calP(\varphi)$.
+		Hence $\calP'(\varphi) = \calP(\varphi)$ for $\varphi \in (0, 1]$, and then for all $\varphi \in \RR$ by \condref{cond:SL1}.
+		Thus $\Psi \circ \Phi = \id$.
+		Conversely, for $(\calA, Z) \in \operatorname{Stab}^{\mathrm{ab}}_v(\calD)$ we have $\Phi(\Psi(\calA, Z)) = (\calP_{\calA, Z}((0, 1]), Z) = (\calA, Z)$ by Step~7.
+		Thus $\Phi \circ \Psi = \id$, and $\Phi$, $\Psi$ are mutually inverse bijections.
+	\end{proof}
+
+	Because of Theorem~\ref{thm:bijection} we shall use the notations $\sigma = (Z, \calP)$ and $\sigma = (\calA, Z)$ interchangeably, and we shall simply speak of a \emph{stability condition} $\sigma$ on $\calD$.
+	Via $\Phi$, the HN filtration of an object $E$ of the heart $\calA$ with respect to $\sigma$ is its HN filtration in the abelian category $\calA$, and the $\sigma$-semistable objects are the shifts of the $(\calA, Z_{\calA})$-semistable objects, the shift by $[n]$ adding $n$ to the phase.
+
+	\begin{corollary}
+		\label{cor:rotated_heart}
+		Let $\sigma = (Z, \calP)$ be a Bridgeland stability condition on $\calD$ and $\psi \in \RR$.
+		Then $\calP_{\psi}(\varphi) := \calP(\varphi + \psi)$ defines a slicing $\calP_{\psi}$, and $\sigma_{\psi} := (e^{-i \pi \psi} Z, \calP_{\psi})$ is a Bridgeland stability condition on $\calD$ with heart $\calA_{\psi} := \calP((\psi, \psi + 1])$.
+		Consequently $(\calA_{\psi}, e^{-i \pi \psi} Z_{\calA_{\psi}})$ is a stability condition on the abelian category $\calA_{\psi}$, whose semistable objects of phase $\varphi \in (0, 1]$ are exactly the nonzero objects of $\calP(\varphi + \psi)$.
+	\end{corollary}
+
+	\begin{proof}
+		Conditions \condref{cond:SL1}--\condref{cond:SL3} for $\calP_{\psi}$ are those for $\calP$ with all phases shifted by $\psi$, which does not affect them.
+		For $0 \neq E \in \calP_{\psi}(\varphi) = \calP(\varphi + \psi)$ we have $e^{-i \pi \psi} Z(E) = m(E) \, e^{i \pi (\varphi + \psi)} e^{-i \pi \psi} = m(E) \, e^{i \pi \varphi}$, which is \condref{cond:ST} for $\sigma_{\psi}$, and \condref{cond:SP} holds for $\sigma_{\psi}$ with the same constant as for $\sigma$, since $|e^{-i \pi \psi} Z(E)| = |Z(E)|$ and the semistable objects are the same.
+		The heart of $\calP_{\psi}$ is $\calP_{\psi}((0, 1]) = \calP((\psi, \psi + 1])$, and the last assertion is Theorem~\ref{thm:bijection}(1) applied to $\sigma_{\psi}$.
+	\end{proof}
+
+	\begin{remark}
+		We record some variants and complements of Theorem~\ref{thm:bijection}.
+		\begin{enumerate}
+			\item Corollary~\ref{cor:rotated_heart} shows that the heart $\calP((0, 1])$ plays no distinguished role among the hearts $\calP((\psi, \psi + 1])$:
+			cutting the slicing at $\psi$ instead of $0$ corresponds to replacing $Z$ by $e^{-i \pi \psi} Z$.
+			This is a first instance of the action of $\CC$ on $\operatorname{Stab}_v(\calD)$, to be discussed in the next section.
+			\item \emph{Bounded t-structures instead of hearts.}
+			By Lemma~\ref{lem:cohomology_filtration}(3) a bounded t-structure is determined by its heart, and by Proposition~\ref{prop:bounded_heart} the hearts of bounded t-structures are characterized intrinsically;
+			so $\operatorname{Stab}^{\mathrm{ab}}_v(\calD)$ may equally be described as the set of pairs $(t, Z)$, where $t = (\Dle{0}, \Dge{0})$ is a bounded t-structure on $\calD$ and $(\Dle{0} \cap \Dge{0}, Z_{\Dle{0} \cap \Dge{0}})$ is a stability condition satisfying \condref{cond:SP-ab}.
+			In these terms the heart map reads $\Phi(Z, \calP) = \big( (\calP(> 0), \calP(\leqslant 1)), Z \big)$ by Proposition~\ref{prop:slicing_t}(2).
+			\item \emph{Fibres over hearts.}
+			Composing $\Phi$ with $(\calA, Z) \mapsto \calA$ gives a map from $\operatorname{Stab}_v(\calD)$ to the set of hearts of bounded t-structures on $\calD$, $\sigma \mapsto \calP((0, 1])$.
+			Its fibre over $\calA$ is the set of homomorphisms $Z \colon \Lambda \to \CC$ such that $Z_{\calA}$ is a stability function on $\calA$ with the Harder--Narasimhan property and the support property;
+			in particular the heart alone does not determine $\sigma$.
+			Example~\ref{ex:algebras_bridgeland} below describes this fibre for the heart $\operatorname{mod}\text{-}A$ of a finite-dimensional algebra.
+			\item \emph{Without the support property.}
+			The support property enters the proof of Theorem~\ref{thm:bijection} only in Steps~4 and~6, where it is transported from one side to the other without change.
+			Hence the same maps give a bijection between the pairs $(Z, \calP)$ satisfying only \condref{cond:ST} and the pairs $(\calA, Z)$ with $(\calA, Z_{\calA})$ a stability condition on $\calA$, for an arbitrary abelian group $\Lambda$;
+			this is the original formulation \cite[Prop.~5.3]{Bri07}.
+		\end{enumerate}
+	\end{remark}
+
+	\subsection{First consequences}
+
+	\begin{proposition}
+		\label{prop:slice_abelian}
+		Let $\sigma = (Z, \calP)$ be a stability condition on $\calD$ and $\varphi \in \RR$.
+		\begin{enumerate}
+			\item $\calP(\varphi)$ is an abelian category, and its short exact sequences are exactly the triangles of $\calD$ with all three vertices in $\calP(\varphi)$.
+			Moreover, for every $\psi$ with $\varphi \in (\psi, \psi + 1]$, the subcategory $\calP(\varphi)$ is closed under kernels, cokernels and extensions in the heart $\calP((\psi, \psi + 1])$.
+			\item $\calP(\varphi)$ has finite length, i.e.\ it is noetherian and artinian (\cite[Exercise~5.9]{MS17}).
+		\end{enumerate}
+	\end{proposition}
+
+	\begin{proof}
+		(1) Let $\psi$ be such that $\varphi \in (\psi, \psi + 1]$ and put $\calA_{\psi} := \calP((\psi, \psi + 1])$.
+		By Corollary~\ref{cor:rotated_heart}, $(\calA_{\psi}, e^{-i \pi \psi} Z_{\calA_{\psi}})$ is a stability condition on $\calA_{\psi}$ whose semistable objects of phase $\varphi - \psi \in (0, 1]$ are the nonzero objects of $\calP(\varphi)$.
+		So $\calP(\varphi)$ is the subcategory $\calP_{Z'}(\varphi - \psi)$ of Lemma~\ref{lem:semistable_abelian} for $Z' := e^{-i \pi \psi} Z_{\calA_{\psi}}$, hence an abelian category closed under kernels, cokernels and extensions in $\calA_{\psi}$, with exact inclusion.
+		Its short exact sequences are therefore the short exact sequences of $\calA_{\psi}$ with terms in $\calP(\varphi)$, i.e.\ the triangles with vertices in $\calP(\varphi)$, by Lemma~\ref{lem:triangles_vs_ses}.
+
+		(2) Let $0 \neq E \in \calP(\varphi)$, and let $F \subsetneq F'$ be subobjects of $E$ in $\calP(\varphi)$.
+		Then $F' / F$ is a nonzero object of $\calP(\varphi)$ by (1), so $Z(F') = Z(F) + Z(F' / F)$ with $Z(F' / F) \in \RR_{>0} e^{i \pi \varphi}$, i.e.\ $m(F') > m(F)$;
+		in particular $m(F) \leqslant m(E)$ for every subobject $F$ of $E$ in $\calP(\varphi)$.
+		By the support property \condref{cond:SP}, the classes $v(F)$ of these subobjects satisfy $\| v(F) \| \leqslant C \, m(F) \leqslant C \, m(E)$, so they lie in the intersection of the lattice $\Lambda$ with a bounded subset of $\Lambda_{\RR}$, which is a finite set.
+		Hence the masses of subobjects of $E$ in $\calP(\varphi)$ take only finitely many values, every strictly ascending or strictly descending chain of such subobjects has length bounded by the number of these values, and $\calP(\varphi)$ is noetherian and artinian.
+	\end{proof}
+
+	The simple objects of the abelian category $\calP(\varphi)$ are called \emph{$\sigma$-stable} (of phase $\varphi$).
+	By Lemma~\ref{lem:semistable_abelian}(4) and Theorem~\ref{thm:bijection}, for $\varphi \in (0, 1]$ an object is $\sigma$-stable of phase $\varphi$ if and only if it is $(\calA, Z_{\calA})$-stable of phase $\varphi$, where $\calA = \calP((0, 1])$;
+	in general $E$ is $\sigma$-stable if and only if $E[-n]$ is $\sigma$-stable for some (equivalently, every) $n \in \ZZ$.
+	Since $\calP(\varphi)$ has finite length by Proposition~\ref{prop:slice_abelian}(2), every $\sigma$-semistable object of phase $\varphi$ has a Jordan--H\"older filtration in $\calP(\varphi)$ with $\sigma$-stable factors of phase $\varphi$, unique up to permutation and isomorphism.
+
+	\begin{corollary}[Schur's lemma]
+		\label{cor:schur_bridgeland}
+		Let $\sigma$ be a stability condition on $\calD$ and let $E, F$ be $\sigma$-semistable objects.
+		\begin{enumerate}
+			\item If $\varphi(E) > \varphi(F)$, then $\Hom(E, F) = 0$.
+			\item If $\varphi(E) = \varphi(F)$, both $E$ and $F$ are $\sigma$-stable and $f \colon E \to F$ is nonzero, then $f$ is an isomorphism.
+			In particular $\End(E)$ is a division ring for every $\sigma$-stable object $E$.
+		\end{enumerate}
+	\end{corollary}
+
+	\begin{proof}
+		(1) is \condref{cond:SL2}.
+		For (2), shifting we may assume $\varphi(E) = \varphi(F) \in (0, 1]$, so that $E$ and $F$ are $(\calA, Z_{\calA})$-stable objects of the same phase in $\calA = \calP((0, 1])$, and Lemma~\ref{lem:schur}(2) applies.
+		A nonzero endomorphism of $E$ is then an isomorphism, so $\End(E)$ is a division ring.
+	\end{proof}
+
+	\begin{example}[curves, {\cite[Example~5.4]{Bri07}}, {\cite[Example~5.12]{MS17}}]
+		\label{ex:curves_bridgeland}
+		Let $C$ be a smooth projective curve over a field $\kk$, $\calD := \D^{\mathrm{b}}(\mathrm{Coh}(C))$ and $\calA := \mathrm{Coh}(C)$, the heart of the standard t-structure (Example~\ref{ex:standard_t}).
+		Rank and degree are additive on short exact sequences of coherent sheaves, so they define a homomorphism
+		\[
+		v := (\operatorname{rk}, \deg) \colon \Kgroup(\calD) \cong \Kgroup(\calA) \longrightarrow \Lambda := \ZZ^2 ,
+		\]
+		where we let $\Lambda$ be the image of $(\operatorname{rk}, \deg)$, a subgroup of finite index in $\ZZ^2$ which equals $\ZZ^2$ as soon as $C$ has a $\kk$-rational point $p$, since then $v(\oo_C) = (1, 0)$ and $v(\oo_p) = (0, 1)$.
+		Let $Z \colon \Lambda \to \CC$, $Z(r, d) := -d + i r$.
+		Then $Z_{\calA}(E) = -\deg E + i \operatorname{rk} E$, and $(\calA, Z_{\calA})$ is a stability condition by Corollary~\ref{cor:HN_curves}.
+		The support property \condref{cond:SP-ab} holds with $C = 1$ for the Euclidean norm on $\Lambda_{\RR} = \RR^2$, because $|Z(r, d)| = \sqrt{r^2 + d^2} = \| (r, d) \|$;
+		in other words $Z \colon \Lambda_{\RR} \to \CC$ is an isomorphism of real vector spaces, so no semistable object is needed to verify it.
+		Hence $(\calA, Z) \in \operatorname{Stab}^{\mathrm{ab}}_v(\calD)$, and Theorem~\ref{thm:bijection} gives a stability condition $\sigma_C = \Psi(\calA, Z) = (Z, \calP)$ on $\D^{\mathrm{b}}(\mathrm{Coh}(C))$, whose semistable objects of phase $\varphi + n$, $\varphi \in (0, 1]$, are the shifts $E[n]$ of the slope semistable sheaves $E$ of phase $\varphi$, i.e.\ the torsion sheaves if $\varphi = 1$ and the semistable vector bundles of slope $-\cot(\pi \varphi)$ if $\varphi < 1$.
+	\end{example}
+
+	\begin{example}[finite-dimensional algebras, {\cite[Example~5.5]{Bri07}}, {\cite[Exercise~5.13]{MS17}}]
+		\label{ex:algebras_bridgeland}
+		Let $A$ be a finite-dimensional algebra over a field $\kk$ with simple modules $S_1, \ldots, S_m$ up to isomorphism, $\calA := \operatorname{mod}\text{-}A$ and $\calD := \D^{\mathrm{b}}(\calA)$.
+		By Example~\ref{ex:finite_dim_algebra} the classes $[S_1], \ldots, [S_m]$ form a basis of $\Kgroup(\calA) \cong \Kgroup(\calD)$, so we may take $\Lambda := \Kgroup(\calD) \cong \ZZ^m$ and $v := \id$, and a homomorphism $Z \colon \Lambda \to \CC$ is the same as a vector $(z_1, \ldots, z_m) = (Z(S_1), \ldots, Z(S_m)) \in \CC^m$.
+		By Example~\ref{ex:finite_dim_algebra}, $(\calA, Z_{\calA})$ is a stability condition whenever $z_1, \ldots, z_m \in \HH$.
+		The support property \condref{cond:SP-ab} holds for every object of $\calA$, not only for the semistable ones.
+		Indeed, for $M \in \calA$ we have $v(M) = (n_1, \ldots, n_m)$ with $n_j = [M : S_j] \geqslant 0$ and $Z(M) = \sum_j n_j z_j$;
+		the continuous function $(t_1, \ldots, t_m) \mapsto |\sum_j t_j z_j|$ is positive on the compact simplex $\{ t_j \geqslant 0, \sum_j t_j = 1 \}$, since a sum of elements of $\HH$ with non-negative coefficients, not all zero, lies in $\HH$ and is nonzero;
+		if $c > 0$ is its minimum, homogeneity gives $|Z(M)| \geqslant c \sum_j n_j = c \, \| v(M) \|_1$, so \condref{cond:SP-ab} holds with $C = 1 / c$ for the norm $\| \cdot \|_1$.
+		Hence Theorem~\ref{thm:bijection} produces a family of stability conditions on $\D^{\mathrm{b}}(\operatorname{mod}\text{-}A)$ with heart $\operatorname{mod}\text{-}A$ parametrized by $\HH^m$.
+		Conversely, if $\sigma = (Z, \calP)$ is a stability condition with heart $\calP((0, 1]) = \calA$, then $Z(S_j) \in \HH$ for all $j$ by \condref{cond:Z}, so $\HH^m$ is exactly the set of stability conditions with this heart.
+		Corollary~\ref{cor:rotated_heart} produces further stability conditions whose hearts $\calP((\psi, \psi + 1])$ are different from $\operatorname{mod}\text{-}A$;
+		this is a first glimpse of the structure of the set of all stability conditions as a space, which is the subject of the next section.
+	\end{example}
+
+	\begin{remark}
+		Let $X$ be a smooth projective variety of dimension $\geqslant 2$ over a field.
+		Example~\ref{ex:surfaces} shows that there is no stability function on $\mathrm{Coh}(X)$ factoring through the Chern character, hence, by Theorem~\ref{thm:bijection}, no stability condition on $\D^{\mathrm{b}}(\mathrm{Coh}(X))$ with heart $\mathrm{Coh}(X)$ and central charge factoring through the Chern character.
+		Stability conditions on surfaces are constructed with other hearts, obtained from $\mathrm{Coh}(X)$ by tilting at a torsion pair;
+		we shall come back to this later.
+	\end{remark}
 
 	\begin{thebibliography}{GKR04}
 		
