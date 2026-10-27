@@ -1661,11 +1661,18 @@
 		Let $E \neq 0$ (for $E = 0$ take the zero triangle) and take a sequence as in \condref{cond:BH2}.
 		Let $m$ be the number of indices $i$ with $k_i \geqslant 0$, so that $k_1 > \ldots > k_m \geqslant 0 > k_{m+1} > \ldots > k_n$.
 		By Lemma~\ref{lem:cone_of_filtration}, $E_m \in \langle A_1, \ldots, A_m \rangle \subset \Dle{0}$ and a cone $Q_m$ of $E_m \to E$ lies in $\langle A_{m+1}, \ldots, A_n \rangle \subset \langle \calA[k] : k \leqslant -1 \rangle = \Dge{1}$.
-		Thus $E_m \to E \to Q_m \to E_m[1]$ is the required triangle.
+		Thus 
+		\[
+		E_m \to E \to Q_m \to E_m[1]
+		\] 
+		is the required triangle.
 		So $(\Dle{0}, \Dge{0})$ is a t-structure.
 		
 		\step{boundedness}
-		With notation as in Step~2, Lemma~\ref{lem:cone_of_filtration} gives $E \in \langle A_1, \ldots, A_n \rangle \subset \langle \calA[k] : k_n \leqslant k \leqslant k_1 \rangle \subset \Dle{-k_n} \cap \Dge{-k_1}$.
+		With notation as in Step~2, Lemma~\ref{lem:cone_of_filtration} gives 
+		\[
+		E \in \langle A_1, \ldots, A_n \rangle \subset \langle \calA[k] : k_n \leqslant k \leqslant k_1 \rangle \subset \Dle{-k_n} \cap \Dge{-k_1}.
+		\]
 		
 		\step{the heart is $\calA$}
 		Clearly $\calA \subset \Dle{0} \cap \Dge{0}$.
@@ -2706,12 +2713,19 @@
 	\begin{example}[finite-dimensional algebras, {\cite[Example~5.5]{Bri07}}, {\cite[Exercise~5.13]{MS17}}]
 		\label{ex:algebras_bridgeland}
 		Let $A$ be a finite-dimensional algebra over a field $\kk$ with simple modules $S_1, \ldots, S_m$ up to isomorphism, $\calA := \operatorname{mod}\text{-}A$ and $\calD := \D^{\mathrm{b}}(\calA)$.
-		By Example~\ref{ex:finite_dim_algebra} the classes $[S_1], \ldots, [S_m]$ form a basis of $\Kgroup(\calA) \cong \Kgroup(\calD)$, so we may take $\Lambda := \Kgroup(\calD) \cong \ZZ^m$ and $v := \id$, and a homomorphism $Z \colon \Lambda \to \CC$ is the same as a vector $(z_1, \ldots, z_m) = (Z(S_1), \ldots, Z(S_m)) \in \CC^m$.
+		By Example~\ref{ex:finite_dim_algebra} the classes $[S_1], \ldots, [S_m]$ form a basis of $\Kgroup(\calA) \cong \Kgroup(\calD)$, so we may take $\Lambda := \Kgroup(\calD) \cong \ZZ^m$ and $v := \id$, and a homomorphism $Z \colon \Lambda \to \CC$ is the same as a vector 
+		\[
+		(z_1, \ldots, z_m) = (Z(S_1), \ldots, Z(S_m)) \in \CC^m.
+		\]
 		By Example~\ref{ex:finite_dim_algebra}, $(\calA, Z_{\calA})$ is a stability condition whenever $z_1, \ldots, z_m \in \HH$.
 		The support property \condref{cond:SP-ab} holds for every object of $\calA$, not only for the semistable ones.
 		Indeed, for $M \in \calA$ we have $v(M) = (n_1, \ldots, n_m)$ with $n_j = [M : S_j] \geqslant 0$ and $Z(M) = \sum_j n_j z_j$;
 		the continuous function $(t_1, \ldots, t_m) \mapsto |\sum_j t_j z_j|$ is positive on the compact simplex $\{ t_j \geqslant 0, \sum_j t_j = 1 \}$, since a sum of elements of $\HH$ with non-negative coefficients, not all zero, lies in $\HH$ and is nonzero;
-		if $c > 0$ is its minimum, homogeneity gives $|Z(M)| \geqslant c \sum_j n_j = c \, \| v(M) \|_1$, so \condref{cond:SP-ab} holds with $C = 1 / c$ for the norm $\| \cdot \|_1$.
+		if $c > 0$ is its minimum, homogeneity gives 
+		\[
+		|Z(M)| \geqslant c \sum_j n_j = c \, \| v(M) \|_1,
+		\] 
+		so \condref{cond:SP-ab} holds with $C = 1 / c$ for the norm $\| \cdot \|_1$.
 		Hence Theorem~\ref{thm:bijection} produces a family of stability conditions on $\D^{\mathrm{b}}(\operatorname{mod}\text{-}A)$ with heart $\operatorname{mod}\text{-}A$ parametrized by $\HH^m$.
 		Conversely, if $\sigma = (Z, \calP)$ is a stability condition with heart $\calP((0, 1]) = \calA$, then $Z(S_j) \in \HH$ for all $j$ by \condref{cond:Z}, so $\HH^m$ is exactly the set of stability conditions with this heart.
 		Corollary~\ref{cor:rotated_heart} produces further stability conditions whose hearts $\calP((\psi, \psi + 1])$ are different from $\operatorname{mod}\text{-}A$;

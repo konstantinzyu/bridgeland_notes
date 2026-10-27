@@ -22,7 +22,7 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Definition}}{34}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{The t-structures associated with a slicing}}{36}{subsection.3.2}%
 \contentsline {subsection}{\tocsubsection {}{3.3}{Uniqueness of Harder--Narasimhan filtrations}}{37}{subsection.3.3}%
-\contentsline {subsection}{\tocsubsection {}{3.4}{Slicings and bounded hearts}}{39}{subsection.3.4}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Slicings and bounded hearts}}{40}{subsection.3.4}%
 \contentsline {section}{\tocsection {}{4}{Bridgeland stability conditions}}{42}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Definition}}{42}{subsection.4.1}%
 \contentsline {subsection}{\tocsubsection {}{4.2}{The bijection theorem}}{43}{subsection.4.2}%

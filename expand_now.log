@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  27 OCT 2026 09:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.7.7)  27 OCT 2026 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1151,160 +1151,152 @@ pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1667 		\step{boundedness}
+l.1671 		\step{boundedness}
                            
-Overfull \hbox (3.05418pt too wide) in paragraph at lines 1667--1669
-[]\OT1/cmr/bx/n/12 Step 3 \OT1/cmr/m/n/12 (\OT1/cmr/m/it/12 bound-ed-ness\OT1/c
-mr/m/n/12 ). With no-ta-tion as in Step 2, Lemma [][]2.13[][] gives $\OML/cmm/m
-/it/12 E \OMS/cmsy/m/n/12 2 h\OML/cmm/m/it/12 A[]; [] ; A[]\OMS/cmsy/m/n/12 i ^
-^Z
- []
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1670 		\step{the heart is $\calA$}
-                                    
+l.1677 		\step{the heart is $\calA$}
+                                     [27]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.5}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1697 ...filtration is the cohomology filtration}
-                                                   [27] [28]
+l.1704 ...filtration is the cohomology filtration}
+                                                   [28]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1789 		\step{the standard t-structure}
+l.1796 		\step{the standard t-structure}
                                          [29]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1824 		\step{the heart}
+l.1831 		\step{the heart}
                           [30]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1861 		\step{consequences}
+l.1868 		\step{consequences}
                              [31]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1890 		\step{the Postnikov t-structure}
-                                         
+l.1897 		\step{the Postnikov t-structure}
+                                          [32]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1919 		\step{the heart}
-                          [32]
+l.1926 		\step{the heart}
+                         
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1939 ...cture is non-degenerate but not bounded}
+l.1946 ...cture is non-degenerate but not bounded}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1946 		\step{$\SH$ is not a derived category}
+l.1953 		\step{$\SH$ is not a derived category}
                                                 [33] [34] [35]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2111 		\step{the axioms}
-                          
+l.2118 		\step{the axioms}
+                           [36]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2123 		\step{boundedness}
+l.2130 		\step{boundedness}
                            
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2128 		\step{the heart}
-                          [36]
+l.2135 		\step{the heart}
+                         
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2171 ...{the set of phases is determined by $E$}
+l.2178 ...{the set of phases is determined by $E$}
+                                                   [37]
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2200 		\step{the isomorphisms $\varepsilon_i$}
+                                                 [38] [39] [40]
+pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2375 ...ondref{cond:SL1} and \condref{cond:SL2}}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2193 		\step{the isomorphisms $\varepsilon_i$}
-                                                 [37] [38] [39] [40]
-pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2368 ...ondref{cond:SL1} and \condref{cond:SL2}}
-                                                  
-pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2377 		\step{HN filtrations of sheaves}
-                                         
+l.2384 		\step{HN filtrations of sheaves}
+                                          [41]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2390 		\step{HN filtrations of complexes}
-                                            [41]
+l.2397 		\step{HN filtrations of complexes}
+                                           
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2403 ...e slice $\calP(\frac12)$ is not abelian}
+l.2410 ...e slice $\calP(\frac12)$ is not abelian}
                                                    [42] [43]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2504 ...is well defined: the stability function}
+l.2511 ...is well defined: the stability function}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2516 ...ect of the heart consists of subobjects}
-                                                  
+l.2523 ...ect of the heart consists of subobjects}
+                                                   [44]
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2531 ...semistable objects, i.e.\ assertion (1)}
-                                                   [44]
+l.2538 ...semistable objects, i.e.\ assertion (1)}
+                                                  
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2551 ...ort properties, and assertions (2), (3)}
+l.2558 ...ort properties, and assertions (2), (3)}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{pstep.5}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2560 ...tep{$\Psi$ is well defined: the slicing}
-                                                   [45] [46] [47]
-Overfull \hbox (1.90106pt too wide) in paragraph at lines 2708--2719
+l.2567 ...tep{$\Psi$ is well defined: the slicing}
+                                                   [45] [46] [47] [48]
+Overfull \hbox (1.90106pt too wide) in paragraph at lines 2715--2717
 [][]\OT1/cmr/bx/n/12 Example 4.6 \OT1/cmr/m/n/12 (finite-di-men-sional al-ge-br
 as, [[], Ex-am-ple 5.5], [[], Ex-er-cise 5.13])\OT1/cmr/bx/n/12 .
  []
 
-[48] [49] [50] (./expand_now.aux)
+[49] [50] (./expand_now.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1345,7 +1337,7 @@ msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr
 /share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on expand_now.pdf (50 pages, 583037 bytes).
+Output written on expand_now.pdf (50 pages, 583374 bytes).
 PDF statistics:
  1197 PDF objects out of 1200 (max. 8388607)
  1080 compressed objects within 11 object streams
