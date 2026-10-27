@@ -2246,9 +2246,11 @@
 		If $\varphi^-(E) > \varphi^+(F)$, Lemma~\ref{lem:slicing_orthogonal} gives $\Hom(E, F) = 0$.
 
 		(4) Closure under extensions and finite direct sums holds for every extension closure.
-		By (1) and (2), $\calP(I)$ is the intersection of at most two of the subcategories $\calP(\geqslant a)$, $\calP(> a)$, $\calP(\leqslant b)$, $\calP(< b)$, where $a$ and $b$ are the finite endpoints of $I$ (or $\calP(I) = \calD$ if $I = \RR$, or $\calP(I) = 0$ if $I = \emptyset$).
-		Each of these is the aisle or the coaisle of one of the t-structures of Proposition~\ref{prop:slicing_t}, namely $\calP(\geqslant a) = \Dle{0}$ and $\calP(< b) = \Dge{0}$ for the t-structures of type (1) with $\psi = a$ and $\psi = b - 1$, and $\calP(> a) = \Dle{0}$ and $\calP(\leqslant b) = \Dge{0}$ for those of type (2);
-		so each is closed under direct summands by Lemma~\ref{lem:t_orthogonal}(3), and so is their intersection.
+		For direct summands, let $a := \inf I$ and $b := \sup I$ (possibly infinite).
+		For a nonzero object $E$, parts (2) and (1) show that $E \in \calP(I)$ if and only if $E$ lies in $\calP(\geqslant a)$, respectively $\calP(> a)$, according to whether $a \in I$ or $a \notin I$ (no condition if $a = -\infty$), and in $\calP(\leqslant b)$, respectively $\calP(< b)$, according to whether $b \in I$ or $b \notin I$ (no condition if $b = +\infty$).
+		Hence $\calP(I)$ is the intersection of at most two of these subcategories, or all of $\calD$ if $I = \RR$.
+		Each of them is an aisle or a coaisle of a t-structure of Proposition~\ref{prop:slicing_t}, namely $\calP(\geqslant a)$ and $\calP(> a)$ are the aisles of $(\calP(\geqslant a), \calP(< a + 1))$ and $(\calP(> a), \calP(\leqslant a + 1))$, while $\calP(< b)$ and $\calP(\leqslant b)$ are the coaisles of $(\calP(\geqslant b - 1), \calP(< b))$ and $(\calP(> b - 1), \calP(\leqslant b))$.
+		Aisles and coaisles are closed under direct summands by Lemma~\ref{lem:t_orthogonal}(3), and so is an intersection of such subcategories.
 	\end{proof}
 
 	\begin{lemma}[{\cite[Lemma~3.4]{Bri07}}]
